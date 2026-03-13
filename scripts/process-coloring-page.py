@@ -36,6 +36,11 @@ BW_THRESHOLD = 200
 MIN_ARTIFACT_SIZE = 50
 
 
+def _set_threshold(value: int):
+    global BW_THRESHOLD
+    BW_THRESHOLD = value
+
+
 def process_image(input_path: Path, output_dir: Path) -> dict:
     """Process a single image through the coloring page pipeline."""
 
@@ -144,8 +149,7 @@ def main():
     )
     args = parser.parse_args()
 
-    global BW_THRESHOLD
-    BW_THRESHOLD = args.threshold
+    _set_threshold(args.threshold)
 
     input_path = Path(args.input)
     output_dir = Path(args.output_dir)

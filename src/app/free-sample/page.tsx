@@ -3,20 +3,20 @@
 import Link from 'next/link';
 
 const STORAGE_BASE =
-  'https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03';
+  'https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-04';
 
 const samples = [
   {
-    file: '2026-03_26_kitten-in-the-garden.png',
-    title: 'Kitten in the Garden',
+    file: '11_fox-under-roses.png',
+    title: 'Fox Under Roses',
   },
   {
-    file: '2026-03_01_wildflower-cottage.png',
-    title: 'Wildflower Cottage',
+    file: '07_flower-wreath.png',
+    title: 'Flower Wreath',
   },
   {
-    file: '2026-03_29_ducklings-at-the-pond.png',
-    title: 'Ducklings at the Pond',
+    file: '21_fairy-door-oak-tree.png',
+    title: 'Fairy Door Oak Tree',
   },
 ];
 

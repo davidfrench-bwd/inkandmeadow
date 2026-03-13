@@ -6,7 +6,7 @@ import ImageLightbox from "@/components/ImageLightbox";
 import CountdownBanner from "@/components/CountdownBanner";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 
-const STORAGE_BASE = 'https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03';
+const STORAGE_BASE = 'https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-04';
 
 /* ─── Decorative SVG Components ─── */
 
@@ -177,10 +177,10 @@ export default function Home() {
             <div className="md:hidden -mx-6 px-6 overflow-x-auto pb-4">
               <div className="flex gap-3 w-max">
                 {[
-                  { file: '2026-03_26_kitten-in-the-garden.png', alt: 'Kitten in the Garden' },
-                  { file: '2026-03_01_wildflower-cottage.png', alt: 'Wildflower Cottage' },
-                  { file: '2026-03_29_ducklings-at-the-pond.png', alt: 'Ducklings at the Pond' },
-                  { file: '2026-03_14_fairy-mushroom-circle.png', alt: 'Fairy Mushroom Circle' },
+                  { file: '11_fox-under-roses.png', alt: 'Fox Under Roses' },
+                  { file: '01_secret-garden-gate.png', alt: 'Secret Garden Gate' },
+                  { file: '23_flower-mandala.png', alt: 'Flower Mandala' },
+                  { file: '21_fairy-door-oak-tree.png', alt: 'Fairy Door Oak Tree' },
                 ].map((page) => (
                   <div key={page.file} className="bg-white rounded-xl shadow-lg border border-sage/10 p-1.5 w-36 shrink-0">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -201,8 +201,8 @@ export default function Home() {
                 {/* Large featured image */}
                 <div className="col-span-2 bg-white rounded-2xl overflow-hidden shadow-xl border border-sage/10 p-2">
                   <Image
-                    src={`${STORAGE_BASE}/2026-03_01_wildflower-cottage.png`}
-                    alt="Wildflower Cottage coloring page"
+                    src={`${STORAGE_BASE}/01_secret-garden-gate.png`}
+                    alt="Secret Garden Gate coloring page"
                     width={600}
                     height={600}
                     className="w-full rounded-xl"
@@ -212,8 +212,8 @@ export default function Home() {
                 {/* Two smaller images below */}
                 <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-sage/10 p-1.5 rotate-2">
                   <Image
-                    src={`${STORAGE_BASE}/2026-03_14_fairy-mushroom-circle.png`}
-                    alt="Fairy Mushroom Circle coloring page"
+                    src={`${STORAGE_BASE}/21_fairy-door-oak-tree.png`}
+                    alt="Fairy Door Oak Tree coloring page"
                     width={300}
                     height={300}
                     className="w-full rounded-lg"
@@ -222,8 +222,8 @@ export default function Home() {
                 </div>
                 <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-sage/10 p-1.5 -rotate-1">
                   <Image
-                    src={`${STORAGE_BASE}/2026-03_19_rose-arbor-reading-nook.png`}
-                    alt="Rose Arbor Reading Nook coloring page"
+                    src={`${STORAGE_BASE}/17_garden-hammock-reading.png`}
+                    alt="Garden Hammock Reading Nook coloring page"
                     width={300}
                     height={300}
                     className="w-full rounded-lg"
@@ -264,16 +264,16 @@ export default function Home() {
           {/* Scrolling preview grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {[
-              { title: 'Wildflower Cottage', file: '2026-03_01_wildflower-cottage.png' },
-              { title: 'Spring Tea Setting', file: '2026-03_05_spring-tea-setting.png' },
-              { title: 'Enchanted Greenhouse', file: '2026-03_11_enchanted-greenhouse.png' },
-              { title: 'Wisteria Archway', file: '2026-03_08_wisteria-archway.png' },
-              { title: 'Kitten in the Garden', file: '2026-03_26_kitten-in-the-garden.png' },
-              { title: 'Bluebird on a Branch', file: '2026-03_06_bluebird-on-a-branch.png' },
-              { title: 'Ducklings at the Pond', file: '2026-03_29_ducklings-at-the-pond.png' },
-              { title: 'Hedgehog & Mushrooms', file: '2026-03_27_hedgehog-and-mushrooms.png' },
-              { title: 'Fairy Mushroom Circle', file: '2026-03_14_fairy-mushroom-circle.png' },
-              { title: 'Woodland Deer', file: '2026-03_22_woodland-deer.png' },
+              { title: 'Secret Garden Gate', file: '01_secret-garden-gate.png' },
+              { title: 'Garden Tea Table', file: '16_garden-tea-table.png' },
+              { title: 'Garden Greenhouse', file: '04_garden-greenhouse.png' },
+              { title: 'Wisteria Archway', file: '02_wisteria-archway.png' },
+              { title: 'Fox Under Roses', file: '11_fox-under-roses.png' },
+              { title: 'Bluebird on Spade', file: '14_bluebird-on-spade.png' },
+              { title: 'Rabbits in Clovers', file: '12_rabbits-in-clovers.png' },
+              { title: 'Hedgehog Family', file: '13_hedgehog-family.png' },
+              { title: 'Fairy Door Oak Tree', file: '21_fairy-door-oak-tree.png' },
+              { title: 'Flower Mandala', file: '23_flower-mandala.png' },
             ].map((page) => (
               <ImageLightbox key={page.file} src={`${STORAGE_BASE}/${page.file}`} alt={page.title}>
                 <div className="group relative bg-white rounded-xl overflow-hidden shadow-sm border border-sage/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
@@ -404,10 +404,10 @@ export default function Home() {
           </p>
           <div className="flex justify-center gap-3 mb-8">
             {[
-              { file: '2026-03_11_enchanted-greenhouse.png', alt: 'Preview 1' },
-              { file: '2026-03_19_rose-arbor-reading-nook.png', alt: 'Preview 2' },
-              { file: '2026-03_14_fairy-mushroom-circle.png', alt: 'Preview 3' },
-              { file: '2026-03_16_meadow-stream-bridge.png', alt: 'Preview 4' },
+              { file: '04_garden-greenhouse.png', alt: 'Garden Greenhouse' },
+              { file: '17_garden-hammock-reading.png', alt: 'Garden Hammock' },
+              { file: '22_sundial-morning-glory.png', alt: 'Sundial Morning Glory' },
+              { file: '25_garden-bridge-koi.png', alt: 'Garden Bridge Koi' },
             ].map((page, i) => (
               <div key={page.file} className={`bg-white rounded-xl shadow-lg border border-sage/10 p-1.5 w-24 md:w-32 ${i === 0 ? '-rotate-3' : i === 3 ? 'rotate-3' : i === 1 ? '-rotate-1' : 'rotate-1'}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -453,11 +453,11 @@ export default function Home() {
               {/* Sample pages preview */}
               <div className="grid grid-cols-3 gap-1.5 mb-6 -mx-2 mt-1">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_05_spring-tea-setting.png" alt="Spring Tea Setting" className="rounded-lg aspect-square object-cover" />
+                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-04/16_garden-tea-table.png" alt="Garden Tea Table" className="rounded-lg aspect-square object-cover" />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_06_bluebird-on-a-branch.png" alt="Bluebird on a Branch" className="rounded-lg aspect-square object-cover" />
+                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-04/11_fox-under-roses.png" alt="Fox Under Roses" className="rounded-lg aspect-square object-cover" />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_08_wisteria-archway.png" alt="Wisteria Archway" className="rounded-lg aspect-square object-cover" />
+                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-04/23_flower-mandala.png" alt="Flower Mandala" className="rounded-lg aspect-square object-cover" />
               </div>
               <div className="mb-6">
                 <p className="text-sage font-medium tracking-wide uppercase text-xs mb-2">
@@ -497,11 +497,11 @@ export default function Home() {
               {/* Sample pages preview */}
               <div className="grid grid-cols-3 gap-1.5 mb-6 -mx-2 -mt-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_02_morning-garden-gate.png" alt="Morning Garden Gate" className="rounded-lg aspect-square object-cover" />
+                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-04/01_secret-garden-gate.png" alt="Secret Garden Gate" className="rounded-lg aspect-square object-cover" />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_03_herb-window-box.png" alt="Herb Window Box" className="rounded-lg aspect-square object-cover" />
+                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-04/09_herb-windowsill.png" alt="Herb Windowsill" className="rounded-lg aspect-square object-cover" />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_04_bunny-in-the-meadow.png" alt="Bunny in the Meadow" className="rounded-lg aspect-square object-cover" />
+                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-04/12_rabbits-in-clovers.png" alt="Rabbits in Clovers" className="rounded-lg aspect-square object-cover" />
               </div>
               <div className="mb-6">
                 <p className="text-golden font-medium tracking-wide uppercase text-xs mb-2">
@@ -548,37 +548,52 @@ export default function Home() {
               </summary>
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 mt-6">
                 {[
-                  'Wildflower Cottage', 'Morning Garden Gate', 'Herb Window Box',
-                  'Bunny in the Meadow', 'Spring Tea Setting', 'Bluebird on a Branch',
-                  'Potting Shed', 'Wisteria Archway', 'Basket of Spring',
-                  'Cottage Kitchen Herbs', 'Enchanted Greenhouse', 'Fox Family Den',
-                  'Lavender Fields Forever', 'Fairy Mushroom Circle', 'Spring Mandala Garden',
-                  'Meadow Stream Bridge', 'Honeybee Haven', 'Garden Tool Collection',
-                  'Rose Arbor Reading Nook', 'Butterfly Botanical', 'Cottage Door Welcome',
-                  'Woodland Deer', 'Botanical Letters', 'Rainy Day Window',
-                  'Spring Wreath', 'Kitten in the Garden', 'Hedgehog & Mushrooms',
-                  'Baby Owl in the Oak', 'Ducklings at the Pond', 'Squirrel with Acorns',
-                ].map((title, i) => {
-                  const num = String(i + 1).padStart(2, '0');
-                  const slug = title.toLowerCase().replace(/[&\s]+/g, '-').replace(/--/g, '-');
-                  const file = `2026-03_${num}_${slug}.png`;
-                  return (
-                    <ImageLightbox key={file} src={`${STORAGE_BASE}/${file}`} alt={title}>
+                  { title: 'Secret Garden Gate', file: '01_secret-garden-gate.png' },
+                  { title: 'Wisteria Archway', file: '02_wisteria-archway.png' },
+                  { title: 'Garden Door in Wall', file: '03_garden-door-in-wall.png' },
+                  { title: 'Garden Greenhouse', file: '04_garden-greenhouse.png' },
+                  { title: 'Jasmine Pergola', file: '05_jasmine-pergola.png' },
+                  { title: 'Peony Bush Bloom', file: '06_peony-bush-bloom.png' },
+                  { title: 'Flower Wreath', file: '07_flower-wreath.png' },
+                  { title: 'Wildflower Watering Can', file: '08_wildflower-watering-can.png' },
+                  { title: 'Herb Windowsill', file: '09_herb-windowsill.png' },
+                  { title: 'Stone Fountain & Lilies', file: '10_stone-fountain-lilies.png' },
+                  { title: 'Fox Under Roses', file: '11_fox-under-roses.png' },
+                  { title: 'Rabbits in Clovers', file: '12_rabbits-in-clovers.png' },
+                  { title: 'Hedgehog Family', file: '13_hedgehog-family.png' },
+                  { title: 'Bluebird on Spade', file: '14_bluebird-on-spade.png' },
+                  { title: 'Squirrel Garden Statue', file: '15_squirrel-garden-statue.png' },
+                  { title: 'Garden Tea Table', file: '16_garden-tea-table.png' },
+                  { title: 'Garden Hammock Reading', file: '17_garden-hammock-reading.png' },
+                  { title: 'Potting Bench', file: '18_potting-bench.png' },
+                  { title: 'Bicycle & Picket Fence', file: '19_bicycle-picket-fence.png' },
+                  { title: 'Garden Shed & Cat', file: '20_garden-shed-cat.png' },
+                  { title: 'Fairy Door Oak Tree', file: '21_fairy-door-oak-tree.png' },
+                  { title: 'Sundial & Morning Glory', file: '22_sundial-morning-glory.png' },
+                  { title: 'Flower Mandala', file: '23_flower-mandala.png' },
+                  { title: 'Cherry Tree Treehouse', file: '24_cherry-tree-treehouse.png' },
+                  { title: 'Garden Bridge & Koi', file: '25_garden-bridge-koi.png' },
+                  { title: 'Climbing Rose Botanical', file: '26_climbing-rose-botanical.png' },
+                  { title: 'Spring Vegetable Basket', file: '27_spring-vegetable-basket.png' },
+                  { title: 'Beehive & Lavender', file: '28_beehive-lavender.png' },
+                  { title: 'Garden Urn & Flowers', file: '29_garden-urn-flowers.png' },
+                  { title: 'Garden Gate & Sweet Peas', file: '30_garden-gate-sweet-peas.png' },
+                ].map((page) => (
+                    <ImageLightbox key={page.file} src={`${STORAGE_BASE}/${page.file}`} alt={page.title}>
                       <div className="group/card bg-white rounded-lg overflow-hidden shadow-sm border border-sage/10 hover:shadow-md transition-all">
                         <div className="aspect-square overflow-hidden">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
-                            src={`${STORAGE_BASE}/${file}`}
-                            alt={title}
+                            src={`${STORAGE_BASE}/${page.file}`}
+                            alt={page.title}
                             className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
                             loading="lazy"
                           />
                         </div>
-                        <p className="text-[10px] text-bark/60 text-center py-1.5 px-1 truncate">{title}</p>
+                        <p className="text-[10px] text-bark/60 text-center py-1.5 px-1 truncate">{page.title}</p>
                       </div>
                     </ImageLightbox>
-                  );
-                })}
+                ))}
               </div>
             </details>
           </div>
@@ -659,7 +674,7 @@ export default function Home() {
             <div className="bg-white rounded-2xl p-8 border border-sage/10 shadow-sm">
               <div className="flex justify-center gap-2 mb-6">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`${STORAGE_BASE}/2026-03_09_basket-of-spring.png`} alt="Printed coloring page" className="w-28 rounded-lg shadow-md border border-bark/5" loading="lazy" />
+                <img src={`${STORAGE_BASE}/27_spring-vegetable-basket.png`} alt="Printed coloring page" className="w-28 rounded-lg shadow-md border border-bark/5" loading="lazy" />
               </div>
               <div className="w-12 h-12 rounded-full bg-sage/10 flex items-center justify-center mx-auto mb-4">
                 <svg className="w-6 h-6 text-sage" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
@@ -691,7 +706,7 @@ export default function Home() {
             <div className="bg-white rounded-2xl p-8 border border-sage/10 shadow-sm">
               <div className="flex justify-center gap-2 mb-6">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`${STORAGE_BASE}/2026-03_07_potting-shed.png`} alt="iPad coloring page" className="w-28 rounded-lg shadow-md border border-bark/5" loading="lazy" />
+                <img src={`${STORAGE_BASE}/18_potting-bench.png`} alt="iPad coloring page" className="w-28 rounded-lg shadow-md border border-bark/5" loading="lazy" />
               </div>
               <div className="w-12 h-12 rounded-full bg-sage/10 flex items-center justify-center mx-auto mb-4">
                 <svg className="w-6 h-6 text-sage" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
@@ -770,14 +785,14 @@ export default function Home() {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <div className="flex justify-center gap-2 mb-8">
             {[
-              '2026-03_26_kitten-in-the-garden.png',
-              '2026-03_01_wildflower-cottage.png',
-              '2026-03_29_ducklings-at-the-pond.png',
+              '11_fox-under-roses.png',
+              '07_flower-wreath.png',
+              '21_fairy-door-oak-tree.png',
             ].map((file, i) => (
               <div key={file} className={`bg-white rounded-lg shadow-md border border-sage/10 p-1 w-24 md:w-32 ${i === 0 ? '-rotate-3' : i === 2 ? 'rotate-3' : ''}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/${file}`}
+                  src={`https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-04/${file}`}
                   alt="Free sample page"
                   className="w-full aspect-square object-cover rounded"
                   loading="lazy"
@@ -807,16 +822,16 @@ export default function Home() {
           {/* Fan of pages above CTA */}
           <div className="flex justify-center gap-3 mb-12">
             {[
-              { file: '2026-03_16_meadow-stream-bridge.png', alt: 'Meadow Stream Bridge', rotate: '-rotate-6' },
-              { file: '2026-03_17_honeybee-haven.png', alt: 'Honeybee Haven', rotate: '-rotate-2' },
-              { file: '2026-03_22_woodland-deer.png', alt: 'Woodland Deer', rotate: 'rotate-0' },
-              { file: '2026-03_20_butterfly-botanical.png', alt: 'Butterfly Botanical', rotate: 'rotate-2' },
-              { file: '2026-03_25_spring-wreath.png', alt: 'Spring Wreath', rotate: 'rotate-6' },
+              { file: '25_garden-bridge-koi.png', alt: 'Garden Bridge with Koi', rotate: '-rotate-6' },
+              { file: '06_peony-bush-bloom.png', alt: 'Peony Bush in Bloom', rotate: '-rotate-2' },
+              { file: '20_garden-shed-cat.png', alt: 'Garden Shed with Cat', rotate: 'rotate-0' },
+              { file: '19_bicycle-picket-fence.png', alt: 'Bicycle at Picket Fence', rotate: 'rotate-2' },
+              { file: '26_climbing-rose-botanical.png', alt: 'Climbing Rose Botanical', rotate: 'rotate-6' },
             ].map((page) => (
               <div key={page.file} className={`bg-white rounded-xl shadow-lg border border-sage/10 p-1.5 w-28 md:w-36 ${page.rotate} hover:scale-105 transition-transform`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/${page.file}`}
+                  src={`https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-04/${page.file}`}
                   alt={page.alt}
                   className="w-full aspect-square object-cover rounded-lg"
                   loading="lazy"

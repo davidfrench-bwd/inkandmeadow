@@ -84,14 +84,14 @@ export default function ExitIntentPopup() {
           {/* Mini image preview */}
           <div className="flex justify-center gap-2 my-6">
             {[
-              '2026-03_26_kitten-in-the-garden.png',
-              '2026-03_30_squirrel-with-acorns.png',
-              '2026-03_08_wisteria-archway.png',
+              '11_fox-under-roses.png',
+              '15_squirrel-garden-statue.png',
+              '02_wisteria-archway.png',
             ].map((file) => (
               <div key={file} className="bg-white rounded-lg shadow-md border border-sage/10 p-1 w-24">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/${file}`}
+                  src={`https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-04/${file}`}
                   alt="Free coloring page"
                   className="w-full aspect-square object-cover rounded"
                 />
