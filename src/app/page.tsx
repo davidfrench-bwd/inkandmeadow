@@ -126,36 +126,73 @@ export default function Home() {
         <LeafAccent className="absolute bottom-10 left-10 w-16 h-16 text-sage hidden md:block" />
         <LeafAccent className="absolute top-40 right-16 w-12 h-12 text-rose hidden md:block rotate-45" />
 
-        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <p className="text-sage font-medium tracking-[0.2em] uppercase text-sm mb-6">
-            A Cottagecore Coloring Club
-          </p>
-          <h1 className="font-heading text-5xl md:text-7xl font-semibold text-bark leading-tight mb-8">
-            Trade Your Screen Time
-            <br />
-            <span className="text-sage">for Something Beautiful</span>
-          </h1>
-          <p className="text-bark/70 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
-            Join thousands finding calm through cottagecore coloring.
-            New hand-curated pages delivered monthly.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/checkout?plan=starter"
-              className="w-full sm:w-auto bg-cream-dark text-bark border-2 border-bark/15 px-8 py-4 rounded-full font-medium hover:border-sage hover:text-sage transition-all"
-            >
-              Get the Starter Collection &mdash; $7
-            </Link>
-            <Link
-              href="/checkout?plan=meadow"
-              className="w-full sm:w-auto bg-sage text-white px-8 py-4 rounded-full font-medium hover:bg-sage-dark shadow-lg shadow-sage/20 transition-all"
-            >
-              Join the Club &mdash; $9/mo
-            </Link>
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left: Text content */}
+            <div className="text-center md:text-left">
+              <p className="text-sage font-medium tracking-[0.2em] uppercase text-sm mb-6">
+                A Cottagecore Coloring Club
+              </p>
+              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-semibold text-bark leading-tight mb-8">
+                Trade Your Screen Time
+                <br />
+                <span className="text-sage">for Something Beautiful</span>
+              </h1>
+              <p className="text-bark/70 text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
+                Join thousands finding calm through cottagecore coloring.
+                New hand-curated pages delivered monthly.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center md:items-start gap-4">
+                <Link
+                  href="/checkout?plan=starter"
+                  className="w-full sm:w-auto bg-cream-dark text-bark border-2 border-bark/15 px-8 py-4 rounded-full font-medium hover:border-sage hover:text-sage transition-all"
+                >
+                  Get the Starter Collection &mdash; $7
+                </Link>
+                <Link
+                  href="/checkout?plan=meadow"
+                  className="w-full sm:w-auto bg-sage text-white px-8 py-4 rounded-full font-medium hover:bg-sage-dark shadow-lg shadow-sage/20 transition-all"
+                >
+                  Join the Club &mdash; $9/mo
+                </Link>
+              </div>
+              <p className="text-bark/40 text-sm mt-6">
+                No contracts. Cancel anytime. Instant access.
+              </p>
+            </div>
+
+            {/* Right: Hero image collage */}
+            <div className="relative hidden md:block">
+              <div className="grid grid-cols-2 gap-3 -rotate-3">
+                {/* Large featured image */}
+                <div className="col-span-2 bg-white rounded-2xl overflow-hidden shadow-xl border border-sage/10 p-2">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_01_wildflower-cottage.png"
+                    alt="Wildflower Cottage coloring page"
+                    className="w-full rounded-xl"
+                  />
+                </div>
+                {/* Two smaller images below */}
+                <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-sage/10 p-1.5 rotate-2">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_14_fairy-mushroom-circle.png"
+                    alt="Fairy Mushroom Circle coloring page"
+                    className="w-full rounded-lg"
+                  />
+                </div>
+                <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-sage/10 p-1.5 -rotate-1">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_19_rose-arbor-reading-nook.png"
+                    alt="Rose Arbor Reading Nook coloring page"
+                    className="w-full rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <p className="text-bark/40 text-sm mt-6">
-            No contracts. Cancel anytime. Instant access.
-          </p>
         </div>
 
         {/* Bottom decorative wave */}
@@ -241,6 +278,15 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {/* Starter Collection */}
             <div className="bg-white rounded-2xl p-8 border border-bark/5 shadow-sm hover:shadow-md transition-shadow">
+              {/* Sample pages preview */}
+              <div className="grid grid-cols-3 gap-1.5 mb-6 -mx-2 -mt-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_02_morning-garden-gate.png" alt="Morning Garden Gate" className="rounded-lg aspect-square object-cover" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_03_herb-window-box.png" alt="Herb Window Box" className="rounded-lg aspect-square object-cover" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_04_bunny-in-the-meadow.png" alt="Bunny in the Meadow" className="rounded-lg aspect-square object-cover" />
+              </div>
               <div className="mb-6">
                 <p className="text-golden font-medium tracking-wide uppercase text-xs mb-2">
                   One-Time Purchase
@@ -275,6 +321,15 @@ export default function Home() {
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-sage text-white text-xs font-medium px-4 py-1 rounded-full">
                 Most Popular
               </div>
+              {/* Sample pages preview */}
+              <div className="grid grid-cols-3 gap-1.5 mb-6 -mx-2 mt-1">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_05_spring-tea-setting.png" alt="Spring Tea Setting" className="rounded-lg aspect-square object-cover" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_06_bluebird-on-a-branch.png" alt="Bluebird on a Branch" className="rounded-lg aspect-square object-cover" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_08_wisteria-archway.png" alt="Wisteria Archway" className="rounded-lg aspect-square object-cover" />
+              </div>
               <div className="mb-6">
                 <p className="text-sage font-medium tracking-wide uppercase text-xs mb-2">
                   Monthly Membership
@@ -307,6 +362,15 @@ export default function Home() {
 
             {/* Cottage Plan */}
             <div className="bg-white rounded-2xl p-8 border border-bark/5 shadow-sm hover:shadow-md transition-shadow">
+              {/* Sample pages preview — premium exclusive pages */}
+              <div className="grid grid-cols-3 gap-1.5 mb-6 -mx-2 -mt-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_11_enchanted-greenhouse.png" alt="Enchanted Greenhouse" className="rounded-lg aspect-square object-cover" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_12_fox-family-den.png" alt="Fox Family Den" className="rounded-lg aspect-square object-cover" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_13_lavender-fields-forever.png" alt="Lavender Fields Forever" className="rounded-lg aspect-square object-cover" />
+              </div>
               <div className="mb-6">
                 <p className="text-golden font-medium tracking-wide uppercase text-xs mb-2">
                   Premium Membership
@@ -393,21 +457,54 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-12">
-            <StepCard
-              number="1"
-              title="Choose Your Plan"
-              description="Pick the Starter Collection, Meadow, or Cottage — whatever suits your coloring rhythm."
-            />
-            <StepCard
-              number="2"
-              title="Download & Print"
-              description="Get instant access to your pages. Print them at home on your favorite paper, as many times as you like."
-            />
-            <StepCard
-              number="3"
-              title="Color, Breathe, Repeat"
-              description="Pour a cup of tea, pick up your pencils, and let the world fade away. New pages arrive every month."
-            />
+            <div className="text-center">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-sage/10 mb-5 mx-auto max-w-[200px]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_09_basket-of-spring.png"
+                  alt="Basket of Spring coloring page"
+                  className="w-full aspect-square object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="w-10 h-10 rounded-full bg-sage/10 text-sage font-heading text-lg font-bold flex items-center justify-center mx-auto mb-4">
+                1
+              </div>
+              <h3 className="font-heading text-xl font-semibold text-bark mb-3">Choose Your Plan</h3>
+              <p className="text-bark/60 text-sm leading-relaxed">Pick the Starter Collection, Meadow, or Cottage — whatever suits your coloring rhythm.</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-sage/10 mb-5 mx-auto max-w-[200px]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_07_potting-shed.png"
+                  alt="Potting Shed coloring page"
+                  className="w-full aspect-square object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="w-10 h-10 rounded-full bg-sage/10 text-sage font-heading text-lg font-bold flex items-center justify-center mx-auto mb-4">
+                2
+              </div>
+              <h3 className="font-heading text-xl font-semibold text-bark mb-3">Download &amp; Print</h3>
+              <p className="text-bark/60 text-sm leading-relaxed">Get instant access to your pages. Print them at home on your favorite paper, as many times as you like.</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-sage/10 mb-5 mx-auto max-w-[200px]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_15_spring-mandala-garden.png"
+                  alt="Spring Mandala Garden coloring page"
+                  className="w-full aspect-square object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="w-10 h-10 rounded-full bg-sage/10 text-sage font-heading text-lg font-bold flex items-center justify-center mx-auto mb-4">
+                3
+              </div>
+              <h3 className="font-heading text-xl font-semibold text-bark mb-3">Color, Breathe, Repeat</h3>
+              <p className="text-bark/60 text-sm leading-relaxed">Pour a cup of tea, pick up your pencils, and let the world fade away. New pages arrive every month.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -458,29 +555,52 @@ export default function Home() {
         <LeafAccent className="absolute top-10 left-10 w-20 h-20 text-sage hidden md:block opacity-50" />
         <LeafAccent className="absolute bottom-10 right-10 w-16 h-16 text-rose hidden md:block opacity-50 rotate-90" />
 
-        <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
-          <h2 className="font-heading text-4xl md:text-6xl font-semibold text-bark mb-6">
-            Your Peaceful Evening
-            <br />
-            <span className="text-sage">Is Waiting</span>
-          </h2>
-          <p className="text-bark/60 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-            Close the laptop. Silence the notifications. Pick up your colored pencils
-            and let something beautiful unfold.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/checkout?plan=starter"
-              className="w-full sm:w-auto bg-cream-dark text-bark border-2 border-bark/15 px-8 py-4 rounded-full font-medium hover:border-sage hover:text-sage transition-all"
-            >
-              Get the Starter Collection &mdash; $7
-            </Link>
-            <Link
-              href="/checkout?plan=meadow"
-              className="w-full sm:w-auto bg-sage text-white px-8 py-4 rounded-full font-medium hover:bg-sage-dark shadow-lg shadow-sage/20 transition-all"
-            >
-              Join the Club &mdash; $9/mo
-            </Link>
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          {/* Fan of pages above CTA */}
+          <div className="flex justify-center gap-3 mb-12">
+            {[
+              { file: '2026-03_16_meadow-stream-bridge.png', alt: 'Meadow Stream Bridge', rotate: '-rotate-6' },
+              { file: '2026-03_17_honeybee-haven.png', alt: 'Honeybee Haven', rotate: '-rotate-2' },
+              { file: '2026-03_22_woodland-deer.png', alt: 'Woodland Deer', rotate: 'rotate-0' },
+              { file: '2026-03_20_butterfly-botanical.png', alt: 'Butterfly Botanical', rotate: 'rotate-2' },
+              { file: '2026-03_25_spring-wreath.png', alt: 'Spring Wreath', rotate: 'rotate-6' },
+            ].map((page) => (
+              <div key={page.file} className={`bg-white rounded-xl shadow-lg border border-sage/10 p-1.5 w-28 md:w-36 ${page.rotate} hover:scale-105 transition-transform`}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/${page.file}`}
+                  alt={page.alt}
+                  className="w-full aspect-square object-cover rounded-lg"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <h2 className="font-heading text-4xl md:text-6xl font-semibold text-bark mb-6">
+              Your Peaceful Evening
+              <br />
+              <span className="text-sage">Is Waiting</span>
+            </h2>
+            <p className="text-bark/60 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+              Close the laptop. Silence the notifications. Pick up your colored pencils
+              and let something beautiful unfold.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/checkout?plan=starter"
+                className="w-full sm:w-auto bg-cream-dark text-bark border-2 border-bark/15 px-8 py-4 rounded-full font-medium hover:border-sage hover:text-sage transition-all"
+              >
+                Get the Starter Collection &mdash; $7
+              </Link>
+              <Link
+                href="/checkout?plan=meadow"
+                className="w-full sm:w-auto bg-sage text-white px-8 py-4 rounded-full font-medium hover:bg-sage-dark shadow-lg shadow-sage/20 transition-all"
+              >
+                Join the Club &mdash; $9/mo
+              </Link>
+            </div>
           </div>
         </div>
       </section>
