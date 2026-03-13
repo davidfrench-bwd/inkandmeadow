@@ -6,7 +6,7 @@ import { sendMetaEvent } from '@/lib/meta-capi';
 export const dynamic = 'force-dynamic';
 
 function getStripe() {
-  return new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  return new Stripe(process.env.STRIPE_SECRET_KEY!.trim(), {
     apiVersion: '2026-02-25.clover',
   });
 }
@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
     }
 
     const stripe = getStripe();
-    event = stripe.webhooks.constructEvent(body, signature, process.env.STRIPE_WEBHOOK_SECRET!);
+    event = stripe.webhooks.constructEvent(body, signature, process.env.STRIPE_WEBHOOK_SECRET!.trim());
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Webhook signature verification failed';
     console.error('Webhook signature error:', message);
