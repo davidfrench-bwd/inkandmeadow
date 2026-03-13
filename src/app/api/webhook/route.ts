@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { getServiceClient } from '@/lib/supabase';
+import { sendMetaEvent } from '@/lib/meta-capi';
 
 export const dynamic = 'force-dynamic';
 
@@ -93,6 +94,20 @@ export async function POST(request: NextRequest) {
           } else if (plan === 'meadow' || plan === 'cottage') {
             console.log(`[New Subscription] ${plan} membership started by ${email}`);
           }
+
+          // Fire server-side Purchase event to Meta CAPI
+          const purchaseValue = (session.amount_total ?? 0) / 100;
+          await sendMetaEvent({
+            event_name: 'Purchase',
+            email,
+            event_source_url: 'https://inkandmeadow.com/welcome',
+            event_id: session.id,
+            custom_data: {
+              currency: 'USD',
+              value: purchaseValue,
+              content_name: plan,
+            },
+          });
         }
         break;
       }
