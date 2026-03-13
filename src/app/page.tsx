@@ -170,6 +170,62 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ━━━ Page Preview Gallery ━━━ */}
+      <section className="py-16 md:py-24 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-sage font-medium tracking-[0.2em] uppercase text-sm text-center mb-4">
+            Peek Inside
+          </p>
+          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-bark text-center mb-4">
+            Pages That Bring You Peace
+          </h2>
+          <p className="text-bark/60 text-center max-w-xl mx-auto mb-12">
+            Every page is designed for calm. From cozy cottages to woodland creatures,
+            each illustration invites you to slow down and breathe.
+          </p>
+
+          {/* Scrolling preview grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {[
+              { title: 'Wildflower Cottage', file: '2026-03_01_wildflower-cottage.png' },
+              { title: 'Spring Tea Setting', file: '2026-03_05_spring-tea-setting.png' },
+              { title: 'Enchanted Greenhouse', file: '2026-03_11_enchanted-greenhouse.png' },
+              { title: 'Wisteria Archway', file: '2026-03_08_wisteria-archway.png' },
+              { title: 'Cottage Kitchen Herbs', file: '2026-03_10_cottage-kitchen-herbs.png' },
+              { title: 'Bluebird on a Branch', file: '2026-03_06_bluebird-on-a-branch.png' },
+              { title: 'Rose Arbor Reading Nook', file: '2026-03_19_rose-arbor-reading-nook.png' },
+              { title: 'Spring Wreath', file: '2026-03_25_spring-wreath.png' },
+              { title: 'Fairy Mushroom Circle', file: '2026-03_14_fairy-mushroom-circle.png' },
+              { title: 'Woodland Deer', file: '2026-03_22_woodland-deer.png' },
+            ].map((page) => (
+              <div
+                key={page.file}
+                className="group relative bg-white rounded-xl overflow-hidden shadow-sm border border-sage/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="aspect-square overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/${page.file}`}
+                    alt={page.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-2.5">
+                  <p className="text-xs font-medium text-bark/80 truncate">{page.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-bark/50 text-sm mt-8">
+            This is just a preview &mdash; members get 10&ndash;50+ new pages every month
+          </p>
+        </div>
+      </section>
+
+      <FloralDivider />
+
       {/* ━━━ What You Get / Pricing Section ━━━ */}
       <section id="pricing" className="py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6">
