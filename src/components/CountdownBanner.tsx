@@ -51,11 +51,10 @@ export default function CountdownBanner() {
     // SSR / first render — show static banner without timer
     return (
       <div className="fixed top-[65px] left-0 right-0 z-40 bg-bark text-white text-center py-2 px-4 text-sm">
-        <span className="font-medium">Launch Special:</span> 30 coloring pages for just $7
-        <span className="text-white/60 ml-1">(regular $12)</span>
+        <span className="font-medium">Spring Collection:</span> 30 new pages dropping soon
         <span className="mx-2 text-white/30">|</span>
-        <Link href="/checkout?plan=starter" className="underline font-medium hover:text-golden transition-colors">
-          Grab it now
+        <Link href="/checkout?plan=meadow" className="underline font-medium hover:text-golden transition-colors">
+          Subscribe to get them &mdash; $9/mo
         </Link>
       </div>
     );
@@ -65,9 +64,9 @@ export default function CountdownBanner() {
     // Timer expired — show "last chance" instead
     return (
       <div className="fixed top-[65px] left-0 right-0 z-40 bg-rose text-white text-center py-2 px-4 text-sm">
-        <span className="font-medium">Final Hours!</span> Launch pricing ends soon &mdash;
-        <Link href="/checkout?plan=starter" className="underline font-medium hover:text-white/80 ml-1 transition-colors">
-          Get 30 pages for $7
+        <span className="font-medium">Last chance!</span> Spring collection drops soon &mdash;
+        <Link href="/checkout?plan=meadow" className="underline font-medium hover:text-white/80 ml-1 transition-colors">
+          Subscribe now to get it &mdash; $9/mo
         </Link>
       </div>
     );
@@ -77,16 +76,14 @@ export default function CountdownBanner() {
 
   return (
     <div className="fixed top-[65px] left-0 right-0 z-40 bg-bark text-white text-center py-2 px-4 text-sm">
-      <span className="font-medium">Launch Special:</span> 30 pages for $7
-      <span className="text-white/60 ml-1">(regular $12)</span>
-      <span className="mx-2 text-white/30">|</span>
-      <span className="font-mono text-golden font-medium">
+      <span className="font-medium">Spring Collection drops in</span>
+      <span className="mx-2 font-mono text-golden font-medium">
         {timeLeft.days > 0 && `${timeLeft.days}d `}
         {pad(timeLeft.hours)}:{pad(timeLeft.minutes)}:{pad(timeLeft.seconds)}
       </span>
-      <span className="mx-2 text-white/30 hidden sm:inline">|</span>
-      <Link href="/checkout?plan=starter" className="underline font-medium hover:text-golden transition-colors hidden sm:inline">
-        Grab it now
+      <span className="mx-1 text-white/30 hidden sm:inline">|</span>
+      <Link href="/checkout?plan=meadow" className="underline font-medium hover:text-golden transition-colors hidden sm:inline">
+        Subscribe to get 30 pages &mdash; $9/mo
       </Link>
     </div>
   );

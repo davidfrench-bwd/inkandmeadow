@@ -78,7 +78,7 @@ export default function ExitIntentPopup() {
             Wait &mdash; before you go
           </p>
           <h3 className="font-heading text-3xl font-semibold text-bark mb-3">
-            Take 3 Free Pages<br />With You
+            30 New Pages<br />Every Month
           </h3>
 
           {/* Mini image preview */}
@@ -100,29 +100,36 @@ export default function ExitIntentPopup() {
           </div>
 
           <p className="text-bark/60 text-sm mb-6">
-            No email required for the free sample. Or grab the full 30-page collection for just $7.
+            Join the Meadow and get the Starter Collection + 30 fresh pages every month. Cancel anytime.
           </p>
 
           <div className="flex flex-col gap-3">
             <Link
-              href="/checkout?plan=starter"
+              href="/checkout?plan=meadow"
               className="bg-sage text-white py-3.5 rounded-full font-medium hover:bg-sage-dark transition-colors shadow-md shadow-sage/20"
               onClick={dismiss}
             >
-              Get All 30 Pages &mdash; $7
+              Join the Meadow &mdash; $9/mo
+            </Link>
+            <Link
+              href="/checkout?plan=starter"
+              className="block text-bark/70 text-sm font-medium hover:text-bark transition-colors py-2"
+              onClick={dismiss}
+            >
+              Or just get 30 pages for $7
             </Link>
             <Link
               href="/free-sample"
-              className="block text-sage text-sm font-medium hover:text-sage-dark transition-colors py-2 underline underline-offset-2"
+              className="block text-sage text-sm font-medium hover:text-sage-dark transition-colors py-1 underline underline-offset-2"
               onClick={dismiss}
             >
-              Get 3 Free Pages
+              Try 3 free pages first
             </Link>
             <button
               onClick={dismiss}
-              className="text-bark/50 text-sm hover:text-bark transition-colors py-2"
+              className="text-bark/40 text-xs hover:text-bark transition-colors py-1"
             >
-              No thanks, I&rsquo;ll pass
+              No thanks
             </button>
           </div>
         </div>

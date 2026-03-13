@@ -155,16 +155,16 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row items-center md:items-start gap-4">
                 <Link
-                  href="/checkout?plan=starter"
-                  className="w-full sm:w-auto bg-cream-dark text-bark border-2 border-bark/15 px-8 py-4 rounded-full font-medium hover:border-sage hover:text-sage transition-all"
-                >
-                  Get the Starter Collection &mdash; $7
-                </Link>
-                <Link
                   href="/checkout?plan=meadow"
                   className="w-full sm:w-auto bg-sage text-white px-8 py-4 rounded-full font-medium hover:bg-sage-dark shadow-lg shadow-sage/20 transition-all"
                 >
                   Join the Club &mdash; $9/mo
+                </Link>
+                <Link
+                  href="/checkout?plan=starter"
+                  className="w-full sm:w-auto bg-cream-dark text-bark border-2 border-bark/15 px-8 py-4 rounded-full font-medium hover:border-sage hover:text-sage transition-all"
+                >
+                  Or Try 30 Pages &mdash; $7
                 </Link>
               </div>
               <p className="text-bark/40 text-sm mt-6">
@@ -288,7 +288,7 @@ export default function Home() {
           </div>
 
           <p className="text-center text-bark/50 text-sm mt-8">
-            This is just a preview &mdash; members get 10&ndash;50+ new pages every month
+            This is just a preview &mdash; members get 30 new pages every month
           </p>
         </div>
       </section>
@@ -357,11 +357,14 @@ export default function Home() {
 
           <div className="text-center mt-10">
             <Link
-              href="/checkout?plan=starter"
+              href="/checkout?plan=meadow"
               className="inline-block bg-sage text-white px-8 py-4 rounded-full font-medium hover:bg-sage-dark shadow-lg shadow-sage/20 transition-all"
             >
-              Start With 30 Pages &mdash; $7
+              Join the Meadow &mdash; $9/mo
             </Link>
+            <p className="text-bark/40 text-xs mt-3">
+              Includes the Starter Collection + 30 new pages every month
+            </p>
           </div>
         </div>
       </section>
@@ -452,6 +455,49 @@ export default function Home() {
 
       <FloralDivider />
 
+      {/* ━━━ This Month's Collection Preview ━━━ */}
+      <section className="py-16 md:py-20 bg-sage/5">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <p className="text-sage font-medium tracking-[0.2em] uppercase text-sm mb-3">
+            Coming This Month
+          </p>
+          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-bark mb-3">
+            April: Secret Garden
+          </h2>
+          <p className="text-bark/60 max-w-lg mx-auto mb-8">
+            30 brand-new pages featuring hidden garden paths, climbing roses, stone archways,
+            and secret woodland clearings. Available to members on April 1st.
+          </p>
+          <div className="flex justify-center gap-3 mb-8">
+            {[
+              { file: '2026-03_11_enchanted-greenhouse.png', alt: 'Preview 1' },
+              { file: '2026-03_19_rose-arbor-reading-nook.png', alt: 'Preview 2' },
+              { file: '2026-03_14_fairy-mushroom-circle.png', alt: 'Preview 3' },
+              { file: '2026-03_16_meadow-stream-bridge.png', alt: 'Preview 4' },
+            ].map((page, i) => (
+              <div key={page.file} className={`bg-white rounded-xl shadow-lg border border-sage/10 p-1.5 w-24 md:w-32 ${i === 0 ? '-rotate-3' : i === 3 ? 'rotate-3' : i === 1 ? '-rotate-1' : 'rotate-1'}`}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${STORAGE_BASE}/${page.file}`}
+                  alt={page.alt}
+                  className="w-full aspect-square object-cover rounded-lg"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+          <Link
+            href="/checkout?plan=meadow"
+            className="inline-block bg-sage text-white px-8 py-3.5 rounded-full font-medium hover:bg-sage-dark shadow-md shadow-sage/20 transition-all"
+          >
+            Subscribe to Get This Collection &mdash; $9/mo
+          </Link>
+          <p className="text-bark/40 text-xs mt-3">Cancel anytime. Keep everything you&rsquo;ve downloaded.</p>
+        </div>
+      </section>
+
+      <FloralDivider />
+
       {/* ━━━ What You Get / Pricing Section ━━━ */}
       <section id="pricing" className="py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6">
@@ -537,6 +583,7 @@ export default function Home() {
                   <span className="font-heading text-4xl font-bold text-bark">$9</span>
                   <span className="text-bark/50 text-sm">/month</span>
                 </div>
+                <p className="text-sage text-xs font-medium mt-1">60 pages month one &mdash; just $0.15/page</p>
               </div>
               <p className="text-bark/60 text-sm mb-6 leading-relaxed">
                 Everything in the Starter plus 30 fresh pages every month. Your library grows, your calm deepens.
@@ -796,16 +843,16 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                href="/checkout?plan=starter"
-                className="w-full sm:w-auto bg-cream-dark text-bark border-2 border-bark/15 px-8 py-4 rounded-full font-medium hover:border-sage hover:text-sage transition-all"
-              >
-                Get the Starter Collection &mdash; $7
-              </Link>
-              <Link
                 href="/checkout?plan=meadow"
                 className="w-full sm:w-auto bg-sage text-white px-8 py-4 rounded-full font-medium hover:bg-sage-dark shadow-lg shadow-sage/20 transition-all"
               >
-                Join the Club &mdash; $9/mo
+                Join the Meadow &mdash; $9/mo
+              </Link>
+              <Link
+                href="/checkout?plan=starter"
+                className="w-full sm:w-auto bg-cream-dark text-bark border-2 border-bark/15 px-8 py-4 rounded-full font-medium hover:border-sage hover:text-sage transition-all"
+              >
+                Or Try 30 Pages &mdash; $7
               </Link>
             </div>
           </div>
