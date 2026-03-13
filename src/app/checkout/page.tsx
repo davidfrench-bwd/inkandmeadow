@@ -33,12 +33,12 @@ const plans = {
     name: 'Cottage Membership',
     price: '$49',
     interval: '/mo',
-    description: 'Everything in Meadow + physical booklet + supplies',
+    description: 'Everything in Meadow + 50+ pages + exclusive collections',
     features: [
       'Everything in the Meadow Membership',
-      'Monthly printed booklet mailed to you',
-      'Curated coloring supplies included',
-      'Exclusive Cottage-only bonus pages',
+      '50+ pages every month',
+      'Exclusive premium collections & wall art',
+      'Early access & monthly coloring challenges',
     ],
   },
 } as const;

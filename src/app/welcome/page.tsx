@@ -230,8 +230,8 @@ function WelcomeContent() {
               Welcome to the Cottage!
             </h1>
             <p className="text-lg mb-8" style={{ color: '#8B7355' }}>
-              You have the full Ink &amp; Meadow experience. Digital pages, physical booklets,
-              and curated supplies — all coming your way.
+              You have the ultimate Ink &amp; Meadow experience. 50+ pages monthly,
+              exclusive collections, and premium perks — all yours.
             </p>
 
             <div
@@ -248,9 +248,9 @@ function WelcomeContent() {
               <ul className="space-y-3">
                 {[
                   'Explore the full page library in your member portal',
-                  'Your first physical booklet and supplies ship within 3-5 business days',
+                  'Download exclusive premium collections available only to Cottage members',
                   'Join the members-only community with Cottage-exclusive channels',
-                  '10 new digital pages arrive on the 1st + your booklet ships mid-month',
+                  '50+ new pages arrive on the 1st of every month',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <span
@@ -269,9 +269,8 @@ function WelcomeContent() {
               className="rounded-xl p-5 mb-8 text-sm text-left"
               style={{ backgroundColor: '#FFF8ED', border: '1px solid #F0DFC0', color: '#8B6914' }}
             >
-              <strong>About your first shipment:</strong> We will prepare your welcome package with
-              this month&apos;s printed booklet and a curated set of coloring supplies. Expect a
-              tracking email within 3-5 business days.
+              <strong>Cottage Tip:</strong> Head to your portal to browse the exclusive premium
+              collections and printable wall art. New content drops on the 1st of every month!
             </div>
 
             <a

@@ -1,6 +1,9 @@
 import Link from "next/link";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import EmailCapture from "@/components/EmailCapture";
+import ImageLightbox from "@/components/ImageLightbox";
+
+const STORAGE_BASE = 'https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03';
 
 /* ─── Decorative SVG Components ─── */
 
@@ -248,23 +251,22 @@ export default function Home() {
               { title: 'Fairy Mushroom Circle', file: '2026-03_14_fairy-mushroom-circle.png' },
               { title: 'Woodland Deer', file: '2026-03_22_woodland-deer.png' },
             ].map((page) => (
-              <div
-                key={page.file}
-                className="group relative bg-white rounded-xl overflow-hidden shadow-sm border border-sage/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="aspect-square overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={`https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/${page.file}`}
-                    alt={page.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
+              <ImageLightbox key={page.file} src={`${STORAGE_BASE}/${page.file}`} alt={page.title}>
+                <div className="group relative bg-white rounded-xl overflow-hidden shadow-sm border border-sage/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                  <div className="aspect-square overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`${STORAGE_BASE}/${page.file}`}
+                      alt={page.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-2.5">
+                    <p className="text-xs font-medium text-bark/80 truncate">{page.title}</p>
+                  </div>
                 </div>
-                <div className="p-2.5">
-                  <p className="text-xs font-medium text-bark/80 truncate">{page.title}</p>
-                </div>
-              </div>
+              </ImageLightbox>
             ))}
           </div>
 
@@ -360,21 +362,20 @@ export default function Home() {
               { title: 'Ducklings at the Pond', file: '2026-03_29_ducklings-at-the-pond.png' },
               { title: 'Squirrel with Acorns', file: '2026-03_30_squirrel-with-acorns.png' },
             ].map((page) => (
-              <div
-                key={page.file}
-                className="group bg-white rounded-lg overflow-hidden shadow-sm border border-sage/10 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
-              >
-                <div className="aspect-square overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={`https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/${page.file}`}
-                    alt={page.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
+              <ImageLightbox key={page.file} src={`${STORAGE_BASE}/${page.file}`} alt={page.title}>
+                <div className="group bg-white rounded-lg overflow-hidden shadow-sm border border-sage/10 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                  <div className="aspect-square overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`${STORAGE_BASE}/${page.file}`}
+                      alt={page.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  </div>
+                  <p className="text-[10px] text-bark/60 text-center py-1.5 px-1 truncate">{page.title}</p>
                 </div>
-                <p className="text-[10px] text-bark/60 text-center py-1.5 px-1 truncate">{page.title}</p>
-              </div>
+              </ImageLightbox>
             ))}
           </div>
 
