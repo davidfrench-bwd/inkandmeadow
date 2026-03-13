@@ -7,16 +7,16 @@ const STORAGE_BASE =
 
 const samples = [
   {
-    file: '11_fox-under-roses.png',
-    title: 'Fox Under Roses',
+    file: '01_kitten-on-books.png',
+    title: 'Kitten on Books',
   },
   {
-    file: '07_flower-wreath.png',
-    title: 'Flower Wreath',
+    file: '05_fawn-in-meadow.png',
+    title: 'Fawn in Meadow',
   },
   {
-    file: '21_fairy-door-oak-tree.png',
-    title: 'Fairy Door Oak Tree',
+    file: '17_bunny-teacup-daisies.png',
+    title: 'Bunny & Teacup',
   },
 ];
 

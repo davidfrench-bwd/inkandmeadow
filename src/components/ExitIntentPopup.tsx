@@ -84,9 +84,9 @@ export default function ExitIntentPopup() {
           {/* Mini image preview */}
           <div className="flex justify-center gap-2 my-6">
             {[
-              '11_fox-under-roses.png',
-              '15_squirrel-garden-statue.png',
-              '02_wisteria-archway.png',
+              '01_kitten-on-books.png',
+              '05_fawn-in-meadow.png',
+              '14_corgi-flower-basket.png',
             ].map((file) => (
               <div key={file} className="bg-white rounded-lg shadow-md border border-sage/10 p-1 w-24">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
