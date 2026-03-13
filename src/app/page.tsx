@@ -314,7 +314,7 @@ export default function Home() {
             <TestimonialCard
               quote="The quality of the illustrations is incredible. Each page feels like a little escape to a world of wildflowers and cozy cottages."
               name="Emily R."
-              detail="Cottage member since 2025"
+              detail="Meadow member since 2025"
             />
             <TestimonialCard
               quote="I bought the Starter Collection just to try it, and signed up for Meadow within a week. The themed collections are so thoughtfully curated."
@@ -464,7 +464,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {/* Starter Collection */}
             <div className="bg-white rounded-2xl p-8 border border-bark/5 shadow-sm hover:shadow-md transition-shadow">
               {/* Sample pages preview */}
@@ -556,69 +556,6 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Cottage Plan */}
-            <div className="bg-white rounded-2xl p-8 border border-bark/5 shadow-sm hover:shadow-md transition-shadow">
-              {/* Sample pages preview — premium exclusive pages */}
-              <div className="grid grid-cols-3 gap-1.5 mb-6 -mx-2 -mt-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_11_enchanted-greenhouse.png" alt="Enchanted Greenhouse" className="rounded-lg aspect-square object-cover" />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_12_fox-family-den.png" alt="Fox Family Den" className="rounded-lg aspect-square object-cover" />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_13_lavender-fields-forever.png" alt="Lavender Fields Forever" className="rounded-lg aspect-square object-cover" />
-              </div>
-              <div className="mb-6">
-                <p className="text-golden font-medium tracking-wide uppercase text-xs mb-2">
-                  Premium Membership
-                </p>
-                <h3 className="font-heading text-2xl font-semibold text-bark mb-1">
-                  Cottage
-                </h3>
-                <div className="flex items-baseline gap-1">
-                  <span className="font-heading text-4xl font-bold text-bark">$49</span>
-                  <span className="text-bark/50 text-sm">/month</span>
-                </div>
-              </div>
-              <p className="text-bark/60 text-sm mb-6 leading-relaxed">
-                The ultimate coloring experience. Massive library, exclusive content, and perks you won&rsquo;t find anywhere else.
-              </p>
-              <ul className="space-y-3 mb-8">
-                <PricingFeature>Everything in Meadow</PricingFeature>
-                <PricingFeature>50+ pages monthly</PricingFeature>
-                <PricingFeature>Exclusive premium collections</PricingFeature>
-                <PricingFeature>Early access to new releases</PricingFeature>
-                <PricingFeature>Printable wall art &amp; greeting cards</PricingFeature>
-                <PricingFeature>Monthly coloring challenges with prizes</PricingFeature>
-              </ul>
-              <Link
-                href="/checkout?plan=cottage"
-                className="block text-center bg-cream-dark text-bark border border-bark/10 px-6 py-3 rounded-full font-medium hover:border-golden hover:text-golden transition-all"
-              >
-                Join the Cottage
-              </Link>
-            </div>
-          </div>
-
-          {/* Complete Library mega bundle */}
-          <div className="max-w-3xl mx-auto mt-10 bg-gradient-to-r from-golden/10 via-golden/5 to-golden/10 rounded-2xl p-8 border border-golden/20 text-center">
-            <p className="text-golden font-medium tracking-wide uppercase text-xs mb-2">Best Value</p>
-            <h3 className="font-heading text-2xl font-semibold text-bark mb-1">
-              Complete Library
-            </h3>
-            <div className="flex items-baseline justify-center gap-1 mb-3">
-              <span className="font-heading text-4xl font-bold text-bark">$29</span>
-              <span className="text-bark/50 text-sm">one-time</span>
-            </div>
-            <p className="text-bark/60 text-sm mb-5 max-w-lg mx-auto">
-              Every page from every collection (200+) in print-ready PDF and iPad-compatible PNG.
-              Plus all new pages for the next 12 months. That&rsquo;s less than $0.15 per page.
-            </p>
-            <Link
-              href="/checkout?plan=library"
-              className="inline-block bg-bark text-white px-8 py-3.5 rounded-full font-medium hover:bg-bark/90 shadow-lg transition-all"
-            >
-              Get the Complete Library &mdash; $29
-            </Link>
           </div>
         </div>
       </section>
@@ -768,7 +705,7 @@ export default function Home() {
             />
             <FaqItem
               question="Can I cancel anytime?"
-              answer="Absolutely. There are no contracts or commitments. You can cancel your Meadow or Cottage membership anytime from your account page. You'll keep access through the end of your billing period, and any pages you've already downloaded are yours forever."
+              answer="Absolutely. There are no contracts or commitments. You can cancel your Meadow membership anytime from your account page. You'll keep access through the end of your billing period, and any pages you've already downloaded are yours forever."
             />
             <FaqItem
               question="How do I access my pages?"
@@ -781,10 +718,6 @@ export default function Home() {
             <FaqItem
               question="What coloring supplies work best?"
               answer="For printing: we recommend cardstock (65-110 lb) and colored pencils like Prismacolor or markers like Staedtler fineliners. Heavier paper prevents bleed-through with markers. For iPad: an Apple Pencil and Procreate ($12.99 one-time) or the free Adobe Fresco app are all you need. Our pages are designed to look beautiful with any medium."
-            />
-            <FaqItem
-              question="What's the Complete Library?"
-              answer="The Complete Library is our best-value option: every page from every collection we've ever made (200+ pages), plus all new pages released over the next 12 months. It's a one-time purchase of $29 — that works out to less than $0.15 per page. You get both PDF and PNG formats for printing and iPad use."
             />
           </div>
         </div>

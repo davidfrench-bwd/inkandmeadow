@@ -49,7 +49,6 @@ function WelcomeContent() {
       const priceMap: Record<string, number> = {
         starter: 7,
         meadow: 9,
-        cottage: 49,
       };
       const value = session.plan ? priceMap[session.plan] ?? 0 : 0;
       purchase(
@@ -211,66 +210,6 @@ function WelcomeContent() {
                   </li>
                 ))}
               </ul>
-            </div>
-
-            <a
-              href="/portal"
-              className="inline-block px-8 py-4 rounded-xl text-lg font-semibold transition-colors"
-              style={{ backgroundColor: '#7B9E6B', color: '#fff' }}
-            >
-              Go to Your Member Portal
-            </a>
-          </>
-        )}
-
-        {/* Cottage Membership */}
-        {plan === 'cottage' && (
-          <>
-            <h1 className="text-3xl font-bold mb-3" style={{ color: '#5C4033' }}>
-              Welcome to the Cottage!
-            </h1>
-            <p className="text-lg mb-8" style={{ color: '#8B7355' }}>
-              You have the ultimate Ink &amp; Meadow experience. 50+ pages monthly,
-              exclusive collections, and premium perks — all yours.
-            </p>
-
-            <div
-              className="rounded-2xl p-8 mb-8 border text-left"
-              style={{
-                backgroundColor: '#FFFFFF',
-                borderColor: '#E8DFD0',
-                boxShadow: '0 4px 24px rgba(92, 64, 51, 0.06)',
-              }}
-            >
-              <h2 className="text-lg font-semibold mb-4" style={{ color: '#5C4033' }}>
-                What happens next
-              </h2>
-              <ul className="space-y-3">
-                {[
-                  'Explore the full page library in your member portal',
-                  'Download exclusive premium collections available only to Cottage members',
-                  'Join the members-only community with Cottage-exclusive channels',
-                  '50+ new pages arrive on the 1st of every month',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span
-                      className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5"
-                      style={{ backgroundColor: '#EFF5EB', color: '#5A7D4A' }}
-                    >
-                      {i + 1}
-                    </span>
-                    <span style={{ color: '#5C4033' }}>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div
-              className="rounded-xl p-5 mb-8 text-sm text-left"
-              style={{ backgroundColor: '#FFF8ED', border: '1px solid #F0DFC0', color: '#8B6914' }}
-            >
-              <strong>Cottage Tip:</strong> Head to your portal to browse the exclusive premium
-              collections and printable wall art. New content drops on the 1st of every month!
             </div>
 
             <a

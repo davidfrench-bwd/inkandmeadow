@@ -20,18 +20,6 @@ const planConfig = {
     amount: 900, // $9.00
     mode: 'subscription' as const,
   },
-  cottage: {
-    name: 'Cottage Membership',
-    description: 'Everything in Meadow + 50+ pages + exclusive collections + wall art',
-    amount: 4900, // $49.00
-    mode: 'subscription' as const,
-  },
-  library: {
-    name: 'Complete Library',
-    description: '200+ printable & iPad-ready coloring pages — every collection',
-    amount: 2900, // $29.00
-    mode: 'payment' as const,
-  },
 } as const;
 
 type PlanKey = keyof typeof planConfig;
@@ -43,7 +31,7 @@ export async function POST(request: NextRequest) {
 
     if (!plan || !planConfig[plan as PlanKey]) {
       return NextResponse.json(
-        { error: 'Invalid plan. Must be one of: starter, meadow, cottage, library' },
+        { error: 'Invalid plan. Must be one of: starter, meadow' },
         { status: 400 }
       );
     }

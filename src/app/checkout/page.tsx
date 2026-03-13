@@ -29,30 +29,6 @@ const plans = {
       'Early access to new collections',
     ],
   },
-  cottage: {
-    name: 'Cottage Membership',
-    price: '$49',
-    interval: '/mo',
-    description: 'Everything in Meadow + 50+ pages + exclusive collections',
-    features: [
-      'Everything in the Meadow Membership',
-      '50+ pages every month',
-      'Exclusive premium collections & wall art',
-      'Early access & monthly coloring challenges',
-    ],
-  },
-  library: {
-    name: 'Complete Library',
-    price: '$29',
-    interval: '',
-    description: '200+ coloring pages from every collection — print or iPad',
-    features: [
-      'Every page from every collection (200+)',
-      'Print-ready PDF + iPad-compatible PNG',
-      'All future pages for 12 months',
-      'Instant download access',
-    ],
-  },
 } as const;
 
 type PlanKey = keyof typeof plans;
@@ -70,8 +46,6 @@ function CheckoutContent() {
       const priceMap: Record<PlanKey, number> = {
         starter: 7,
         meadow: 9,
-        cottage: 49,
-        library: 29,
       };
       initiateCheckout(plans[plan].name, priceMap[plan]);
     }
@@ -159,7 +133,7 @@ function CheckoutContent() {
               className="inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full"
               style={{ backgroundColor: '#EFF5EB', color: '#5A7D4A' }}
             >
-              {plan === 'starter' || plan === 'library' ? 'One-Time Purchase' : 'Monthly Membership'}
+              {plan === 'starter' ? 'One-Time Purchase' : 'Monthly Membership'}
             </span>
           </div>
 

@@ -61,13 +61,13 @@ export default function PageCard({ page, memberPlan, onDownload }: PageCardProps
           </div>
         )}
 
-        {/* Lock overlay for non-Cottage members on premium pages */}
+        {/* Lock overlay for non-members on premium pages */}
         {isLocked && (
           <div className="absolute inset-0 bg-stone-200/60 backdrop-blur-[2px] flex flex-col items-center justify-center gap-2 rounded-xl">
             <svg className="w-8 h-8 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
             </svg>
-            <span className="text-xs text-stone-500 font-medium">Cottage Plan</span>
+            <span className="text-xs text-stone-500 font-medium">Members Only</span>
           </div>
         )}
       </div>
