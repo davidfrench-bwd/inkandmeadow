@@ -261,6 +261,88 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ━━━ Starter Collection Showcase ━━━ */}
+      <section id="starter-collection" className="py-20 md:py-28 bg-white/50">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-6">
+            <p className="text-golden font-medium tracking-[0.2em] uppercase text-sm mb-4">
+              See Every Page
+            </p>
+            <h2 className="font-heading text-4xl md:text-5xl font-semibold text-bark mb-4">
+              What&rsquo;s in the Starter Collection
+            </h2>
+            <p className="text-bark/60 max-w-2xl mx-auto mb-2">
+              27 hand-curated cottagecore coloring pages spanning wildflower gardens, cozy cottages,
+              woodland creatures, tea-time scenes, and seasonal botanicals. Yours to keep forever.
+            </p>
+            <p className="text-sage font-semibold text-lg">
+              Just $7 &mdash; that&rsquo;s only $0.26 per page
+            </p>
+          </div>
+
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-3 mt-12">
+            {[
+              { title: 'Wildflower Cottage', file: '2026-03_01_wildflower-cottage.png' },
+              { title: 'Morning Garden Gate', file: '2026-03_02_morning-garden-gate.png' },
+              { title: 'Herb Window Box', file: '2026-03_03_herb-window-box.png' },
+              { title: 'Bunny in the Meadow', file: '2026-03_04_bunny-in-the-meadow.png' },
+              { title: 'Spring Tea Setting', file: '2026-03_05_spring-tea-setting.png' },
+              { title: 'Bluebird on a Branch', file: '2026-03_06_bluebird-on-a-branch.png' },
+              { title: 'Potting Shed', file: '2026-03_07_potting-shed.png' },
+              { title: 'Wisteria Archway', file: '2026-03_08_wisteria-archway.png' },
+              { title: 'Basket of Spring', file: '2026-03_09_basket-of-spring.png' },
+              { title: 'Cottage Kitchen Herbs', file: '2026-03_10_cottage-kitchen-herbs.png' },
+              { title: 'Enchanted Greenhouse', file: '2026-03_11_enchanted-greenhouse.png' },
+              { title: 'Fox Family Den', file: '2026-03_12_fox-family-den.png' },
+              { title: 'Lavender Fields Forever', file: '2026-03_13_lavender-fields-forever.png' },
+              { title: 'Fairy Mushroom Circle', file: '2026-03_14_fairy-mushroom-circle.png' },
+              { title: 'Spring Mandala Garden', file: '2026-03_15_spring-mandala-garden.png' },
+              { title: 'Meadow Stream Bridge', file: '2026-03_16_meadow-stream-bridge.png' },
+              { title: 'Honeybee Haven', file: '2026-03_17_honeybee-haven.png' },
+              { title: 'Garden Tool Collection', file: '2026-03_18_garden-tool-collection.png' },
+              { title: 'Rose Arbor Reading Nook', file: '2026-03_19_rose-arbor-reading-nook.png' },
+              { title: 'Butterfly Botanical', file: '2026-03_20_butterfly-botanical.png' },
+              { title: 'Cottage Door Welcome', file: '2026-03_21_cottage-door-welcome.png' },
+              { title: 'Woodland Deer', file: '2026-03_22_woodland-deer.png' },
+              { title: 'Botanical Letters', file: '2026-03_23_botanical-letters-spring.png' },
+              { title: 'Rainy Day Window', file: '2026-03_24_rainy-day-window.png' },
+              { title: 'Spring Wreath', file: '2026-03_25_spring-wreath.png' },
+            ].map((page) => (
+              <div
+                key={page.file}
+                className="group bg-white rounded-lg overflow-hidden shadow-sm border border-sage/10 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <div className="aspect-square overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/${page.file}`}
+                    alt={page.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <p className="text-[10px] text-bark/60 text-center py-1.5 px-1 truncate">{page.title}</p>
+              </div>
+            ))}
+            {/* +2 bonus indicator */}
+            <div className="bg-sage/5 rounded-lg border border-sage/15 flex flex-col items-center justify-center aspect-square">
+              <span className="font-heading text-2xl font-bold text-sage">+2</span>
+              <span className="text-[10px] text-sage/70 text-center px-2">bonus pages</span>
+            </div>
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/checkout?plan=starter"
+              className="inline-block bg-bark text-white px-10 py-4 rounded-full font-medium hover:bg-bark/90 shadow-lg transition-all text-lg"
+            >
+              Get All 27 Pages &mdash; $7
+            </Link>
+            <p className="text-bark/40 text-xs mt-3">Instant download. Print as many copies as you want. Keep forever.</p>
+          </div>
+        </div>
+      </section>
+
       <FloralDivider />
 
       {/* ━━━ What You Get / Pricing Section ━━━ */}
@@ -298,16 +380,23 @@ export default function Home() {
                   <span className="font-heading text-4xl font-bold text-bark">$7</span>
                   <span className="text-bark/50 text-sm">one-time</span>
                 </div>
+                <p className="text-sage text-xs font-medium mt-1">Only $0.26 per page</p>
               </div>
               <p className="text-bark/60 text-sm mb-6 leading-relaxed">
                 Perfect for trying before subscribing. A beautifully curated introduction to the Ink&nbsp;&amp;&nbsp;Meadow style.
               </p>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-6">
                 <PricingFeature>27 hand-curated coloring pages</PricingFeature>
                 <PricingFeature>Instant PDF download</PricingFeature>
                 <PricingFeature>Mix of themes &amp; styles</PricingFeature>
                 <PricingFeature>Print unlimited copies</PricingFeature>
               </ul>
+              <a
+                href="#starter-collection"
+                className="block text-center text-sage text-xs font-medium mb-4 hover:underline"
+              >
+                See all 27 pages included &darr;
+              </a>
               <Link
                 href="/checkout?plan=starter"
                 className="block text-center bg-cream-dark text-bark border border-bark/10 px-6 py-3 rounded-full font-medium hover:border-sage hover:text-sage transition-all"
@@ -404,6 +493,41 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ━━━ Trust Badges ━━━ */}
+      <div className="py-12">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 text-center">
+            <div className="flex items-center gap-3">
+              <svg className="w-8 h-8 text-sage shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <div className="text-left">
+                <p className="text-bark font-medium text-sm">100% Satisfaction</p>
+                <p className="text-bark/50 text-xs">Love it or get a full refund</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <svg className="w-8 h-8 text-sage shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <div className="text-left">
+                <p className="text-bark font-medium text-sm">Secure Checkout</p>
+                <p className="text-bark/50 text-xs">Powered by Stripe</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <svg className="w-8 h-8 text-sage shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <div className="text-left">
+                <p className="text-bark font-medium text-sm">Instant Access</p>
+                <p className="text-bark/50 text-xs">Download immediately after purchase</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <FloralDivider />
 
