@@ -1,65 +1,566 @@
-import Image from "next/image";
+import Link from "next/link";
+
+/* ─── Decorative SVG Components ─── */
+
+function LeafAccent({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 60 60"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
+      <path
+        d="M30 5C30 5 10 20 10 35C10 50 30 55 30 55C30 55 50 50 50 35C50 20 30 5 30 5Z"
+        fill="currentColor"
+        opacity="0.15"
+      />
+      <path
+        d="M30 10V50"
+        stroke="currentColor"
+        strokeWidth="1"
+        opacity="0.2"
+      />
+      <path
+        d="M30 20C22 25 18 30 16 35"
+        stroke="currentColor"
+        strokeWidth="0.8"
+        opacity="0.15"
+      />
+      <path
+        d="M30 30C38 33 42 37 44 40"
+        stroke="currentColor"
+        strokeWidth="0.8"
+        opacity="0.15"
+      />
+    </svg>
+  );
+}
+
+function FloralDivider() {
+  return (
+    <div className="flex items-center justify-center gap-3 my-16">
+      <div className="h-px w-16 bg-rose/30" />
+      <svg
+        viewBox="0 0 24 24"
+        className="w-5 h-5 text-rose"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <circle cx="12" cy="12" r="3" opacity="0.6" />
+        <ellipse cx="12" cy="6" rx="2.5" ry="4" opacity="0.3" />
+        <ellipse cx="12" cy="18" rx="2.5" ry="4" opacity="0.3" />
+        <ellipse cx="6" cy="12" rx="4" ry="2.5" opacity="0.3" />
+        <ellipse cx="18" cy="12" rx="4" ry="2.5" opacity="0.3" />
+      </svg>
+      <div className="h-px w-16 bg-rose/30" />
+    </div>
+  );
+}
+
+function BotanicalCorner({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 120 120"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
+      <path
+        d="M10 110C10 110 20 60 60 30C80 15 110 10 110 10"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        opacity="0.15"
+        fill="none"
+      />
+      <path
+        d="M15 110C15 110 30 70 55 50"
+        stroke="currentColor"
+        strokeWidth="1"
+        opacity="0.1"
+        fill="none"
+      />
+      <circle cx="60" cy="30" r="4" fill="currentColor" opacity="0.08" />
+      <circle cx="40" cy="55" r="3" fill="currentColor" opacity="0.06" />
+      <circle cx="80" cy="18" r="3" fill="currentColor" opacity="0.06" />
+    </svg>
+  );
+}
+
+/* ─── Page Sections ─── */
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen floral-bg">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-sage/10">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <Link href="/" className="font-heading text-2xl font-semibold text-bark tracking-wide">
+            Ink &amp; Meadow
+          </Link>
+          <div className="hidden sm:flex items-center gap-6 text-sm">
+            <a href="#pricing" className="text-bark/70 hover:text-sage transition-colors">
+              Pricing
+            </a>
+            <a href="#how-it-works" className="text-bark/70 hover:text-sage transition-colors">
+              How It Works
+            </a>
+            <a href="#faq" className="text-bark/70 hover:text-sage transition-colors">
+              FAQ
+            </a>
+            <Link
+              href="/checkout?plan=meadow"
+              className="bg-sage text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-sage-dark transition-colors"
+            >
+              Join the Club
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      {/* ━━━ Hero Section ━━━ */}
+      <section className="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
+        {/* Decorative elements */}
+        <BotanicalCorner className="absolute top-20 left-0 w-32 h-32 text-sage hidden lg:block" />
+        <BotanicalCorner className="absolute top-20 right-0 w-32 h-32 text-rose hidden lg:block scale-x-[-1]" />
+        <LeafAccent className="absolute bottom-10 left-10 w-16 h-16 text-sage hidden md:block" />
+        <LeafAccent className="absolute top-40 right-16 w-12 h-12 text-rose hidden md:block rotate-45" />
+
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <p className="text-sage font-medium tracking-[0.2em] uppercase text-sm mb-6">
+            A Cottagecore Coloring Club
+          </p>
+          <h1 className="font-heading text-5xl md:text-7xl font-semibold text-bark leading-tight mb-8">
+            Trade Your Screen Time
+            <br />
+            <span className="text-sage">for Something Beautiful</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+          <p className="text-bark/70 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+            Join thousands finding calm through cottagecore coloring.
+            New hand-curated pages delivered monthly.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/checkout?plan=starter"
+              className="w-full sm:w-auto bg-cream-dark text-bark border-2 border-bark/15 px-8 py-4 rounded-full font-medium hover:border-sage hover:text-sage transition-all"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              Get the Starter Collection &mdash; $7
+            </Link>
+            <Link
+              href="/checkout?plan=meadow"
+              className="w-full sm:w-auto bg-sage text-white px-8 py-4 rounded-full font-medium hover:bg-sage-dark shadow-lg shadow-sage/20 transition-all"
             >
-              Learning
-            </a>{" "}
-            center.
+              Join the Club &mdash; $9/mo
+            </Link>
+          </div>
+          <p className="text-bark/40 text-sm mt-6">
+            No contracts. Cancel anytime. Instant access.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+        {/* Bottom decorative wave */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 60" fill="none" className="w-full text-cream-dark" aria-hidden="true">
+            <path
+              d="M0 60V30C240 0 480 50 720 30C960 10 1200 50 1440 30V60H0Z"
+              fill="currentColor"
+              opacity="0.5"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </svg>
         </div>
-      </main>
+      </section>
+
+      {/* ━━━ What You Get / Pricing Section ━━━ */}
+      <section id="pricing" className="py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <p className="text-rose font-medium tracking-[0.2em] uppercase text-sm mb-4">
+              Choose Your Path
+            </p>
+            <h2 className="font-heading text-4xl md:text-5xl font-semibold text-bark">
+              What You Get
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {/* Starter Collection */}
+            <div className="bg-white rounded-2xl p-8 border border-bark/5 shadow-sm hover:shadow-md transition-shadow">
+              <div className="mb-6">
+                <p className="text-golden font-medium tracking-wide uppercase text-xs mb-2">
+                  One-Time Purchase
+                </p>
+                <h3 className="font-heading text-2xl font-semibold text-bark mb-1">
+                  Starter Collection
+                </h3>
+                <div className="flex items-baseline gap-1">
+                  <span className="font-heading text-4xl font-bold text-bark">$7</span>
+                  <span className="text-bark/50 text-sm">one-time</span>
+                </div>
+              </div>
+              <p className="text-bark/60 text-sm mb-6 leading-relaxed">
+                Perfect for trying before subscribing. A beautifully curated introduction to the Ink&nbsp;&amp;&nbsp;Meadow style.
+              </p>
+              <ul className="space-y-3 mb-8">
+                <PricingFeature>27 hand-curated coloring pages</PricingFeature>
+                <PricingFeature>Instant PDF download</PricingFeature>
+                <PricingFeature>Mix of themes &amp; styles</PricingFeature>
+                <PricingFeature>Print unlimited copies</PricingFeature>
+              </ul>
+              <Link
+                href="/checkout?plan=starter"
+                className="block text-center bg-cream-dark text-bark border border-bark/10 px-6 py-3 rounded-full font-medium hover:border-sage hover:text-sage transition-all"
+              >
+                Get the Starter Collection
+              </Link>
+            </div>
+
+            {/* Meadow Plan */}
+            <div className="bg-white rounded-2xl p-8 border-2 border-sage/30 shadow-md relative hover:shadow-lg transition-shadow">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-sage text-white text-xs font-medium px-4 py-1 rounded-full">
+                Most Popular
+              </div>
+              <div className="mb-6">
+                <p className="text-sage font-medium tracking-wide uppercase text-xs mb-2">
+                  Monthly Membership
+                </p>
+                <h3 className="font-heading text-2xl font-semibold text-bark mb-1">
+                  Meadow
+                </h3>
+                <div className="flex items-baseline gap-1">
+                  <span className="font-heading text-4xl font-bold text-bark">$9</span>
+                  <span className="text-bark/50 text-sm">/month</span>
+                </div>
+              </div>
+              <p className="text-bark/60 text-sm mb-6 leading-relaxed">
+                Your monthly dose of calm. Fresh pages and a growing library that&rsquo;s always there for you.
+              </p>
+              <ul className="space-y-3 mb-8">
+                <PricingFeature>10 new pages every month</PricingFeature>
+                <PricingFeature>Access to growing library</PricingFeature>
+                <PricingFeature>Private community access</PricingFeature>
+                <PricingFeature>Monthly themed collections</PricingFeature>
+                <PricingFeature>Printable bookmarks &amp; extras</PricingFeature>
+              </ul>
+              <Link
+                href="/checkout?plan=meadow"
+                className="block text-center bg-sage text-white px-6 py-3 rounded-full font-medium hover:bg-sage-dark shadow-md shadow-sage/20 transition-all"
+              >
+                Join the Meadow
+              </Link>
+            </div>
+
+            {/* Cottage Plan */}
+            <div className="bg-white rounded-2xl p-8 border border-bark/5 shadow-sm hover:shadow-md transition-shadow">
+              <div className="mb-6">
+                <p className="text-golden font-medium tracking-wide uppercase text-xs mb-2">
+                  Premium Membership
+                </p>
+                <h3 className="font-heading text-2xl font-semibold text-bark mb-1">
+                  Cottage
+                </h3>
+                <div className="flex items-baseline gap-1">
+                  <span className="font-heading text-4xl font-bold text-bark">$49</span>
+                  <span className="text-bark/50 text-sm">/month</span>
+                </div>
+              </div>
+              <p className="text-bark/60 text-sm mb-6 leading-relaxed">
+                The full cottagecore experience. Digital and physical, with exclusive extras you won&rsquo;t find anywhere else.
+              </p>
+              <ul className="space-y-3 mb-8">
+                <PricingFeature>Everything in Meadow</PricingFeature>
+                <PricingFeature>50+ pages monthly</PricingFeature>
+                <PricingFeature>Physical booklet mailed monthly</PricingFeature>
+                <PricingFeature>Quarterly supply kit</PricingFeature>
+                <PricingFeature>Exclusive artist collaborations</PricingFeature>
+                <PricingFeature>Video tutorials &amp; workshops</PricingFeature>
+              </ul>
+              <Link
+                href="/checkout?plan=cottage"
+                className="block text-center bg-cream-dark text-bark border border-bark/10 px-6 py-3 rounded-full font-medium hover:border-golden hover:text-golden transition-all"
+              >
+                Join the Cottage
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <FloralDivider />
+
+      {/* ━━━ Social Proof Section ━━━ */}
+      <section className="py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <p className="text-sage font-medium tracking-[0.2em] uppercase text-sm mb-4">
+              From Our Community
+            </p>
+            <h2 className="font-heading text-4xl md:text-5xl font-semibold text-bark mb-4">
+              Join 1,000+ Members Finding Their Calm
+            </h2>
+            <p className="text-bark/60 max-w-xl mx-auto">
+              Hear from people who traded doomscrolling for coloring.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <TestimonialCard
+              quote="I used to spend my evenings mindlessly scrolling. Now I look forward to unwinding with my coloring pages. It's become my favorite ritual."
+              name="Sarah M."
+              detail="Meadow member since 2025"
+            />
+            <TestimonialCard
+              quote="The quality of the illustrations is incredible. Each page feels like a little escape to a world of wildflowers and cozy cottages."
+              name="Emily R."
+              detail="Cottage member since 2025"
+            />
+            <TestimonialCard
+              quote="I bought the Starter Collection just to try it, and signed up for Meadow within a week. The themed collections are so thoughtfully curated."
+              name="Jessica L."
+              detail="Meadow member since 2025"
+            />
+          </div>
+        </div>
+      </section>
+
+      <FloralDivider />
+
+      {/* ━━━ How It Works Section ━━━ */}
+      <section id="how-it-works" className="py-20 md:py-28">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <p className="text-rose font-medium tracking-[0.2em] uppercase text-sm mb-4">
+              Simple as Can Be
+            </p>
+            <h2 className="font-heading text-4xl md:text-5xl font-semibold text-bark">
+              How It Works
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-12">
+            <StepCard
+              number="1"
+              title="Choose Your Plan"
+              description="Pick the Starter Collection, Meadow, or Cottage — whatever suits your coloring rhythm."
+            />
+            <StepCard
+              number="2"
+              title="Download & Print"
+              description="Get instant access to your pages. Print them at home on your favorite paper, as many times as you like."
+            />
+            <StepCard
+              number="3"
+              title="Color, Breathe, Repeat"
+              description="Pour a cup of tea, pick up your pencils, and let the world fade away. New pages arrive every month."
+            />
+          </div>
+        </div>
+      </section>
+
+      <FloralDivider />
+
+      {/* ━━━ FAQ Section ━━━ */}
+      <section id="faq" className="py-20 md:py-28">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <p className="text-golden font-medium tracking-[0.2em] uppercase text-sm mb-4">
+              Questions &amp; Answers
+            </p>
+            <h2 className="font-heading text-4xl md:text-5xl font-semibold text-bark">
+              Frequently Asked
+            </h2>
+          </div>
+
+          <div className="space-y-6">
+            <FaqItem
+              question="What paper should I use?"
+              answer="We recommend printing on cardstock (65-110 lb) for the best coloring experience. Regular printer paper works too, but heavier paper prevents bleed-through if you're using markers. Each download includes a paper guide with our recommendations."
+            />
+            <FaqItem
+              question="Can I cancel anytime?"
+              answer="Absolutely. There are no contracts or commitments. You can cancel your Meadow or Cottage membership anytime from your account page. You'll keep access through the end of your billing period, and any pages you've already downloaded are yours forever."
+            />
+            <FaqItem
+              question="How do I access my pages?"
+              answer="After signing up, you'll get an account on inkandmeadow.com where all your pages live. You can download them as high-resolution PDFs, ready to print. New pages appear in your library automatically each month."
+            />
+            <FaqItem
+              question="What's in the Starter Collection?"
+              answer="The Starter Collection includes 27 beautifully curated coloring pages spanning our most popular themes: wildflower gardens, cozy cottages, forest creatures, tea-time scenes, and seasonal botanicals. It's a one-time purchase — no subscription needed."
+            />
+            <FaqItem
+              question="Do you ship internationally?"
+              answer="Yes! Cottage members receive their physical booklets worldwide. International shipping is included in your membership. Booklets typically arrive within 7-14 business days, depending on your location."
+            />
+          </div>
+        </div>
+      </section>
+
+      <FloralDivider />
+
+      {/* ━━━ Final CTA Section ━━━ */}
+      <section className="py-20 md:py-32 relative overflow-hidden">
+        <LeafAccent className="absolute top-10 left-10 w-20 h-20 text-sage hidden md:block opacity-50" />
+        <LeafAccent className="absolute bottom-10 right-10 w-16 h-16 text-rose hidden md:block opacity-50 rotate-90" />
+
+        <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
+          <h2 className="font-heading text-4xl md:text-6xl font-semibold text-bark mb-6">
+            Your Peaceful Evening
+            <br />
+            <span className="text-sage">Is Waiting</span>
+          </h2>
+          <p className="text-bark/60 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+            Close the laptop. Silence the notifications. Pick up your colored pencils
+            and let something beautiful unfold.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/checkout?plan=starter"
+              className="w-full sm:w-auto bg-cream-dark text-bark border-2 border-bark/15 px-8 py-4 rounded-full font-medium hover:border-sage hover:text-sage transition-all"
+            >
+              Get the Starter Collection &mdash; $7
+            </Link>
+            <Link
+              href="/checkout?plan=meadow"
+              className="w-full sm:w-auto bg-sage text-white px-8 py-4 rounded-full font-medium hover:bg-sage-dark shadow-lg shadow-sage/20 transition-all"
+            >
+              Join the Club &mdash; $9/mo
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ━━━ Footer ━━━ */}
+      <footer className="border-t border-bark/10 py-12">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="text-center md:text-left">
+              <p className="font-heading text-xl font-semibold text-bark">
+                Ink &amp; Meadow
+              </p>
+              <p className="text-bark/40 text-sm mt-1">
+                A cottagecore coloring club for quiet souls.
+              </p>
+            </div>
+            <div className="flex items-center gap-6 text-sm text-bark/50">
+              <a href="#pricing" className="hover:text-sage transition-colors">
+                Pricing
+              </a>
+              <a href="#faq" className="hover:text-sage transition-colors">
+                FAQ
+              </a>
+              <Link href="/checkout?plan=meadow" className="hover:text-sage transition-colors">
+                Join
+              </Link>
+            </div>
+          </div>
+          <div className="text-center mt-8 text-bark/30 text-xs">
+            &copy; {new Date().getFullYear()} Ink &amp; Meadow. All rights reserved.
+          </div>
+        </div>
+      </footer>
     </div>
+  );
+}
+
+/* ─── Reusable Sub-Components ─── */
+
+function PricingFeature({ children }: { children: React.ReactNode }) {
+  return (
+    <li className="flex items-start gap-2 text-sm text-bark/70">
+      <svg
+        className="w-4 h-4 text-sage mt-0.5 shrink-0"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          fillRule="evenodd"
+          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+          clipRule="evenodd"
+        />
+      </svg>
+      <span>{children}</span>
+    </li>
+  );
+}
+
+function TestimonialCard({
+  quote,
+  name,
+  detail,
+}: {
+  quote: string;
+  name: string;
+  detail: string;
+}) {
+  return (
+    <div className="bg-white rounded-2xl p-8 border border-bark/5 shadow-sm">
+      <svg
+        className="w-8 h-8 text-rose/30 mb-4"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311C9.591 11.69 11 13.166 11 15c0 1.933-1.567 3.5-3.5 3.5-1.196 0-2.322-.585-2.917-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311C19.591 11.69 21 13.166 21 15c0 1.933-1.567 3.5-3.5 3.5-1.196 0-2.322-.585-2.917-1.179z" />
+      </svg>
+      <p className="text-bark/70 text-sm leading-relaxed mb-6">{quote}</p>
+      <div>
+        <p className="font-medium text-bark text-sm">{name}</p>
+        <p className="text-bark/40 text-xs">{detail}</p>
+      </div>
+    </div>
+  );
+}
+
+function StepCard({
+  number,
+  title,
+  description,
+}: {
+  number: string;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="text-center">
+      <div className="w-14 h-14 rounded-full bg-sage/10 text-sage font-heading text-2xl font-bold flex items-center justify-center mx-auto mb-5">
+        {number}
+      </div>
+      <h3 className="font-heading text-xl font-semibold text-bark mb-3">
+        {title}
+      </h3>
+      <p className="text-bark/60 text-sm leading-relaxed">{description}</p>
+    </div>
+  );
+}
+
+function FaqItem({
+  question,
+  answer,
+}: {
+  question: string;
+  answer: string;
+}) {
+  return (
+    <details className="group bg-white rounded-xl border border-bark/5 shadow-sm">
+      <summary className="flex items-center justify-between px-6 py-5 cursor-pointer list-none font-heading text-lg font-semibold text-bark hover:text-sage transition-colors">
+        {question}
+        <svg
+          className="w-5 h-5 text-bark/30 group-open:rotate-45 transition-transform shrink-0 ml-4"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            fillRule="evenodd"
+            d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+            clipRule="evenodd"
+          />
+        </svg>
+      </summary>
+      <div className="px-6 pb-5 text-bark/60 text-sm leading-relaxed">
+        {answer}
+      </div>
+    </details>
   );
 }

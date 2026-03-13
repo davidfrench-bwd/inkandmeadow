@@ -1,26 +1,66 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: #FDF8F0;
+  --color-cream-dark: #F5EDE0;
+  --color-sage: #7C9A6E;
+  --color-sage-light: #A8C686;
+  --color-sage-dark: #5C7A4E;
+  --color-bark: #3D2B1F;
+  --color-bark-light: #5A4233;
+  --color-rose: #C4917B;
+  --color-rose-light: #D4A999;
+  --color-rose-dark: #A87563;
+  --color-golden: #D4A853;
+  --color-golden-light: #E4C87A;
+  --color-meadow: #A8C686;
+
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FDF8F0;
+  color: #3D2B1F;
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Button transitions */
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Decorative botanical divider */
+.botanical-divider {
+  position: relative;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.botanical-divider::before {
+  content: "✿";
+  font-size: 1.25rem;
+  color: #C4917B;
+  letter-spacing: 0.75rem;
+}
+
+/* Soft floral background pattern */
+.floral-bg {
+  background-image: radial-gradient(circle at 20% 50%, rgba(168, 198, 134, 0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(196, 145, 123, 0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 50% 80%, rgba(212, 168, 83, 0.06) 0%, transparent 50%);
+}
+
+/* Selection colors */
+::selection {
+  background-color: rgba(168, 198, 134, 0.3);
+  color: #3D2B1F;
 }
