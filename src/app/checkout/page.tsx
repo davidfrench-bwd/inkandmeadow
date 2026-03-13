@@ -1,7 +1,8 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
+import { initiateCheckout } from '@/lib/pixel';
 
 const plans = {
   starter: {
@@ -51,6 +52,17 @@ function CheckoutContent() {
   const [error, setError] = useState<string | null>(null);
 
   const plan = planParam && plans[planParam] ? planParam : null;
+
+  useEffect(() => {
+    if (plan) {
+      const priceMap: Record<PlanKey, number> = {
+        starter: 7,
+        meadow: 9,
+        cottage: 49,
+      };
+      initiateCheckout(plans[plan].name, priceMap[plan]);
+    }
+  }, [plan]);
 
   if (!plan) {
     return (

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import { getServiceClient } from '@/lib/supabase';
 
 export const dynamic = 'force-dynamic';
 
@@ -37,14 +38,61 @@ export async function POST(request: NextRequest) {
 
         console.log(`[Checkout Complete] Plan: ${plan}, Email: ${email}, Session: ${session.id}`);
 
-        if (plan === 'starter') {
-          console.log(`[One-Time Purchase] Starter Collection purchased by ${email}`);
-          // TODO: Grant access to starter collection downloads
-          // TODO: Store purchase in Supabase
-        } else if (plan === 'meadow' || plan === 'cottage') {
-          console.log(`[New Subscription] ${plan} membership started by ${email}`);
-          // TODO: Create member record in Supabase
-          // TODO: Grant access to member portal
+        if (email) {
+          const supabase = getServiceClient();
+          const customerId =
+            typeof session.customer === 'string'
+              ? session.customer
+              : session.customer?.id ?? null;
+
+          // Upsert member record (works for both one-time and subscription plans)
+          const { error: memberError } = await supabase
+            .from('members')
+            .upsert(
+              {
+                email,
+                stripe_customer_id: customerId,
+                plan: plan ?? 'starter',
+                status: 'active',
+                updated_at: new Date().toISOString(),
+              },
+              { onConflict: 'email' },
+            );
+
+          if (memberError) {
+            console.error('[Checkout] Failed to upsert member:', memberError);
+          }
+
+          // Fetch the member id for the purchases FK
+          const { data: member } = await supabase
+            .from('members')
+            .select('id')
+            .eq('email', email)
+            .single();
+
+          // Record the purchase
+          const productName = session.metadata?.product ?? plan ?? 'unknown';
+          const amountCents = session.amount_total ?? 0;
+
+          const { error: purchaseError } = await supabase
+            .from('purchases')
+            .insert({
+              member_id: member?.id ?? null,
+              email,
+              product: productName,
+              stripe_session_id: session.id,
+              amount_cents: amountCents,
+            });
+
+          if (purchaseError) {
+            console.error('[Checkout] Failed to insert purchase:', purchaseError);
+          }
+
+          if (plan === 'starter') {
+            console.log(`[One-Time Purchase] Starter Collection purchased by ${email}`);
+          } else if (plan === 'meadow' || plan === 'cottage') {
+            console.log(`[New Subscription] ${plan} membership started by ${email}`);
+          }
         }
         break;
       }
@@ -52,22 +100,74 @@ export async function POST(request: NextRequest) {
       case 'customer.subscription.created': {
         const subscription = event.data.object as Stripe.Subscription;
         console.log(`[Subscription Created] ID: ${subscription.id}, Status: ${subscription.status}`);
-        // TODO: Update member status in Supabase
+
+        const customerId =
+          typeof subscription.customer === 'string'
+            ? subscription.customer
+            : subscription.customer?.id ?? null;
+
+        if (customerId) {
+          const supabase = getServiceClient();
+          const { error } = await supabase
+            .from('members')
+            .update({
+              stripe_subscription_id: subscription.id,
+              status: subscription.status === 'active' ? 'active' : subscription.status,
+              updated_at: new Date().toISOString(),
+            })
+            .eq('stripe_customer_id', customerId);
+
+          if (error) {
+            console.error('[Subscription Created] Failed to update member:', error);
+          }
+        }
         break;
       }
 
       case 'customer.subscription.deleted': {
         const subscription = event.data.object as Stripe.Subscription;
         console.log(`[Subscription Cancelled] ID: ${subscription.id}`);
-        // TODO: Revoke member access in Supabase
+
+        {
+          const supabase = getServiceClient();
+          const { error } = await supabase
+            .from('members')
+            .update({
+              status: 'cancelled',
+              updated_at: new Date().toISOString(),
+            })
+            .eq('stripe_subscription_id', subscription.id);
+
+          if (error) {
+            console.error('[Subscription Deleted] Failed to update member:', error);
+          }
+        }
         break;
       }
 
       case 'invoice.payment_succeeded': {
         const invoice = event.data.object as Stripe.Invoice;
         console.log(`[Payment Succeeded] Invoice: ${invoice.id}, Amount: ${invoice.amount_paid}, Customer: ${invoice.customer}`);
-        // TODO: Log payment in Supabase
-        // TODO: Unlock next month's content if recurring
+
+        const invoiceCustomerId =
+          typeof invoice.customer === 'string'
+            ? invoice.customer
+            : invoice.customer?.id ?? null;
+
+        if (invoiceCustomerId) {
+          const supabase = getServiceClient();
+          const { error } = await supabase
+            .from('members')
+            .update({
+              status: 'active',
+              updated_at: new Date().toISOString(),
+            })
+            .eq('stripe_customer_id', invoiceCustomerId);
+
+          if (error) {
+            console.error('[Invoice Payment] Failed to update member:', error);
+          }
+        }
         break;
       }
 

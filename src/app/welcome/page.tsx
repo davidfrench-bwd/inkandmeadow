@@ -1,7 +1,8 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
+import { purchase } from '@/lib/pixel';
 
 interface SessionData {
   plan: string | null;
@@ -18,6 +19,7 @@ function WelcomeContent() {
   const [session, setSession] = useState<SessionData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const purchaseTracked = useRef(false);
 
   useEffect(() => {
     if (!sessionId) {
@@ -40,6 +42,23 @@ function WelcomeContent() {
         setLoading(false);
       });
   }, [sessionId]);
+
+  useEffect(() => {
+    if (session && session.status === 'complete' && !purchaseTracked.current) {
+      purchaseTracked.current = true;
+      const priceMap: Record<string, number> = {
+        starter: 7,
+        meadow: 9,
+        cottage: 49,
+      };
+      const value = session.plan ? priceMap[session.plan] ?? 0 : 0;
+      purchase(
+        session.plan || 'unknown',
+        value,
+        sessionId || ''
+      );
+    }
+  }, [session, sessionId]);
 
   if (loading) {
     return (
