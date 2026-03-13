@@ -1,4 +1,6 @@
 import Link from "next/link";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
+import EmailCapture from "@/components/EmailCapture";
 
 /* ─── Decorative SVG Components ─── */
 
@@ -118,8 +120,18 @@ export default function Home() {
         </div>
       </nav>
 
+      {/* ━━━ Urgency Banner ━━━ */}
+      <div className="fixed top-[65px] left-0 right-0 z-40 bg-bark text-white text-center py-2 px-4 text-sm">
+        <span className="font-medium">Launch Special:</span> 30 coloring pages for just $7
+        <span className="text-white/60 ml-1">(regular $12)</span>
+        <span className="mx-2 text-white/30">|</span>
+        <Link href="/checkout?plan=starter" className="underline font-medium hover:text-golden transition-colors">
+          Grab it now
+        </Link>
+      </div>
+
       {/* ━━━ Hero Section ━━━ */}
-      <section className="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
+      <section className="relative pt-40 pb-20 md:pt-52 md:pb-32 overflow-hidden">
         {/* Decorative elements */}
         <BotanicalCorner className="absolute top-20 left-0 w-32 h-32 text-sage hidden lg:block" />
         <BotanicalCorner className="absolute top-20 right-0 w-32 h-32 text-rose hidden lg:block scale-x-[-1]" />
@@ -139,8 +151,9 @@ export default function Home() {
                 <span className="text-sage">for Something Beautiful</span>
               </h1>
               <p className="text-bark/70 text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
-                Join thousands finding calm through cottagecore coloring.
-                New hand-curated pages delivered monthly.
+                You already know the scroll isn&rsquo;t helping. Replace that hour of
+                screen time with something that actually makes you feel good.
+                Beautiful cottagecore pages, delivered monthly.
               </p>
               <div className="flex flex-col sm:flex-row items-center md:items-start gap-4">
                 <Link
@@ -260,6 +273,40 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      {/* ━━━ Social Proof Section ━━━ */}
+      <section className="py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <p className="text-sage font-medium tracking-[0.2em] uppercase text-sm mb-4">
+              From Our Community
+            </p>
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-bark">
+              What Members Are Saying
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <TestimonialCard
+              quote="I used to spend my evenings mindlessly scrolling. Now I look forward to unwinding with my coloring pages. It's become my favorite ritual."
+              name="Sarah M."
+              detail="Meadow member since 2025"
+            />
+            <TestimonialCard
+              quote="The quality of the illustrations is incredible. Each page feels like a little escape to a world of wildflowers and cozy cottages."
+              name="Emily R."
+              detail="Cottage member since 2025"
+            />
+            <TestimonialCard
+              quote="I bought the Starter Collection just to try it, and signed up for Meadow within a week. The themed collections are so thoughtfully curated."
+              name="Jessica L."
+              detail="Meadow member since 2025"
+            />
+          </div>
+        </div>
+      </section>
+
+      <FloralDivider />
 
       {/* ━━━ Starter Collection Showcase ━━━ */}
       <section id="starter-collection" className="py-20 md:py-28 bg-white/50">
@@ -531,43 +578,6 @@ export default function Home() {
 
       <FloralDivider />
 
-      {/* ━━━ Social Proof Section ━━━ */}
-      <section className="py-20 md:py-28">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-sage font-medium tracking-[0.2em] uppercase text-sm mb-4">
-              From Our Community
-            </p>
-            <h2 className="font-heading text-4xl md:text-5xl font-semibold text-bark mb-4">
-              Join 1,000+ Members Finding Their Calm
-            </h2>
-            <p className="text-bark/60 max-w-xl mx-auto">
-              Hear from people who traded doomscrolling for coloring.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <TestimonialCard
-              quote="I used to spend my evenings mindlessly scrolling. Now I look forward to unwinding with my coloring pages. It's become my favorite ritual."
-              name="Sarah M."
-              detail="Meadow member since 2025"
-            />
-            <TestimonialCard
-              quote="The quality of the illustrations is incredible. Each page feels like a little escape to a world of wildflowers and cozy cottages."
-              name="Emily R."
-              detail="Cottage member since 2025"
-            />
-            <TestimonialCard
-              quote="I bought the Starter Collection just to try it, and signed up for Meadow within a week. The themed collections are so thoughtfully curated."
-              name="Jessica L."
-              detail="Meadow member since 2025"
-            />
-          </div>
-        </div>
-      </section>
-
-      <FloralDivider />
-
       {/* ━━━ How It Works Section ━━━ */}
       <section id="how-it-works" className="py-20 md:py-28">
         <div className="max-w-5xl mx-auto px-6">
@@ -672,6 +682,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ━━━ Free Sample / Email Capture ━━━ */}
+      <section className="py-20 md:py-28 bg-sage/5">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="flex justify-center gap-2 mb-8">
+            {[
+              '2026-03_26_kitten-in-the-garden.png',
+              '2026-03_01_wildflower-cottage.png',
+              '2026-03_29_ducklings-at-the-pond.png',
+            ].map((file, i) => (
+              <div key={file} className={`bg-white rounded-lg shadow-md border border-sage/10 p-1 w-24 md:w-32 ${i === 0 ? '-rotate-3' : i === 2 ? 'rotate-3' : ''}`}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/${file}`}
+                  alt="Free sample page"
+                  className="w-full aspect-square object-cover rounded"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-bark mb-3">
+            Not Ready to Commit?
+          </h2>
+          <p className="text-bark/60 mb-8 max-w-lg mx-auto">
+            Try 3 free coloring pages from our collection &mdash; no card required.
+            Just enter your email and start coloring tonight.
+          </p>
+          <EmailCapture />
+        </div>
+      </section>
+
       <FloralDivider />
 
       {/* ━━━ Final CTA Section ━━━ */}
@@ -730,7 +771,7 @@ export default function Home() {
       </section>
 
       {/* ━━━ Footer ━━━ */}
-      <footer className="border-t border-bark/10 py-12">
+      <footer className="border-t border-bark/10 py-12 pb-24 md:pb-12">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
@@ -758,6 +799,9 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Sticky mobile CTA */}
+      <StickyMobileCTA />
     </div>
   );
 }
