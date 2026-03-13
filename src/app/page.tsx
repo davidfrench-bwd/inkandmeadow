@@ -490,13 +490,13 @@ export default function Home() {
                 <p className="text-sage text-xs font-medium mt-1">Only $0.23 per page</p>
               </div>
               <p className="text-bark/60 text-sm mb-6 leading-relaxed">
-                Perfect for trying before subscribing. A beautifully curated introduction to the Ink&nbsp;&amp;&nbsp;Meadow style.
+                Not ready to subscribe? Try 30 pages and see why members stay.
               </p>
               <ul className="space-y-3 mb-6">
                 <PricingFeature>30 hand-curated coloring pages</PricingFeature>
                 <PricingFeature>Print-ready PDF + iPad-compatible PNG</PricingFeature>
                 <PricingFeature>Mix of themes &amp; styles</PricingFeature>
-                <PricingFeature>Print unlimited copies or use in Procreate</PricingFeature>
+                <PricingFeature>No new pages after purchase</PricingFeature>
               </ul>
               <a
                 href="#starter-collection"
@@ -539,12 +539,13 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-bark/60 text-sm mb-6 leading-relaxed">
-                Your monthly dose of calm. Fresh pages and a growing library that&rsquo;s always there for you.
+                Everything in the Starter plus 30 fresh pages every month. Your library grows, your calm deepens.
               </p>
               <ul className="space-y-3 mb-8">
-                <PricingFeature>10 new pages every month</PricingFeature>
+                <PricingFeature>Starter Collection included (30 pages)</PricingFeature>
+                <PricingFeature>30 brand-new pages every month</PricingFeature>
                 <PricingFeature>PDF + PNG formats (print &amp; iPad)</PricingFeature>
-                <PricingFeature>Access to growing library</PricingFeature>
+                <PricingFeature>Full access to growing library</PricingFeature>
                 <PricingFeature>Monthly themed collections</PricingFeature>
                 <PricingFeature>Private community access</PricingFeature>
               </ul>

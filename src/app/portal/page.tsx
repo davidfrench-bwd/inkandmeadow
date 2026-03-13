@@ -12,7 +12,7 @@ export default function PortalDashboard() {
   const [activeTheme, setActiveTheme] = useState<string>("All");
   const [expandedCollection, setExpandedCollection] = useState<string>(collections[0].id);
 
-  const planLabel = member.plan === "cottage" ? "Cottage" : member.plan === "meadow" ? "Meadow" : "Starter";
+  const planLabel = member.plan === "meadow" ? "Meadow" : "Starter";
 
   function handleDownload(pageId: string) {
     // Placeholder for download logic
@@ -74,11 +74,9 @@ export default function PortalDashboard() {
         <div className="bg-white rounded-2xl border border-[#e8e0d0] p-4">
           <p className="text-xs text-[#9a8a7a] uppercase tracking-wider font-medium mb-1">Available Pages</p>
           <p className="text-lg font-bold text-[#4a3a2a]">
-            {member.plan === "cottage"
+            {member.plan === "meadow"
               ? collections.reduce((sum, c) => sum + c.pages.length, 0)
-              : member.plan === "meadow"
-                ? collections.reduce((sum, c) => sum + c.pages.filter((p) => !p.isPremium).length, 0)
-                : member.purchasedPageIds.length}
+              : member.purchasedPageIds.length}
           </p>
         </div>
         <div className="bg-white rounded-2xl border border-[#e8e0d0] p-4">
@@ -114,9 +112,9 @@ export default function PortalDashboard() {
           const premiumCount = getPremiumPagesCount(collection);
           const isExpanded = expandedCollection === collection.id;
 
-          // For Cottage members, show all; for others, show available + locked premium previews
+          // For Meadow members, show all; for Starter, show available + locked premium previews
           const allFilteredPages = getFilteredPages(collection.pages);
-          const displayPages = member.plan === "cottage" ? filteredPages : allFilteredPages;
+          const displayPages = member.plan === "meadow" ? filteredPages : allFilteredPages;
 
           return (
             <section key={collection.id} className="bg-white rounded-2xl border border-[#e8e0d0] overflow-hidden">
@@ -130,11 +128,6 @@ export default function PortalDashboard() {
                     <h2 className="text-lg sm:text-xl font-bold text-[#4a3a2a]">
                       {collection.month}: {collection.title}
                     </h2>
-                    {member.plan === "cottage" && (
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-100 to-amber-200 text-amber-700 border border-amber-300">
-                        {collection.pages.length} Pages
-                      </span>
-                    )}
                     {member.plan === "meadow" && (
                       <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 border border-emerald-200">
                         {memberPages.length} Pages
@@ -142,9 +135,9 @@ export default function PortalDashboard() {
                     )}
                   </div>
                   <p className="text-sm text-[#8a7a6a]">{collection.subtitle}</p>
-                  {member.plan !== "cottage" && premiumCount > 0 && (
+                  {member.plan !== "meadow" && premiumCount > 0 && (
                     <p className="text-xs text-amber-600 mt-1">
-                      + {premiumCount} premium pages available with Cottage
+                      + {premiumCount} premium pages available with Meadow
                     </p>
                   )}
                 </div>

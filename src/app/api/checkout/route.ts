@@ -16,7 +16,7 @@ const planConfig = {
   },
   meadow: {
     name: 'Meadow Membership',
-    description: '10 new pages monthly + growing library + community',
+    description: '30 new pages monthly + Starter Collection + growing library',
     amount: 900, // $9.00
     mode: 'subscription' as const,
   },

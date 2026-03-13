@@ -17,7 +17,7 @@ export interface Collection {
   pages: ColoringPage[];
 }
 
-export type MemberPlan = "starter" | "meadow" | "cottage";
+export type MemberPlan = "starter" | "meadow";
 
 export interface Member {
   id: string;
@@ -254,10 +254,8 @@ export const mockMember: Member = {
 
 export function getPagesForMember(collection: Collection, member: Member): ColoringPage[] {
   switch (member.plan) {
-    case "cottage":
-      return collection.pages; // All pages
     case "meadow":
-      return collection.pages.filter((p) => !p.isPremium); // 10 regular pages
+      return collection.pages; // All pages
     case "starter":
       return collection.pages.filter((p) => member.purchasedPageIds.includes(p.id));
     default:

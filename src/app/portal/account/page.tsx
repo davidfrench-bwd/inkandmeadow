@@ -37,9 +37,9 @@ const plans = [
     name: "Meadow",
     price: "$9",
     period: "/month",
-    description: "Fresh inspiration every month with 10 new pages",
+    description: "Fresh inspiration every month with 30 new pages",
     features: [
-      "10 new pages every month",
+      "30 new pages every month",
       "Access to full back catalog",
       "High-resolution PDF downloads",
       "Print unlimited copies for personal use",
@@ -48,23 +48,6 @@ const plans = [
     color: "border-emerald-300 bg-emerald-50",
     badge: "bg-emerald-100 text-emerald-700",
     popular: true,
-  },
-  {
-    id: "cottage" as const,
-    name: "Cottage",
-    price: "$19",
-    period: "/month",
-    description: "The complete experience with 50+ pages and exclusives",
-    features: [
-      "50+ pages every month",
-      "All Meadow features included",
-      "Premium exclusive designs",
-      "Early access to new collections",
-      "Behind-the-scenes content",
-      "Printable journal pages & bookmarks",
-    ],
-    color: "border-amber-300 bg-amber-50",
-    badge: "bg-amber-100 text-amber-800",
   },
 ];
 
@@ -99,11 +82,9 @@ export default function AccountPage() {
   const visibleHistory = showAllHistory ? downloadHistory : downloadHistory.slice(0, 5);
 
   const totalAvailablePages =
-    member.plan === "cottage"
+    member.plan === "meadow"
       ? collections.reduce((sum, c) => sum + c.pages.length, 0)
-      : member.plan === "meadow"
-        ? collections.reduce((sum, c) => sum + c.pages.filter((p) => !p.isPremium).length, 0)
-        : member.purchasedPageIds.length;
+      : member.purchasedPageIds.length;
 
   return (
     <div className="p-4 sm:p-6 lg:p-8 pb-24 lg:pb-8 max-w-4xl">
@@ -181,14 +162,13 @@ export default function AccountPage() {
       </div>
 
       {/* ── Upgrade CTA ──────────────────────────────────────── */}
-      {member.plan !== "cottage" && (
+      {member.plan !== "meadow" && (
         <div className="mb-6">
           <h2 className="text-sm font-semibold text-[#9a8a7a] uppercase tracking-wider mb-4">Available Plans</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {plans
               .filter((p) => {
-                if (member.plan === "starter") return p.id === "meadow" || p.id === "cottage";
-                if (member.plan === "meadow") return p.id === "cottage";
+                if (member.plan === "starter") return p.id === "meadow";
                 return false;
               })
               .map((plan) => (
@@ -218,11 +198,7 @@ export default function AccountPage() {
                     ))}
                   </ul>
                   <button
-                    className={`w-full py-2.5 rounded-xl text-sm font-semibold transition-colors ${
-                      plan.id === "cottage"
-                        ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white hover:from-amber-600 hover:to-amber-700"
-                        : "bg-[#7a8f6e] text-white hover:bg-[#6a7f5e]"
-                    }`}
+                    className="w-full py-2.5 rounded-xl text-sm font-semibold transition-colors bg-[#7a8f6e] text-white hover:bg-[#6a7f5e]"
                   >
                     Upgrade to {plan.name}
                   </button>

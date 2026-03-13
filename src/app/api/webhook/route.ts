@@ -91,7 +91,7 @@ export async function POST(request: NextRequest) {
 
           if (plan === 'starter') {
             console.log(`[One-Time Purchase] Starter Collection purchased by ${email}`);
-          } else if (plan === 'meadow' || plan === 'cottage') {
+          } else if (plan === 'meadow') {
             console.log(`[New Subscription] ${plan} membership started by ${email}`);
           }
 

@@ -53,13 +53,12 @@ export async function GET(request: NextRequest) {
 
     // Check plan access
     // starter: non-premium only
-    // meadow: non-premium only
-    // cottage: everything
+    // meadow: everything
     const plan = member.plan as string;
 
-    if (page.is_premium && plan !== 'cottage') {
+    if (page.is_premium && plan !== 'meadow') {
       return NextResponse.json(
-        { error: 'Your plan does not include premium pages. Upgrade to Cottage for full access.' },
+        { error: 'Your plan does not include premium pages. Upgrade to Meadow for full access.' },
         { status: 403 },
       );
     }

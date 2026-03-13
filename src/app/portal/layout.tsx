@@ -59,13 +59,11 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const member = mockMember;
 
-  const planLabel = member.plan === "cottage" ? "Cottage" : member.plan === "meadow" ? "Meadow" : "Starter";
+  const planLabel = member.plan === "meadow" ? "Meadow" : "Starter";
   const planColor =
-    member.plan === "cottage"
-      ? "bg-amber-100 text-amber-800 border-amber-300"
-      : member.plan === "meadow"
-        ? "bg-emerald-100 text-emerald-800 border-emerald-300"
-        : "bg-stone-100 text-stone-700 border-stone-300";
+    member.plan === "meadow"
+      ? "bg-emerald-100 text-emerald-800 border-emerald-300"
+      : "bg-stone-100 text-stone-700 border-stone-300";
 
   return (
     <div className="min-h-screen bg-[#faf7f2]">

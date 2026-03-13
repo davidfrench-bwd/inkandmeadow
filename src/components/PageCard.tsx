@@ -9,7 +9,7 @@ interface PageCardProps {
 }
 
 export default function PageCard({ page, memberPlan, onDownload }: PageCardProps) {
-  const isLocked = page.isPremium && memberPlan !== "cottage";
+  const isLocked = page.isPremium && memberPlan !== "meadow";
   const themeClasses = getThemeColor(page.theme);
 
   return (

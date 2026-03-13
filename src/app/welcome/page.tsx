@@ -152,11 +152,11 @@ function WelcomeContent() {
                   Love these pages?
                 </p>
                 <h2 className="text-xl font-semibold mb-2" style={{ color: '#5C4033' }}>
-                  Get 10 new pages every month for just $9/mo
+                  Get 30 new pages every month for just $9/mo
                 </h2>
                 <p className="mb-6" style={{ color: '#8B7355' }}>
                   Join the Meadow Membership and never run out of beautiful pages to color.
-                  Plus, get access to our growing library and members-only community.
+                  You&rsquo;ll get 30 fresh pages monthly, plus access to our growing library and community.
                 </p>
                 <a
                   href="/checkout?plan=meadow"
@@ -177,8 +177,8 @@ function WelcomeContent() {
               Welcome to the Meadow!
             </h1>
             <p className="text-lg mb-8" style={{ color: '#8B7355' }}>
-              Your membership is active. You now have access to our full library of coloring pages,
-              and 10 new ones are on their way to you every month.
+              Your membership is active! You now have access to the full Starter Collection plus our
+              entire growing library — and 30 brand-new pages are on their way to you every month.
             </p>
 
             <div
@@ -194,10 +194,10 @@ function WelcomeContent() {
               </h2>
               <ul className="space-y-3">
                 {[
-                  'Explore the full page library in your member portal',
-                  'Download and print any pages you like',
+                  'Your Starter Collection (30 pages) is ready to download now',
+                  'Explore the full growing library in your member portal',
                   'Join the members-only community',
-                  '10 new pages will arrive on the 1st of each month',
+                  '30 brand-new pages arrive on the 1st of each month',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <span
