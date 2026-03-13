@@ -21,20 +21,23 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Ink & Meadow — Cottagecore Coloring Club",
   description:
-    "Find your calm with Ink & Meadow. A cottagecore-inspired coloring membership delivering hand-curated, beautifully illustrated pages to your inbox every month. Trade screen time for something beautiful.",
+    "Beautiful cottagecore coloring pages you can print at home or color on your iPad. Hand-curated illustrations delivered monthly — wildflowers, cozy cottages, woodland creatures. Trade screen time for something beautiful.",
   keywords: [
-    "coloring pages",
-    "cottagecore",
-    "adult coloring",
+    "printable coloring pages",
+    "iPad coloring pages",
+    "Procreate coloring pages",
+    "cottagecore coloring",
+    "adult coloring pages",
     "coloring membership",
-    "relaxation",
-    "mindfulness",
-    "printable coloring",
+    "digital coloring book",
+    "coloring pages for adults",
+    "mindfulness coloring",
+    "stress relief coloring",
   ],
   openGraph: {
     title: "Ink & Meadow — Cottagecore Coloring Club",
     description:
-      "Join thousands finding calm through cottagecore coloring. New hand-curated pages delivered monthly.",
+      "Beautiful cottagecore coloring pages — print at home or color on your iPad. New pages delivered monthly.",
     type: "website",
     url: "https://inkandmeadow.com",
   },
@@ -42,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ink & Meadow — Cottagecore Coloring Club",
     description:
-      "Join thousands finding calm through cottagecore coloring. New hand-curated pages delivered monthly.",
+      "Beautiful cottagecore coloring pages — print at home or color on your iPad. New pages delivered monthly.",
   },
 };
 

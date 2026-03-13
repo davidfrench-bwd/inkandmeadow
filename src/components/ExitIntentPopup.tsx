@@ -111,6 +111,13 @@ export default function ExitIntentPopup() {
             >
               Get All 30 Pages &mdash; $7
             </Link>
+            <Link
+              href="/free-sample"
+              className="block text-sage text-sm font-medium hover:text-sage-dark transition-colors py-2 underline underline-offset-2"
+              onClick={dismiss}
+            >
+              Get 3 Free Pages
+            </Link>
             <button
               onClick={dismiss}
               className="text-bark/50 text-sm hover:text-bark transition-colors py-2"

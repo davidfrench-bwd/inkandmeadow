@@ -19,7 +19,8 @@ export default function EmailCapture() {
       });
 
       if (res.ok) {
-        setStatus('success');
+        window.location.href = '/free-sample';
+        return;
       } else {
         setStatus('error');
       }

@@ -41,6 +41,18 @@ const plans = {
       'Early access & monthly coloring challenges',
     ],
   },
+  library: {
+    name: 'Complete Library',
+    price: '$29',
+    interval: '',
+    description: '200+ coloring pages from every collection — print or iPad',
+    features: [
+      'Every page from every collection (200+)',
+      'Print-ready PDF + iPad-compatible PNG',
+      'All future pages for 12 months',
+      'Instant download access',
+    ],
+  },
 } as const;
 
 type PlanKey = keyof typeof plans;
@@ -59,6 +71,7 @@ function CheckoutContent() {
         starter: 7,
         meadow: 9,
         cottage: 49,
+        library: 29,
       };
       initiateCheckout(plans[plan].name, priceMap[plan]);
     }
@@ -146,7 +159,7 @@ function CheckoutContent() {
               className="inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full"
               style={{ backgroundColor: '#EFF5EB', color: '#5A7D4A' }}
             >
-              {plan === 'starter' ? 'One-Time Purchase' : 'Monthly Membership'}
+              {plan === 'starter' || plan === 'library' ? 'One-Time Purchase' : 'Monthly Membership'}
             </span>
           </div>
 

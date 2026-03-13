@@ -1,0 +1,100 @@
+'use client';
+
+import Link from 'next/link';
+
+const STORAGE_BASE =
+  'https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03';
+
+const samples = [
+  {
+    file: '2026-03_26_kitten-in-the-garden.png',
+    title: 'Kitten in the Garden',
+  },
+  {
+    file: '2026-03_01_wildflower-cottage.png',
+    title: 'Wildflower Cottage',
+  },
+  {
+    file: '2026-03_29_ducklings-at-the-pond.png',
+    title: 'Ducklings at the Pond',
+  },
+];
+
+export default function FreeSamplePage() {
+  return (
+    <main className="bg-cream min-h-screen">
+      {/* Header */}
+      <section className="pt-16 pb-10 text-center px-4">
+        <p className="text-sage font-medium tracking-[0.2em] uppercase text-xs mb-3">
+          Free Sample
+        </p>
+        <h1 className="font-heading text-4xl md:text-5xl font-semibold text-bark mb-4">
+          Your 3 Free Coloring Pages
+        </h1>
+        <p className="text-bark/70 max-w-lg mx-auto text-base leading-relaxed">
+          Print them out or import into Procreate on your iPad &mdash; these pages are yours to enjoy
+          however you like.
+        </p>
+      </section>
+
+      {/* Sample Cards */}
+      <section className="max-w-4xl mx-auto px-4 pb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          {samples.map((sample) => {
+            const url = `${STORAGE_BASE}/${sample.file}`;
+            return (
+              <div
+                key={sample.file}
+                className="bg-white rounded-2xl shadow-md border border-sage/10 overflow-hidden"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={url}
+                  alt={sample.title}
+                  className="w-full aspect-square object-cover"
+                />
+                <div className="p-5 text-center">
+                  <h3 className="font-heading text-lg font-semibold text-bark mb-3">
+                    {sample.title}
+                  </h3>
+                  <a
+                    href={url}
+                    download
+                    className="inline-block bg-sage text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-sage-dark transition-colors"
+                  >
+                    Download
+                  </a>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Upsell CTA */}
+      <section className="bg-bark/[0.03] border-t border-bark/10 py-16 px-4 text-center">
+        <h2 className="font-heading text-3xl md:text-4xl font-semibold text-bark mb-3">
+          Love these?
+        </h2>
+        <p className="text-bark/70 max-w-md mx-auto mb-8 text-base leading-relaxed">
+          Get all 30 beautifully illustrated coloring pages for just $7. Print them out or import
+          into Procreate on your iPad for a relaxing creative escape.
+        </p>
+        <Link
+          href="/checkout?plan=starter"
+          className="inline-block bg-sage text-white px-8 py-4 rounded-full text-base font-medium hover:bg-sage-dark transition-colors shadow-md shadow-sage/20"
+        >
+          Get All 30 Pages &mdash; $7
+        </Link>
+        <p className="text-bark/40 text-xs mt-4">Instant PDF download. No subscription.</p>
+      </section>
+
+      {/* Footer link back */}
+      <div className="text-center py-10">
+        <Link href="/" className="text-sage text-sm hover:underline">
+          &larr; Back to Ink &amp; Meadow
+        </Link>
+      </div>
+    </main>
+  );
+}

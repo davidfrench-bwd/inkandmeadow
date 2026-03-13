@@ -151,7 +151,7 @@ export default function Home() {
               <p className="text-bark/70 text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
                 You already know the scroll isn&rsquo;t helping. Replace that hour of
                 screen time with something that actually makes you feel good.
-                Beautiful cottagecore pages, delivered monthly.
+                Print at home or color on your iPad &mdash; beautiful pages, delivered monthly.
               </p>
               <div className="flex flex-col sm:flex-row items-center md:items-start gap-4">
                 <Link
@@ -380,7 +380,8 @@ export default function Home() {
             </h2>
             <p className="text-bark/60 max-w-2xl mx-auto mb-2">
               30 hand-curated coloring pages spanning wildflower gardens, cozy cottages,
-              woodland creatures, tea-time scenes, and seasonal botanicals. Yours to keep forever.
+              woodland creatures, tea-time scenes, and seasonal botanicals. Print at home or
+              import into Procreate on your iPad. Yours to keep forever.
             </p>
             <p className="text-sage font-semibold text-lg">
               Just $7 &mdash; that&rsquo;s just $0.23 per page
@@ -492,10 +493,10 @@ export default function Home() {
                 Perfect for trying before subscribing. A beautifully curated introduction to the Ink&nbsp;&amp;&nbsp;Meadow style.
               </p>
               <ul className="space-y-3 mb-6">
-                <PricingFeature>27 hand-curated coloring pages</PricingFeature>
-                <PricingFeature>Instant PDF download</PricingFeature>
+                <PricingFeature>30 hand-curated coloring pages</PricingFeature>
+                <PricingFeature>Print-ready PDF + iPad-compatible PNG</PricingFeature>
                 <PricingFeature>Mix of themes &amp; styles</PricingFeature>
-                <PricingFeature>Print unlimited copies</PricingFeature>
+                <PricingFeature>Print unlimited copies or use in Procreate</PricingFeature>
               </ul>
               <a
                 href="#starter-collection"
@@ -542,10 +543,10 @@ export default function Home() {
               </p>
               <ul className="space-y-3 mb-8">
                 <PricingFeature>10 new pages every month</PricingFeature>
+                <PricingFeature>PDF + PNG formats (print &amp; iPad)</PricingFeature>
                 <PricingFeature>Access to growing library</PricingFeature>
-                <PricingFeature>Private community access</PricingFeature>
                 <PricingFeature>Monthly themed collections</PricingFeature>
-                <PricingFeature>Printable bookmarks &amp; extras</PricingFeature>
+                <PricingFeature>Private community access</PricingFeature>
               </ul>
               <Link
                 href="/checkout?plan=meadow"
@@ -597,6 +598,28 @@ export default function Home() {
               </Link>
             </div>
           </div>
+
+          {/* Complete Library mega bundle */}
+          <div className="max-w-3xl mx-auto mt-10 bg-gradient-to-r from-golden/10 via-golden/5 to-golden/10 rounded-2xl p-8 border border-golden/20 text-center">
+            <p className="text-golden font-medium tracking-wide uppercase text-xs mb-2">Best Value</p>
+            <h3 className="font-heading text-2xl font-semibold text-bark mb-1">
+              Complete Library
+            </h3>
+            <div className="flex items-baseline justify-center gap-1 mb-3">
+              <span className="font-heading text-4xl font-bold text-bark">$29</span>
+              <span className="text-bark/50 text-sm">one-time</span>
+            </div>
+            <p className="text-bark/60 text-sm mb-5 max-w-lg mx-auto">
+              Every page from every collection (200+) in print-ready PDF and iPad-compatible PNG.
+              Plus all new pages for the next 12 months. That&rsquo;s less than $0.15 per page.
+            </p>
+            <Link
+              href="/checkout?plan=library"
+              className="inline-block bg-bark text-white px-8 py-3.5 rounded-full font-medium hover:bg-bark/90 shadow-lg transition-all"
+            >
+              Get the Complete Library &mdash; $29
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -637,68 +660,90 @@ export default function Home() {
 
       <FloralDivider />
 
-      {/* ━━━ How It Works Section ━━━ */}
+      {/* ━━━ Two Ways to Color ━━━ */}
       <section id="how-it-works" className="py-20 md:py-28">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-rose font-medium tracking-[0.2em] uppercase text-sm mb-4">
-              Simple as Can Be
+              Your Choice
             </p>
             <h2 className="font-heading text-4xl md:text-5xl font-semibold text-bark">
-              How It Works
+              Two Ways to Color
             </h2>
+            <p className="text-bark/60 max-w-xl mx-auto mt-4">
+              Every page comes in two formats. Choose the experience that fits your mood.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="text-center">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-sage/10 mb-5 mx-auto max-w-[200px]">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Print option */}
+            <div className="bg-white rounded-2xl p-8 border border-sage/10 shadow-sm">
+              <div className="flex justify-center gap-2 mb-6">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_09_basket-of-spring.png"
-                  alt="Basket of Spring coloring page"
-                  className="w-full aspect-square object-cover"
-                  loading="lazy"
-                />
+                <img src={`${STORAGE_BASE}/2026-03_09_basket-of-spring.png`} alt="Printed coloring page" className="w-28 rounded-lg shadow-md border border-bark/5" loading="lazy" />
               </div>
-              <div className="w-10 h-10 rounded-full bg-sage/10 text-sage font-heading text-lg font-bold flex items-center justify-center mx-auto mb-4">
-                1
+              <div className="w-12 h-12 rounded-full bg-sage/10 flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6 text-sage" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                  <path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </div>
-              <h3 className="font-heading text-xl font-semibold text-bark mb-3">Choose Your Plan</h3>
-              <p className="text-bark/60 text-sm leading-relaxed">Pick the Starter Collection, Meadow, or Cottage — whatever suits your coloring rhythm.</p>
+              <h3 className="font-heading text-xl font-semibold text-bark text-center mb-3">Print &amp; Color</h3>
+              <ul className="space-y-2.5 text-sm text-bark/70">
+                <li className="flex items-start gap-2">
+                  <span className="text-sage mt-0.5">&#10003;</span>
+                  <span>Download high-res PDF files</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-sage mt-0.5">&#10003;</span>
+                  <span>Print at home on any paper you like</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-sage mt-0.5">&#10003;</span>
+                  <span>Use colored pencils, markers, or gel pens</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-sage mt-0.5">&#10003;</span>
+                  <span>Print unlimited copies &mdash; perfect for trying new palettes</span>
+                </li>
+              </ul>
             </div>
-            <div className="text-center">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-sage/10 mb-5 mx-auto max-w-[200px]">
+
+            {/* iPad option */}
+            <div className="bg-white rounded-2xl p-8 border border-sage/10 shadow-sm">
+              <div className="flex justify-center gap-2 mb-6">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_07_potting-shed.png"
-                  alt="Potting Shed coloring page"
-                  className="w-full aspect-square object-cover"
-                  loading="lazy"
-                />
+                <img src={`${STORAGE_BASE}/2026-03_07_potting-shed.png`} alt="iPad coloring page" className="w-28 rounded-lg shadow-md border border-bark/5" loading="lazy" />
               </div>
-              <div className="w-10 h-10 rounded-full bg-sage/10 text-sage font-heading text-lg font-bold flex items-center justify-center mx-auto mb-4">
-                2
+              <div className="w-12 h-12 rounded-full bg-sage/10 flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6 text-sage" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                  <path d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </div>
-              <h3 className="font-heading text-xl font-semibold text-bark mb-3">Download &amp; Print</h3>
-              <p className="text-bark/60 text-sm leading-relaxed">Get instant access to your pages. Print them at home on your favorite paper, as many times as you like.</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-sage/10 mb-5 mx-auto max-w-[200px]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_15_spring-mandala-garden.png"
-                  alt="Spring Mandala Garden coloring page"
-                  className="w-full aspect-square object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <div className="w-10 h-10 rounded-full bg-sage/10 text-sage font-heading text-lg font-bold flex items-center justify-center mx-auto mb-4">
-                3
-              </div>
-              <h3 className="font-heading text-xl font-semibold text-bark mb-3">Color, Breathe, Repeat</h3>
-              <p className="text-bark/60 text-sm leading-relaxed">Pour a cup of tea, pick up your pencils, and let the world fade away. New pages arrive every month.</p>
+              <h3 className="font-heading text-xl font-semibold text-bark text-center mb-3">Color on iPad</h3>
+              <ul className="space-y-2.5 text-sm text-bark/70">
+                <li className="flex items-start gap-2">
+                  <span className="text-sage mt-0.5">&#10003;</span>
+                  <span>Download iPad-ready PNG files</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-sage mt-0.5">&#10003;</span>
+                  <span>Import into Procreate, GoodNotes, or any coloring app</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-sage mt-0.5">&#10003;</span>
+                  <span>Infinite undo &mdash; experiment with colors freely</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-sage mt-0.5">&#10003;</span>
+                  <span>No mess, no supplies needed &mdash; just your Apple Pencil</span>
+                </li>
+              </ul>
             </div>
           </div>
+
+          <p className="text-center text-bark/50 text-sm mt-8">
+            Most members use both &mdash; print for cozy evenings, iPad for on-the-go relaxation
+          </p>
         </div>
       </section>
 
@@ -718,8 +763,8 @@ export default function Home() {
 
           <div className="space-y-6">
             <FaqItem
-              question="What paper should I use?"
-              answer="We recommend printing on cardstock (65-110 lb) for the best coloring experience. Regular printer paper works too, but heavier paper prevents bleed-through if you're using markers. Each download includes a paper guide with our recommendations."
+              question="Can I use these on my iPad?"
+              answer="Absolutely! Every page comes as both a print-ready PDF and an iPad-compatible PNG. Import the PNG into Procreate, GoodNotes, or any coloring app. Set the line art layer to Multiply blend mode and color on a layer underneath — it works beautifully with Apple Pencil. Most members use both: print for cozy evenings at home, iPad for coloring on the go."
             />
             <FaqItem
               question="Can I cancel anytime?"
@@ -735,7 +780,11 @@ export default function Home() {
             />
             <FaqItem
               question="What coloring supplies work best?"
-              answer="Our pages are designed to look beautiful with any medium — colored pencils, gel pens, fine-tip markers, or even watercolor pencils. We recommend printing on cardstock if you're using markers. Many of our members love Prismacolor colored pencils or Staedtler fineliners for the detailed sections."
+              answer="For printing: we recommend cardstock (65-110 lb) and colored pencils like Prismacolor or markers like Staedtler fineliners. Heavier paper prevents bleed-through with markers. For iPad: an Apple Pencil and Procreate ($12.99 one-time) or the free Adobe Fresco app are all you need. Our pages are designed to look beautiful with any medium."
+            />
+            <FaqItem
+              question="What's the Complete Library?"
+              answer="The Complete Library is our best-value option: every page from every collection we've ever made (200+ pages), plus all new pages released over the next 12 months. It's a one-time purchase of $29 — that works out to less than $0.15 per page. You get both PDF and PNG formats for printing and iPad use."
             />
           </div>
         </div>
