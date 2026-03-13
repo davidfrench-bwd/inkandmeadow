@@ -2,6 +2,8 @@ import Link from "next/link";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import EmailCapture from "@/components/EmailCapture";
 import ImageLightbox from "@/components/ImageLightbox";
+import CountdownBanner from "@/components/CountdownBanner";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 
 const STORAGE_BASE = 'https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03';
 
@@ -123,15 +125,8 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* ━━━ Urgency Banner ━━━ */}
-      <div className="fixed top-[65px] left-0 right-0 z-40 bg-bark text-white text-center py-2 px-4 text-sm">
-        <span className="font-medium">Launch Special:</span> 30 coloring pages for just $7
-        <span className="text-white/60 ml-1">(regular $12)</span>
-        <span className="mx-2 text-white/30">|</span>
-        <Link href="/checkout?plan=starter" className="underline font-medium hover:text-golden transition-colors">
-          Grab it now
-        </Link>
-      </div>
+      {/* ━━━ Urgency Banner with Countdown ━━━ */}
+      <CountdownBanner />
 
       {/* ━━━ Hero Section ━━━ */}
       <section className="relative pt-40 pb-20 md:pt-52 md:pb-32 overflow-hidden">
@@ -177,14 +172,36 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Right: Hero image collage */}
+            {/* Mobile: horizontal scroll of pages */}
+            <div className="md:hidden -mx-6 px-6 overflow-x-auto pb-4">
+              <div className="flex gap-3 w-max">
+                {[
+                  { file: '2026-03_26_kitten-in-the-garden.png', alt: 'Kitten in the Garden' },
+                  { file: '2026-03_01_wildflower-cottage.png', alt: 'Wildflower Cottage' },
+                  { file: '2026-03_29_ducklings-at-the-pond.png', alt: 'Ducklings at the Pond' },
+                  { file: '2026-03_14_fairy-mushroom-circle.png', alt: 'Fairy Mushroom Circle' },
+                ].map((page) => (
+                  <div key={page.file} className="bg-white rounded-xl shadow-lg border border-sage/10 p-1.5 w-36 shrink-0">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`${STORAGE_BASE}/${page.file}`}
+                      alt={page.alt}
+                      className="w-full aspect-square object-cover rounded-lg"
+                    />
+                    <p className="text-[10px] text-bark/60 text-center mt-1">{page.alt}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop: image collage */}
             <div className="relative hidden md:block">
               <div className="grid grid-cols-2 gap-3 -rotate-3">
                 {/* Large featured image */}
                 <div className="col-span-2 bg-white rounded-2xl overflow-hidden shadow-xl border border-sage/10 p-2">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_01_wildflower-cottage.png"
+                    src={`${STORAGE_BASE}/2026-03_01_wildflower-cottage.png`}
                     alt="Wildflower Cottage coloring page"
                     className="w-full rounded-xl"
                   />
@@ -193,7 +210,7 @@ export default function Home() {
                 <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-sage/10 p-1.5 rotate-2">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_14_fairy-mushroom-circle.png"
+                    src={`${STORAGE_BASE}/2026-03_14_fairy-mushroom-circle.png`}
                     alt="Fairy Mushroom Circle coloring page"
                     className="w-full rounded-lg"
                   />
@@ -201,7 +218,7 @@ export default function Home() {
                 <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-sage/10 p-1.5 -rotate-1">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-03/2026-03_19_rose-arbor-reading-nook.png"
+                    src={`${STORAGE_BASE}/2026-03_19_rose-arbor-reading-nook.png`}
                     alt="Rose Arbor Reading Nook coloring page"
                     className="w-full rounded-lg"
                   />
@@ -304,6 +321,47 @@ export default function Home() {
               name="Jessica L."
               detail="Meadow member since 2025"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* ━━━ Is This For You? ━━━ */}
+      <section className="py-16 md:py-24 bg-sage/5">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <p className="text-rose font-medium tracking-[0.2em] uppercase text-sm mb-4">
+              Sound Familiar?
+            </p>
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-bark">
+              Ink &amp; Meadow Is For You If&hellip;
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            {[
+              'You spend your evenings scrolling and wish you didn\u2019t',
+              'You miss doing something creative with your hands',
+              'You want a calming ritual that doesn\u2019t involve a screen',
+              'You love the cottagecore aesthetic \u2014 wildflowers, cozy cottages, woodland creatures',
+              'You\u2019ve tried meditation apps but they\u2019re not your thing',
+              'You want something beautiful to do with a cup of tea',
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3 bg-white rounded-xl px-5 py-4 border border-sage/10 shadow-sm">
+                <svg className="w-5 h-5 text-sage mt-0.5 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span className="text-bark/70 text-sm">{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/checkout?plan=starter"
+              className="inline-block bg-sage text-white px-8 py-4 rounded-full font-medium hover:bg-sage-dark shadow-lg shadow-sage/20 transition-all"
+            >
+              Start With 30 Pages &mdash; $7
+            </Link>
           </div>
         </div>
       </section>
@@ -803,6 +861,9 @@ export default function Home() {
 
       {/* Sticky mobile CTA */}
       <StickyMobileCTA />
+
+      {/* Exit intent popup */}
+      <ExitIntentPopup />
     </div>
   );
 }
