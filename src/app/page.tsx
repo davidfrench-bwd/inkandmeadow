@@ -473,15 +473,15 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-bark/60 text-sm mb-6 leading-relaxed">
-                The full cottagecore experience. Digital and physical, with exclusive extras you won&rsquo;t find anywhere else.
+                The ultimate coloring experience. Massive library, exclusive content, and perks you won&rsquo;t find anywhere else.
               </p>
               <ul className="space-y-3 mb-8">
                 <PricingFeature>Everything in Meadow</PricingFeature>
                 <PricingFeature>50+ pages monthly</PricingFeature>
-                <PricingFeature>Physical booklet mailed monthly</PricingFeature>
-                <PricingFeature>Quarterly supply kit</PricingFeature>
-                <PricingFeature>Exclusive artist collaborations</PricingFeature>
-                <PricingFeature>Video tutorials &amp; workshops</PricingFeature>
+                <PricingFeature>Exclusive premium collections</PricingFeature>
+                <PricingFeature>Early access to new releases</PricingFeature>
+                <PricingFeature>Printable wall art &amp; greeting cards</PricingFeature>
+                <PricingFeature>Monthly coloring challenges with prizes</PricingFeature>
               </ul>
               <Link
                 href="/checkout?plan=cottage"
@@ -662,11 +662,11 @@ export default function Home() {
             />
             <FaqItem
               question="What's in the Starter Collection?"
-              answer="The Starter Collection includes 30 beautifully curated coloring pages spanning our most popular themes: wildflower gardens, cozy cottages, forest creatures, tea-time scenes, and seasonal botanicals. It's a one-time purchase — no subscription needed."
+              answer="The Starter Collection includes 30 beautifully curated coloring pages spanning our most popular themes: wildflower gardens, cozy cottages, woodland creatures, tea-time scenes, and seasonal botanicals. It's a one-time purchase — no subscription needed. You get instant access to download and print them all."
             />
             <FaqItem
-              question="Do you ship internationally?"
-              answer="Yes! Cottage members receive their physical booklets worldwide. International shipping is included in your membership. Booklets typically arrive within 7-14 business days, depending on your location."
+              question="What coloring supplies work best?"
+              answer="Our pages are designed to look beautiful with any medium — colored pencils, gel pens, fine-tip markers, or even watercolor pencils. We recommend printing on cardstock if you're using markers. Many of our members love Prismacolor colored pencils or Staedtler fineliners for the detailed sections."
             />
           </div>
         </div>

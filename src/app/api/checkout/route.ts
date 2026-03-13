@@ -22,7 +22,7 @@ const planConfig = {
   },
   cottage: {
     name: 'Cottage Membership',
-    description: 'Everything in Meadow + physical booklet + supplies',
+    description: 'Everything in Meadow + 50+ pages + exclusive collections + wall art',
     amount: 4900, // $49.00
     mode: 'subscription' as const,
   },
