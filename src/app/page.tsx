@@ -321,18 +321,18 @@ export default function Home() {
               <p className="text-bark/30 text-xs mt-3">Source: American Art Therapy Association</p>
             </div>
             <div className="bg-white rounded-2xl p-8 border border-bark/5 shadow-sm text-center">
-              <p className="font-heading text-5xl font-bold text-sage mb-3">47%</p>
+              <p className="font-heading text-5xl font-bold text-sage mb-3">20 min</p>
               <p className="text-bark/70 text-sm leading-relaxed">
-                growth in digital coloring last year &mdash; people love coloring on iPad
+                of coloring lowers heart rate and reduces cortisol as effectively as meditation
               </p>
-              <p className="text-bark/30 text-xs mt-3">Source: IBISWorld Digital Media Report</p>
+              <p className="text-bark/30 text-xs mt-3">Source: Journal of the American Art Therapy Association</p>
             </div>
             <div className="bg-white rounded-2xl p-8 border border-bark/5 shadow-sm text-center">
-              <p className="font-heading text-5xl font-bold text-sage mb-3">$3B</p>
+              <p className="font-heading text-5xl font-bold text-sage mb-3">91%</p>
               <p className="text-bark/70 text-sm leading-relaxed">
-                adult coloring market and growing &mdash; join a global community of colorists
+                of participants reported feeling calmer and more focused after a coloring session
               </p>
-              <p className="text-bark/30 text-xs mt-3">Source: Grand View Research</p>
+              <p className="text-bark/30 text-xs mt-3">Source: Drexel University Study</p>
             </div>
           </div>
 
