@@ -10,7 +10,7 @@ function getStripe() {
 const planConfig = {
   starter: {
     name: 'Starter Collection',
-    description: '27 hand-curated cottagecore coloring pages',
+    description: '30 hand-curated cottagecore coloring pages',
     amount: 700, // $7.00
     mode: 'payment' as const,
   },

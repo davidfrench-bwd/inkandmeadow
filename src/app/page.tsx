@@ -228,10 +228,10 @@ export default function Home() {
               { title: 'Spring Tea Setting', file: '2026-03_05_spring-tea-setting.png' },
               { title: 'Enchanted Greenhouse', file: '2026-03_11_enchanted-greenhouse.png' },
               { title: 'Wisteria Archway', file: '2026-03_08_wisteria-archway.png' },
-              { title: 'Cottage Kitchen Herbs', file: '2026-03_10_cottage-kitchen-herbs.png' },
+              { title: 'Kitten in the Garden', file: '2026-03_26_kitten-in-the-garden.png' },
               { title: 'Bluebird on a Branch', file: '2026-03_06_bluebird-on-a-branch.png' },
-              { title: 'Rose Arbor Reading Nook', file: '2026-03_19_rose-arbor-reading-nook.png' },
-              { title: 'Spring Wreath', file: '2026-03_25_spring-wreath.png' },
+              { title: 'Ducklings at the Pond', file: '2026-03_29_ducklings-at-the-pond.png' },
+              { title: 'Hedgehog & Mushrooms', file: '2026-03_27_hedgehog-and-mushrooms.png' },
               { title: 'Fairy Mushroom Circle', file: '2026-03_14_fairy-mushroom-circle.png' },
               { title: 'Woodland Deer', file: '2026-03_22_woodland-deer.png' },
             ].map((page) => (
@@ -272,11 +272,11 @@ export default function Home() {
               What&rsquo;s in the Starter Collection
             </h2>
             <p className="text-bark/60 max-w-2xl mx-auto mb-2">
-              27 hand-curated cottagecore coloring pages spanning wildflower gardens, cozy cottages,
+              30 hand-curated coloring pages spanning wildflower gardens, cozy cottages,
               woodland creatures, tea-time scenes, and seasonal botanicals. Yours to keep forever.
             </p>
             <p className="text-sage font-semibold text-lg">
-              Just $7 &mdash; that&rsquo;s only $0.26 per page
+              Just $7 &mdash; that&rsquo;s just $0.23 per page
             </p>
           </div>
 
@@ -307,6 +307,11 @@ export default function Home() {
               { title: 'Botanical Letters', file: '2026-03_23_botanical-letters-spring.png' },
               { title: 'Rainy Day Window', file: '2026-03_24_rainy-day-window.png' },
               { title: 'Spring Wreath', file: '2026-03_25_spring-wreath.png' },
+              { title: 'Kitten in the Garden', file: '2026-03_26_kitten-in-the-garden.png' },
+              { title: 'Hedgehog & Mushrooms', file: '2026-03_27_hedgehog-and-mushrooms.png' },
+              { title: 'Baby Owl in the Oak', file: '2026-03_28_baby-owl-in-oak.png' },
+              { title: 'Ducklings at the Pond', file: '2026-03_29_ducklings-at-the-pond.png' },
+              { title: 'Squirrel with Acorns', file: '2026-03_30_squirrel-with-acorns.png' },
             ].map((page) => (
               <div
                 key={page.file}
@@ -324,11 +329,6 @@ export default function Home() {
                 <p className="text-[10px] text-bark/60 text-center py-1.5 px-1 truncate">{page.title}</p>
               </div>
             ))}
-            {/* +2 bonus indicator */}
-            <div className="bg-sage/5 rounded-lg border border-sage/15 flex flex-col items-center justify-center aspect-square">
-              <span className="font-heading text-2xl font-bold text-sage">+2</span>
-              <span className="text-[10px] text-sage/70 text-center px-2">bonus pages</span>
-            </div>
           </div>
 
           <div className="text-center mt-10">
@@ -336,7 +336,7 @@ export default function Home() {
               href="/checkout?plan=starter"
               className="inline-block bg-bark text-white px-10 py-4 rounded-full font-medium hover:bg-bark/90 shadow-lg transition-all text-lg"
             >
-              Get All 27 Pages &mdash; $7
+              Get All 30 Pages &mdash; $7
             </Link>
             <p className="text-bark/40 text-xs mt-3">Instant download. Print as many copies as you want. Keep forever.</p>
           </div>
@@ -380,7 +380,7 @@ export default function Home() {
                   <span className="font-heading text-4xl font-bold text-bark">$7</span>
                   <span className="text-bark/50 text-sm">one-time</span>
                 </div>
-                <p className="text-sage text-xs font-medium mt-1">Only $0.26 per page</p>
+                <p className="text-sage text-xs font-medium mt-1">Only $0.23 per page</p>
               </div>
               <p className="text-bark/60 text-sm mb-6 leading-relaxed">
                 Perfect for trying before subscribing. A beautifully curated introduction to the Ink&nbsp;&amp;&nbsp;Meadow style.
@@ -395,7 +395,7 @@ export default function Home() {
                 href="#starter-collection"
                 className="block text-center text-sage text-xs font-medium mb-4 hover:underline"
               >
-                See all 27 pages included &darr;
+                See all 30 pages included &darr;
               </a>
               <Link
                 href="/checkout?plan=starter"
@@ -662,7 +662,7 @@ export default function Home() {
             />
             <FaqItem
               question="What's in the Starter Collection?"
-              answer="The Starter Collection includes 27 beautifully curated coloring pages spanning our most popular themes: wildflower gardens, cozy cottages, forest creatures, tea-time scenes, and seasonal botanicals. It's a one-time purchase — no subscription needed."
+              answer="The Starter Collection includes 30 beautifully curated coloring pages spanning our most popular themes: wildflower gardens, cozy cottages, forest creatures, tea-time scenes, and seasonal botanicals. It's a one-time purchase — no subscription needed."
             />
             <FaqItem
               question="Do you ship internationally?"
