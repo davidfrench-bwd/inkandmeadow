@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Link from "next/link";
 import { mockMember, collections } from "@/lib/mock-data";
 
@@ -71,6 +71,30 @@ const plans = [
 export default function AccountPage() {
   const member = mockMember;
   const [showAllHistory, setShowAllHistory] = useState(false);
+  const [isManagingSubscription, setIsManagingSubscription] = useState(false);
+
+  const handleManageSubscription = useCallback(async () => {
+    setIsManagingSubscription(true);
+    try {
+      const res = await fetch("/api/portal", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: member.email }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        console.error("Portal error:", data.error);
+        alert(data.error || "Failed to open subscription portal");
+        return;
+      }
+      window.location.href = data.url;
+    } catch (err) {
+      console.error("Portal error:", err);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setIsManagingSubscription(false);
+    }
+  }, [member.email]);
   const currentPlan = plans.find((p) => p.id === member.plan)!;
   const visibleHistory = showAllHistory ? downloadHistory : downloadHistory.slice(0, 5);
 
@@ -143,8 +167,12 @@ export default function AccountPage() {
         </div>
 
         <div className="flex flex-wrap gap-3">
-          <button className="px-5 py-2.5 bg-[#5a4a3a] text-white text-sm font-semibold rounded-xl hover:bg-[#4a3a2a] transition-colors">
-            Manage Subscription
+          <button
+            onClick={handleManageSubscription}
+            disabled={isManagingSubscription}
+            className="px-5 py-2.5 bg-[#5a4a3a] text-white text-sm font-semibold rounded-xl hover:bg-[#4a3a2a] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {isManagingSubscription ? "Redirecting..." : "Manage Subscription"}
           </button>
           <button className="px-5 py-2.5 bg-white/80 text-[#5a4a3a] text-sm font-medium rounded-xl border border-[#d4c8a8] hover:bg-white transition-colors">
             Billing History
