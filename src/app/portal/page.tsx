@@ -59,10 +59,10 @@ export default function PortalDashboard() {
           <div className="absolute -right-6 -top-6 text-[#c4b89a]/20 text-[120px] leading-none select-none pointer-events-none">&#10048;</div>
           <div className="relative">
             <h2 className="text-lg font-bold text-[#4a3a2a] mb-1">
-              Upgrade to Plus for 100 exclusive pages per month
+              Upgrade to Plus for 300 exclusive pages per month
             </h2>
             <p className="text-sm text-[#7a6a5a] mb-4 max-w-lg">
-              Get 100 exclusive pages plus premium seasonal collections delivered to your portal every month.
+              Get 300 exclusive pages plus premium seasonal collections delivered to your portal every month.
             </p>
             <a
               href="/checkout"

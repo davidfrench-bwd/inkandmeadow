@@ -112,8 +112,8 @@ function WelcomeContent() {
               </h1>
               <p className="text-bark/60 text-lg max-w-md mx-auto">
                 {upgraded
-                  ? 'You upgraded successfully! 100 exclusive pages are ready for you, with 100 more arriving every month.'
-                  : 'Your Plus membership is active. 100 exclusive pages are ready for you, with 100 more arriving every month.'}
+                  ? 'You upgraded successfully! 300 exclusive pages are ready for you, with 300 more arriving every month.'
+                  : 'Your Plus membership is active. 300 exclusive pages are ready for you, with 300 more arriving every month.'}
               </p>
             </>
           )}
@@ -124,7 +124,7 @@ function WelcomeContent() {
                 Welcome to Ink &amp; Meadow!
               </h1>
               <p className="text-bark/60 text-lg max-w-md mx-auto">
-                Your membership is active. 100+ pages are ready for you right now, and 30 more arrive every month.
+                Your membership is active. 100+ pages are ready for you right now, and 100 more arrive every month.
               </p>
             </>
           )}
@@ -172,14 +172,14 @@ function WelcomeContent() {
           <ul className="space-y-4 mb-8">
             {(effectivePlan === 'plus'
               ? [
-                  { num: '1', text: 'Your 100 exclusive coloring pages are ready to download now' },
+                  { num: '1', text: 'Your 300 exclusive coloring pages are ready to download now' },
                   { num: '2', text: 'Explore the full library including premium collections' },
-                  { num: '3', text: '100 fresh exclusive pages arrive on the 1st of each month' },
+                  { num: '3', text: '300 fresh exclusive pages arrive on the 1st of each month' },
                 ]
               : [
                   { num: '1', text: 'Your 100+ coloring pages are ready to download now' },
                   { num: '2', text: 'Explore the full growing library in your member portal' },
-                  { num: '3', text: '30 brand-new pages arrive on the 1st of each month' },
+                  { num: '3', text: '100 brand-new pages arrive on the 1st of each month' },
                 ]
             ).map((item) => (
               <li key={item.num} className="flex items-start gap-4">

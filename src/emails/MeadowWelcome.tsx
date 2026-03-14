@@ -45,13 +45,13 @@ const stepCircle: React.CSSProperties = {
 
 export default function MeadowWelcome() {
   return (
-    <EmailLayout preview="Welcome to Ink & Meadow Plus! 100 exclusive pages per month are yours.">
+    <EmailLayout preview="Welcome to Ink & Meadow Plus! 300 exclusive pages per month are yours.">
       {/* Main card */}
       <Section style={card}>
         <Text style={heading}>Welcome to Plus!</Text>
         <Text style={paragraph}>
           You&rsquo;re officially an <strong>Ink &amp; Meadow Plus member</strong>!
-          Your first collection of 100 beautiful exclusive coloring pages is ready and
+          Your first collection of 300 beautiful exclusive coloring pages is ready and
           waiting in your portal.
         </Text>
 
@@ -62,7 +62,7 @@ export default function MeadowWelcome() {
           </Text>
           <ul style={{ margin: '8px 0 0', paddingLeft: '20px' }}>
             <li style={{ ...listItem, color: '#5a6a4a' }}>
-              100 exclusive pages per month
+              300 exclusive pages per month
             </li>
             <li style={{ ...listItem, color: '#5a6a4a' }}>
               Premium seasonal collections

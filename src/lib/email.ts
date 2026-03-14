@@ -49,7 +49,7 @@ export async function sendUpgradeNudgeEmail(email: string) {
   const { error } = await resend.emails.send({
     from: FROM,
     to: email,
-    subject: "You're loving your pages — want 100 exclusive/month? 🌼",
+    subject: "You're loving your pages — want 300 exclusive/month? 🌼",
     react: UpgradeNudge(),
     headers: HEADERS,
   });

@@ -29,14 +29,14 @@ export default function StarterWelcome() {
         <Text style={heading}>Your pages are waiting!</Text>
         <Text style={paragraph}>
           Welcome to <strong>Ink &amp; Meadow</strong>! Your 100+ coloring pages
-          are ready to download and print, and 30 new ones arrive every month.
+          are ready to download and print, and 100 new ones arrive every month.
         </Text>
 
         <Section style={infoBox}>
           <Text style={label}>Your membership includes:</Text>
           <ul style={{ margin: '8px 0 0', paddingLeft: '20px' }}>
             <li style={listItem}>100+ coloring pages ready now</li>
-            <li style={listItem}>30 brand-new pages every month</li>
+            <li style={listItem}>100 brand-new pages every month</li>
             <li style={listItem}>Full access to growing library</li>
             <li style={listItem}>High-resolution PDF + PNG formats</li>
           </ul>
@@ -57,7 +57,7 @@ export default function StarterWelcome() {
       {/* Upsell */}
       <Section style={cardSecondary}>
         <Text style={{ ...label, fontSize: '15px', marginBottom: '8px' }}>
-          Want 100 exclusive pages per month?
+          Want 300 exclusive pages per month?
         </Text>
         <Text
           style={{
@@ -66,7 +66,7 @@ export default function StarterWelcome() {
             marginBottom: '16px',
           }}
         >
-          Upgrade to <strong>Ink &amp; Meadow Plus</strong> for 100 exclusive pages per
+          Upgrade to <strong>Ink &amp; Meadow Plus</strong> for 300 exclusive pages per
           month plus premium seasonal collections &mdash; just $29/mo.
         </Text>
         <Link href={UPGRADE_URL} style={linkStyle}>

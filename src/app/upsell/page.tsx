@@ -174,7 +174,7 @@ function UpsellContent() {
             </h2>
             <p className="text-bark/60 text-center mb-6">
               Get your first month of <strong>Ink &amp; Meadow Plus</strong> for
-              $19 instead of $29. 100 exclusive pages, premium collections, everything.
+              $19 instead of $29. 300 exclusive pages, premium collections, everything.
             </p>
 
             {/* Mini preview */}
@@ -234,7 +234,7 @@ function UpsellContent() {
               href={`/welcome?session_id=${sessionId}`}
               className="text-bark/40 text-sm hover:text-bark/60 transition-colors"
             >
-              No thanks, I don&rsquo;t need 100 exclusive pages or premium collections &rarr;
+              No thanks, I don&rsquo;t need 300 exclusive pages or premium collections &rarr;
             </a>
           </div>
         </div>
@@ -291,7 +291,7 @@ function UpsellContent() {
             Want Premium Collections &amp; Even More Pages?
           </h2>
           <p className="text-bark/60 text-center mb-6">
-            Upgrade to <strong>Ink &amp; Meadow Plus</strong> and get 100 exclusive pages every month
+            Upgrade to <strong>Ink &amp; Meadow Plus</strong> and get 300 exclusive pages every month
             plus premium seasonal collections you won&rsquo;t find in the regular library.
           </p>
 
@@ -314,18 +314,18 @@ function UpsellContent() {
             <div className="grid grid-cols-2 gap-4 text-center">
               <div>
                 <p className="text-bark/40 text-xs uppercase tracking-wider mb-1">Your plan</p>
-                <p className="font-heading text-lg font-bold text-bark">30 pages/mo</p>
+                <p className="font-heading text-lg font-bold text-bark">100 pages/mo</p>
                 <p className="text-bark/50 text-sm">$7/mo</p>
               </div>
               <div>
                 <p className="text-golden text-xs uppercase tracking-wider font-semibold mb-1">Plus</p>
-                <p className="font-heading text-lg font-bold text-bark">100 pages/mo</p>
+                <p className="font-heading text-lg font-bold text-bark">300 pages/mo</p>
                 <p className="text-bark/50 text-sm">$29/mo</p>
               </div>
             </div>
             <div className="text-center mt-4 pt-4 border-t border-golden/15">
               <p className="text-sm text-bark">
-                <span className="font-semibold">100 exclusive pages + premium collections for just $22 more</span>
+                <span className="font-semibold">300 exclusive pages + premium collections for just $22 more</span>
                 <span className="text-bark/50"> &mdash; that&rsquo;s less than $0.75/day</span>
               </p>
             </div>
@@ -335,7 +335,7 @@ function UpsellContent() {
           <ul className="space-y-2.5 mb-6">
             {[
               'Everything in your current membership',
-              '100 exclusive pages delivered every month',
+              '300 exclusive pages delivered every month',
               'Premium seasonal collections',
               'Early access to new pages',
               'Same 30-day money-back guarantee',
@@ -386,7 +386,7 @@ function UpsellContent() {
             onClick={() => setShowDownsell(true)}
             className="text-bark/40 text-sm hover:text-bark/60 transition-colors cursor-pointer"
           >
-            No thanks, I don&rsquo;t need premium collections or 100 exclusive pages per month &rarr;
+            No thanks, I don&rsquo;t need premium collections or 300 exclusive pages per month &rarr;
           </button>
         </div>
       </div>

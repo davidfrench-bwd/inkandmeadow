@@ -11,9 +11,9 @@ const upgradePlans = [
     name: "Ink & Meadow Plus",
     price: "$29",
     period: "/month",
-    description: "100 exclusive pages per month + premium seasonal collections",
+    description: "300 exclusive pages per month + premium seasonal collections",
     features: [
-      "100 exclusive pages per month",
+      "300 exclusive pages per month",
       "Premium seasonal collections",
       "Early access to new pages",
       "Access to full back catalog",

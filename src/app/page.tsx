@@ -375,7 +375,7 @@ export default function Home() {
               Join Ink &amp; Meadow &mdash; $7/mo
             </Link>
             <p className="text-bark/40 text-xs mt-3">
-              100+ pages instantly + 30 new pages every month
+              100+ pages instantly + 100 new pages every month
             </p>
           </div>
         </div>
@@ -393,7 +393,7 @@ export default function Home() {
             April: Secret Garden
           </h2>
           <p className="text-bark/60 max-w-lg mx-auto mb-8">
-            30 brand-new pages featuring hidden garden paths, climbing roses, stone archways,
+            100 brand-new pages featuring hidden garden paths, climbing roses, stone archways,
             and secret woodland clearings. Added to your library on April 1st.
           </p>
           <div className="flex justify-center gap-3 mb-8">
@@ -467,11 +467,11 @@ export default function Home() {
                 <p className="text-sage text-xs font-medium mt-1">Less than a latte &mdash; new pages every month</p>
               </div>
               <p className="text-bark/60 text-sm mb-6 leading-relaxed">
-                100+ pages instantly, plus 30 fresh pages every month. Your library grows, your calm deepens.
+                100+ pages instantly, plus 100 fresh pages every month. Your library grows, your calm deepens.
               </p>
               <ul className="space-y-3 mb-8">
                 <PricingFeature>100+ coloring pages instantly</PricingFeature>
-                <PricingFeature>30 brand-new pages every month</PricingFeature>
+                <PricingFeature>100 brand-new pages every month</PricingFeature>
                 <PricingFeature>PDF + PNG formats (print &amp; iPad)</PricingFeature>
                 <PricingFeature>Full access to growing library</PricingFeature>
                 <PricingFeature>Cancel anytime</PricingFeature>
@@ -569,7 +569,7 @@ export default function Home() {
                 <p className="text-sage text-xs uppercase tracking-wider font-semibold mb-2">Ink &amp; Meadow</p>
                 <p className="font-heading text-3xl font-bold text-sage">100+</p>
                 <p className="text-bark/60 text-sm">pages for $7/mo</p>
-                <p className="text-sage/70 text-xs mt-1">+ 30 new pages every month</p>
+                <p className="text-sage/70 text-xs mt-1">+ 100 new pages every month</p>
               </div>
             </div>
             <p className="text-center text-bark/50 text-sm">
@@ -749,7 +749,7 @@ export default function Home() {
             />
             <FaqItem
               question="What do I get when I join?"
-              answer="You get instant access to 100+ beautifully curated coloring pages spanning wildflower gardens, cozy cottages, woodland creatures, tea-time scenes, mandalas, and seasonal botanicals. Plus, 30 brand-new pages arrive every month. Every page comes as both a print-ready PDF and an iPad-compatible PNG. That's more than 3x what you'd get in a coloring book at the store."
+              answer="You get instant access to 100+ beautifully curated coloring pages spanning wildflower gardens, cozy cottages, woodland creatures, tea-time scenes, mandalas, and seasonal botanicals. Plus, 100 brand-new pages arrive every month. Every page comes as both a print-ready PDF and an iPad-compatible PNG. That's more than 3x what you'd get in a coloring book at the store."
             />
             <FaqItem
               question="What coloring supplies work best?"

@@ -19,7 +19,7 @@ const UPGRADE_URL = 'https://inkandmeadow.com/checkout';
 
 export default function UpgradeNudge() {
   return (
-    <EmailLayout preview="You're loving your coloring pages — unlock 100 exclusive pages/month with Plus!">
+    <EmailLayout preview="You're loving your coloring pages — unlock 300 exclusive pages/month with Plus!">
       {/* Main card */}
       <Section style={card}>
         <Text style={heading}>You&rsquo;re on a roll!</Text>
@@ -34,13 +34,13 @@ export default function UpgradeNudge() {
             Ink &amp; Meadow Plus &mdash; $29/mo
           </Text>
           <ul style={{ margin: '0 0 16px', paddingLeft: '20px' }}>
-            <li style={listItem}>100 exclusive pages delivered every month</li>
+            <li style={listItem}>300 exclusive pages delivered every month</li>
             <li style={listItem}>Premium seasonal collections</li>
             <li style={listItem}>Early access to new pages</li>
             <li style={listItem}>Full access to growing library</li>
           </ul>
           <Text style={{ ...hint, marginBottom: '16px' }}>
-            That&rsquo;s less than $0.75/day for 50 beautiful pages.
+            That&rsquo;s less than $1/day for 300 beautiful pages.
           </Text>
           <Section style={{ textAlign: 'center' as const }}>
             <Button href={UPGRADE_URL} style={ctaButton}>

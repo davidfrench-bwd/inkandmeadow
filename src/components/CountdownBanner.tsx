@@ -51,7 +51,7 @@ export default function CountdownBanner() {
     // SSR / first render — show static banner without timer
     return (
       <div className="fixed top-[65px] left-0 right-0 z-40 bg-bark text-white text-center py-2 px-4 text-sm">
-        <span className="font-medium">Spring Collection:</span> 30 new pages dropping soon
+        <span className="font-medium">Spring Collection:</span> 100 new pages dropping soon
         <span className="mx-2 text-white/30">|</span>
         <Link href="/checkout" className="underline font-medium hover:text-golden transition-colors">
           Subscribe to get them &mdash; $7/mo

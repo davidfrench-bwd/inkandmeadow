@@ -100,7 +100,7 @@ export default function ExitIntentPopup() {
           </div>
 
           <p className="text-bark/60 text-sm mb-6">
-            Join Ink &amp; Meadow and get 100+ pages instantly + 30 fresh pages every month. That&rsquo;s more than any coloring book at the store. Cancel anytime.
+            Join Ink &amp; Meadow and get 100+ pages instantly + 100 fresh pages every month. That&rsquo;s more than any coloring book at the store. Cancel anytime.
           </p>
 
           <div className="flex flex-col gap-3">
