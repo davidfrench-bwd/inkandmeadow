@@ -28,6 +28,7 @@ export async function GET(request: NextRequest) {
       plan: session.metadata?.plan || null,
       email: session.customer_email || session.customer_details?.email || null,
       customer_id: session.customer || null,
+      subscription_id: session.subscription || null,
       status: session.status,
       upsell: session.metadata?.upsell === 'true',
     });

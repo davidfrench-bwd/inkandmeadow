@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-import { mockMember } from "@/lib/mock-data";
+import { MemberProvider, useMember } from "./MemberContext";
+import { getSupabaseBrowserClient } from "@/lib/supabase-browser";
 
 const navItems = [
   {
@@ -54,23 +55,33 @@ const navItems = [
   },
 ];
 
-export default function PortalLayout({ children }: { children: React.ReactNode }) {
+function PortalShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const member = mockMember;
+  const [signingOut, setSigningOut] = useState(false);
+  const { member } = useMember();
 
-  const planLabel = member.plan === "meadow" ? "Meadow" : "Starter";
+  const planLabel = member?.plan === "meadow" ? "Meadow" : "Starter";
   const planColor =
-    member.plan === "meadow"
+    member?.plan === "meadow"
       ? "bg-emerald-100 text-emerald-800 border-emerald-300"
       : "bg-stone-100 text-stone-700 border-stone-300";
 
+  const initials = member?.email ? member.email[0].toUpperCase() : "?";
+
+  async function handleSignOut() {
+    setSigningOut(true);
+    const supabase = getSupabaseBrowserClient();
+    await supabase.auth.signOut();
+    router.push("/login");
+  }
+
   return (
     <div className="min-h-screen bg-[#faf7f2]">
-      {/* ── Top bar ─────────────────────────────────────────────── */}
+      {/* Top bar */}
       <header className="fixed top-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-sm border-b border-[#e8e0d0] h-16">
         <div className="flex items-center justify-between h-full px-4 lg:px-6">
-          {/* Mobile menu toggle */}
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="lg:hidden p-2 rounded-lg hover:bg-[#f5f0e8] text-[#7a6a5a] transition-colors"
@@ -84,9 +95,7 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
             </svg>
           </button>
 
-          {/* Logo */}
           <Link href="/portal" className="flex items-center gap-2">
-            {/* Small leaf icon */}
             <svg className="w-7 h-7 text-[#7a8f6e]" viewBox="0 0 32 32" fill="currentColor">
               <path d="M16 2C10 2 4 8 4 16c0 2 .5 3.5 1.5 5C8 16 12 10 16 8c4 2 8 8 10.5 13 1-1.5 1.5-3 1.5-5C28 8 22 2 16 2z" opacity="0.7" />
               <path d="M16 8v22" stroke="currentColor" strokeWidth="1.5" fill="none" />
@@ -96,20 +105,19 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
             </span>
           </Link>
 
-          {/* Right side: member info */}
           <div className="flex items-center gap-3">
             <span className={`hidden sm:inline-block text-xs font-medium px-2.5 py-1 rounded-full border ${planColor}`}>
               {planLabel}
             </span>
             <div className="w-9 h-9 rounded-full bg-[#7a8f6e] flex items-center justify-center text-white text-sm font-medium">
-              {member.avatarInitials}
+              {initials}
             </div>
           </div>
         </div>
       </header>
 
       <div className="flex pt-16">
-        {/* ── Sidebar (desktop) ──────────────────────────────────── */}
+        {/* Sidebar */}
         <aside
           className={`
             fixed lg:sticky top-16 left-0 z-30 h-[calc(100vh-4rem)] w-64 bg-white border-r border-[#e8e0d0]
@@ -151,29 +159,8 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
             })}
           </nav>
 
-          {/* Upgrade CTA in sidebar for Meadow members */}
-          {member.plan === "meadow" && (
-            <div className="mx-4 mt-4 p-4 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200">
-              <div className="flex items-center gap-2 mb-2">
-                <svg className="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <span className="text-sm font-semibold text-amber-800">Upgrade to Cottage</span>
-              </div>
-              <p className="text-xs text-amber-700/80 mb-3">
-                Unlock 50+ premium pages every month, exclusive designs, and early access.
-              </p>
-              <Link
-                href="/portal/account"
-                className="block text-center text-xs font-semibold py-2 px-3 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 text-white hover:from-amber-600 hover:to-amber-700 transition-colors"
-              >
-                View Plans
-              </Link>
-            </div>
-          )}
-
           {/* Starter upgrade CTA */}
-          {member.plan === "starter" && (
+          {member?.plan === "starter" && (
             <div className="mx-4 mt-4 p-4 rounded-2xl bg-gradient-to-br from-emerald-50 to-green-50 border border-emerald-200">
               <div className="flex items-center gap-2 mb-2">
                 <svg className="w-5 h-5 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -182,16 +169,30 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
                 <span className="text-sm font-semibold text-emerald-800">Go Meadow</span>
               </div>
               <p className="text-xs text-emerald-700/80 mb-3">
-                Fresh pages every month for just $9/mo.
+                Fresh pages every month for just $7/mo.
               </p>
-              <Link
-                href="/portal/account"
+              <a
+                href="/checkout"
                 className="block text-center text-xs font-semibold py-2 px-3 rounded-lg bg-gradient-to-r from-emerald-500 to-emerald-600 text-white hover:from-emerald-600 hover:to-emerald-700 transition-colors"
               >
                 Upgrade Now
-              </Link>
+              </a>
             </div>
           )}
+
+          {/* Sign out */}
+          <div className="mx-4 mt-4">
+            <button
+              onClick={handleSignOut}
+              disabled={signingOut}
+              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-[#7a6a5a] hover:bg-[#f5f0e8] hover:text-[#5a4a3a] transition-colors disabled:opacity-60"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+              </svg>
+              {signingOut ? "Signing out..." : "Sign Out"}
+            </button>
+          </div>
 
           {/* Decorative botanical footer */}
           <div className="mt-auto p-4 pt-8 text-center text-[#c4b89a] select-none">
@@ -208,13 +209,13 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
           />
         )}
 
-        {/* ── Main content ───────────────────────────────────────── */}
+        {/* Main content */}
         <main className="flex-1 min-w-0 lg:ml-0">
           {children}
         </main>
       </div>
 
-      {/* ── Bottom nav (mobile) ──────────────────────────────────── */}
+      {/* Bottom nav (mobile) */}
       <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-t border-[#e8e0d0] lg:hidden">
         <div className="flex items-center justify-around h-16 px-2">
           {navItems.slice(0, 4).map((item) => {
@@ -237,5 +238,13 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
         </div>
       </nav>
     </div>
+  );
+}
+
+export default function PortalLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <MemberProvider>
+      <PortalShell>{children}</PortalShell>
+    </MemberProvider>
   );
 }

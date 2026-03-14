@@ -1,6 +1,5 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
 import { Suspense, useEffect, useState } from 'react';
 import { initiateCheckout } from '@/lib/pixel';
 
@@ -13,79 +12,13 @@ const PREVIEW_IMAGES = [
   { file: '17_bunny-teacup-daisies.png', alt: 'Bunny & Teacup' },
 ];
 
-const plans = {
-  starter: {
-    name: 'Starter Collection',
-    price: '$7',
-    interval: 'one-time',
-    description: '30 hand-curated cottagecore coloring pages',
-    valueNote: "That's just 23\u00a2 per page",
-    features: [
-      '30 curated cottagecore illustrations',
-      'Instant digital download',
-      'Print-ready PDF + iPad-compatible PNG',
-      'Yours to keep forever',
-    ],
-  },
-  meadow: {
-    name: 'Meadow Membership',
-    price: '$9',
-    interval: '/mo',
-    description: 'Starter Collection + 30 new pages every month',
-    valueNote: "60 pages month one \u2014 just 15\u00a2 per page",
-    features: [
-      'Starter Collection included (30 pages)',
-      '30 brand-new pages every month',
-      'Full access to growing library',
-      'PDF + PNG formats (print & iPad)',
-      'Private community access',
-      'Cancel anytime',
-    ],
-  },
-} as const;
-
-type PlanKey = keyof typeof plans;
-
 function CheckoutContent() {
-  const searchParams = useSearchParams();
-  const planParam = searchParams.get('plan') as PlanKey | null;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const plan = planParam && plans[planParam] ? planParam : null;
-
   useEffect(() => {
-    if (plan) {
-      const priceMap: Record<PlanKey, number> = {
-        starter: 7,
-        meadow: 9,
-      };
-      initiateCheckout(plans[plan].name, priceMap[plan]);
-    }
-  }, [plan]);
-
-  if (!plan) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-cream">
-        <div className="text-center max-w-md mx-auto px-6">
-          <h1 className="font-heading text-2xl font-semibold text-bark mb-3">
-            No plan selected
-          </h1>
-          <p className="text-bark/60 mb-6">
-            Please choose a plan to continue.
-          </p>
-          <a
-            href="/"
-            className="inline-block px-6 py-3 rounded-full font-medium bg-sage text-white hover:bg-sage-dark transition-colors"
-          >
-            View Plans
-          </a>
-        </div>
-      </div>
-    );
-  }
-
-  const selectedPlan = plans[plan];
+    initiateCheckout('Ink & Meadow', 7);
+  }, []);
 
   async function handleCheckout() {
     setLoading(true);
@@ -95,7 +28,7 @@ function CheckoutContent() {
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan }),
+        body: JSON.stringify({ plan: 'meadow' }),
       });
 
       const data = await res.json();
@@ -155,28 +88,28 @@ function CheckoutContent() {
           {/* Plan badge */}
           <div className="mb-5">
             <span className="inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-sage/10 text-sage-dark">
-              {plan === 'starter' ? 'One-Time Purchase' : 'Monthly Membership'}
+              Monthly Membership
             </span>
           </div>
 
           {/* Plan name and price */}
           <div className="mb-6">
             <h2 className="font-heading text-2xl font-semibold text-bark mb-1">
-              {selectedPlan.name}
+              Ink &amp; Meadow
             </h2>
             <p className="text-bark/60 text-sm mb-4">
-              {selectedPlan.description}
+              100+ pages instantly + 30 new pages every month + full library
             </p>
             <div className="flex items-baseline gap-1">
               <span className="font-heading text-4xl font-bold text-bark">
-                {selectedPlan.price}
+                $7
               </span>
               <span className="text-bark/50 text-lg">
-                {selectedPlan.interval}
+                /mo
               </span>
             </div>
             <p className="text-sage text-xs font-medium mt-1">
-              {selectedPlan.valueNote}
+              Less than a latte &mdash; new pages every month
             </p>
           </div>
 
@@ -184,7 +117,13 @@ function CheckoutContent() {
 
           {/* Features */}
           <ul className="space-y-3 mb-6">
-            {selectedPlan.features.map((feature, i) => (
+            {[
+              '100+ coloring pages instantly',
+              '30 brand-new pages every month',
+              'Full access to growing library',
+              'PDF + PNG formats (print & iPad)',
+              'Cancel anytime',
+            ].map((feature, i) => (
               <li key={i} className="flex items-start gap-3">
                 <svg
                   className="w-5 h-5 flex-shrink-0 mt-0.5 text-sage"
@@ -201,19 +140,6 @@ function CheckoutContent() {
               </li>
             ))}
           </ul>
-
-          {/* Meadow bonus: price anchoring */}
-          {plan === 'meadow' && (
-            <div className="bg-golden/5 border border-golden/20 rounded-lg px-4 py-3 mb-6 flex items-start gap-2.5">
-              <svg className="w-5 h-5 flex-shrink-0 mt-0.5 text-golden" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <p className="text-sm text-bark">
-                <span className="font-semibold">Starter Collection ($7 value) included free</span>{' '}
-                <span className="text-bark/60">with your membership</span>
-              </p>
-            </div>
-          )}
 
           {/* Error message */}
           {error && (
@@ -241,7 +167,7 @@ function CheckoutContent() {
                 Redirecting to checkout...
               </span>
             ) : (
-              `Continue to Payment \u2014 ${selectedPlan.price}${selectedPlan.interval !== 'one-time' ? selectedPlan.interval : ''}`
+              'Continue to Payment \u2014 $7/mo'
             )}
           </button>
 
@@ -299,13 +225,9 @@ function CheckoutContent() {
           </div>
           <div className="flex items-center gap-1.5 text-bark/40 text-xs">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              {plan === 'meadow' ? (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-              )}
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
-            {plan === 'meadow' ? 'Cancel Anytime' : 'Yours to Keep'}
+            Cancel Anytime
           </div>
         </div>
 

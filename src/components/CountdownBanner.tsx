@@ -53,8 +53,8 @@ export default function CountdownBanner() {
       <div className="fixed top-[65px] left-0 right-0 z-40 bg-bark text-white text-center py-2 px-4 text-sm">
         <span className="font-medium">Spring Collection:</span> 30 new pages dropping soon
         <span className="mx-2 text-white/30">|</span>
-        <Link href="/checkout?plan=meadow" className="underline font-medium hover:text-golden transition-colors">
-          Subscribe to get them &mdash; $9/mo
+        <Link href="/checkout" className="underline font-medium hover:text-golden transition-colors">
+          Subscribe to get them &mdash; $7/mo
         </Link>
       </div>
     );
@@ -65,8 +65,8 @@ export default function CountdownBanner() {
     return (
       <div className="fixed top-[65px] left-0 right-0 z-40 bg-rose text-white text-center py-2 px-4 text-sm">
         <span className="font-medium">Last chance!</span> Spring collection drops soon &mdash;
-        <Link href="/checkout?plan=meadow" className="underline font-medium hover:text-white/80 ml-1 transition-colors">
-          Subscribe now to get it &mdash; $9/mo
+        <Link href="/checkout" className="underline font-medium hover:text-white/80 ml-1 transition-colors">
+          Subscribe now to get it &mdash; $7/mo
         </Link>
       </div>
     );
@@ -82,8 +82,8 @@ export default function CountdownBanner() {
         {pad(timeLeft.hours)}:{pad(timeLeft.minutes)}:{pad(timeLeft.seconds)}
       </span>
       <span className="mx-1 text-white/30 hidden sm:inline">|</span>
-      <Link href="/checkout?plan=meadow" className="underline font-medium hover:text-golden transition-colors hidden sm:inline">
-        Subscribe to get 30 pages &mdash; $9/mo
+      <Link href="/checkout" className="underline font-medium hover:text-golden transition-colors hidden sm:inline">
+        Get 100+ pages &mdash; $7/mo
       </Link>
     </div>
   );

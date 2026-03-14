@@ -77,21 +77,14 @@ export default function FreeSamplePage() {
           Love these?
         </h2>
         <p className="text-bark/70 max-w-md mx-auto mb-8 text-base leading-relaxed">
-          Get 30 new pages like these every single month &mdash; plus the full Starter Collection
-          the moment you join.
+          Get 100+ pages instantly plus 30 fresh pages every month when you join Ink &amp; Meadow. More than any coloring book at the store.
         </p>
         <Link
-          href="/checkout?plan=meadow"
+          href="/checkout"
           className="inline-block bg-sage text-white px-8 py-4 rounded-full text-base font-medium hover:bg-sage-dark transition-colors shadow-md shadow-sage/20"
         >
-          Join the Meadow &mdash; $9/mo
+          Join Ink &amp; Meadow &mdash; $7/mo
         </Link>
-        <p className="text-bark/50 text-sm mt-4">
-          Or grab the{' '}
-          <Link href="/checkout?plan=starter" className="text-sage underline underline-offset-2 hover:text-sage-dark">
-            Starter Collection (30 pages) for $7
-          </Link>
-        </p>
       </section>
 
       {/* Footer link back */}

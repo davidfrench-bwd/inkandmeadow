@@ -117,7 +117,7 @@ export default function Home() {
               FAQ
             </a>
             <Link
-              href="/checkout?plan=meadow"
+              href="/checkout"
               className="bg-sage text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-sage-dark transition-colors"
             >
               Join the Club
@@ -156,16 +156,10 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row items-center md:items-start gap-4">
                 <Link
-                  href="/checkout?plan=meadow"
+                  href="/checkout"
                   className="w-full sm:w-auto bg-sage text-white px-8 py-4 rounded-full font-medium hover:bg-sage-dark shadow-lg shadow-sage/20 transition-all"
                 >
-                  Join the Club &mdash; $9/mo
-                </Link>
-                <Link
-                  href="/checkout?plan=starter"
-                  className="w-full sm:w-auto bg-cream-dark text-bark border-2 border-bark/15 px-8 py-4 rounded-full font-medium hover:border-sage hover:text-sage transition-all"
-                >
-                  Or Try 30 Pages &mdash; $7
+                  Join the Club &mdash; $7/mo
                 </Link>
               </div>
               <p className="text-bark/40 text-sm mt-6">
@@ -295,7 +289,7 @@ export default function Home() {
           </div>
 
           <p className="text-center text-bark/50 text-sm mt-8">
-            This is just a preview &mdash; members get 30 new pages every month
+            This is just a preview &mdash; members get access to 100+ pages and new ones every month
           </p>
         </div>
       </section>
@@ -375,13 +369,13 @@ export default function Home() {
 
           <div className="text-center mt-10">
             <Link
-              href="/checkout?plan=meadow"
+              href="/checkout"
               className="inline-block bg-sage text-white px-8 py-4 rounded-full font-medium hover:bg-sage-dark shadow-lg shadow-sage/20 transition-all"
             >
-              Join the Meadow &mdash; $9/mo
+              Join Ink &amp; Meadow &mdash; $7/mo
             </Link>
             <p className="text-bark/40 text-xs mt-3">
-              Includes the Starter Collection + 30 new pages every month
+              100+ pages instantly + 30 new pages every month
             </p>
           </div>
         </div>
@@ -400,7 +394,7 @@ export default function Home() {
           </h2>
           <p className="text-bark/60 max-w-lg mx-auto mb-8">
             30 brand-new pages featuring hidden garden paths, climbing roses, stone archways,
-            and secret woodland clearings. Available to members on April 1st.
+            and secret woodland clearings. Added to your library on April 1st.
           </p>
           <div className="flex justify-center gap-3 mb-8">
             {[
@@ -421,10 +415,10 @@ export default function Home() {
             ))}
           </div>
           <Link
-            href="/checkout?plan=meadow"
+            href="/checkout"
             className="inline-block bg-sage text-white px-8 py-3.5 rounded-full font-medium hover:bg-sage-dark shadow-md shadow-sage/20 transition-all"
           >
-            Subscribe to Get This Collection &mdash; $9/mo
+            Subscribe to Get This Collection &mdash; $7/mo
           </Link>
           <p className="text-bark/40 text-xs mt-3">Cancel anytime. Keep everything you&rsquo;ve downloaded.</p>
         </div>
@@ -437,18 +431,18 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-rose font-medium tracking-[0.2em] uppercase text-sm mb-4">
-              Choose Your Path
+              Simple Pricing
             </p>
             <h2 className="font-heading text-4xl md:text-5xl font-semibold text-bark">
               What You Get
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            {/* Meadow Plan — PRIMARY */}
-            <div className="bg-white rounded-2xl p-8 border-2 border-sage/30 shadow-md relative hover:shadow-lg transition-shadow order-first">
+          <div className="max-w-md mx-auto">
+            {/* Ink & Meadow — SINGLE PLAN */}
+            <div className="bg-white rounded-2xl p-8 border-2 border-sage/30 shadow-md relative hover:shadow-lg transition-shadow">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-sage text-white text-xs font-medium px-4 py-1 rounded-full">
-                Best Value
+                Most Popular
               </div>
               {/* Sample pages preview */}
               <div className="grid grid-cols-3 gap-1.5 mb-6 -mx-2 mt-1">
@@ -464,75 +458,32 @@ export default function Home() {
                   Monthly Membership
                 </p>
                 <h3 className="font-heading text-2xl font-semibold text-bark mb-1">
-                  Meadow
-                </h3>
-                <div className="flex items-baseline gap-1">
-                  <span className="font-heading text-4xl font-bold text-bark">$9</span>
-                  <span className="text-bark/50 text-sm">/month</span>
-                </div>
-                <p className="text-sage text-xs font-medium mt-1">60 pages month one &mdash; just $0.15/page</p>
-              </div>
-              <p className="text-bark/60 text-sm mb-6 leading-relaxed">
-                Everything in the Starter plus 30 fresh pages every month. Your library grows, your calm deepens.
-              </p>
-              <ul className="space-y-3 mb-8">
-                <PricingFeature>Starter Collection included (30 pages)</PricingFeature>
-                <PricingFeature>30 brand-new pages every month</PricingFeature>
-                <PricingFeature>PDF + PNG formats (print &amp; iPad)</PricingFeature>
-                <PricingFeature>Full access to growing library</PricingFeature>
-                <PricingFeature>Monthly themed collections</PricingFeature>
-                <PricingFeature>Private community access</PricingFeature>
-              </ul>
-              <Link
-                href="/checkout?plan=meadow"
-                className="block text-center bg-sage text-white px-6 py-3.5 rounded-full font-medium hover:bg-sage-dark shadow-md shadow-sage/20 transition-all"
-              >
-                Join the Meadow &mdash; $9/mo
-              </Link>
-              <p className="text-bark/40 text-[11px] text-center mt-3">Cancel anytime. 30-day money-back guarantee.</p>
-            </div>
-
-            {/* Starter Collection — SECONDARY */}
-            <div className="bg-white rounded-2xl p-8 border border-bark/5 shadow-sm hover:shadow-md transition-shadow">
-              {/* Sample pages preview */}
-              <div className="grid grid-cols-3 gap-1.5 mb-6 -mx-2 -mt-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-04/01_kitten-on-books.png" alt="Kitten on Books" className="rounded-lg aspect-square object-cover" />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-04/03_baby-rabbits-wildflowers.png" alt="Baby Rabbits" className="rounded-lg aspect-square object-cover" />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://aepxjohumvfzieltyrvq.supabase.co/storage/v1/object/public/coloring-pages/2026-04/08_ducklings-garden-pond.png" alt="Ducklings in Pond" className="rounded-lg aspect-square object-cover" />
-              </div>
-              <div className="mb-6">
-                <p className="text-golden font-medium tracking-wide uppercase text-xs mb-2">
-                  One-Time Purchase
-                </p>
-                <h3 className="font-heading text-2xl font-semibold text-bark mb-1">
-                  Starter Collection
+                  Ink &amp; Meadow
                 </h3>
                 <div className="flex items-baseline gap-1">
                   <span className="font-heading text-4xl font-bold text-bark">$7</span>
-                  <span className="text-bark/50 text-sm">one-time</span>
+                  <span className="text-bark/50 text-sm">/month</span>
                 </div>
+                <p className="text-sage text-xs font-medium mt-1">Less than a latte &mdash; new pages every month</p>
               </div>
               <p className="text-bark/60 text-sm mb-6 leading-relaxed">
-                Not ready to subscribe? Try 30 pages and see why members stay.
+                100+ pages instantly, plus 30 fresh pages every month. Your library grows, your calm deepens.
               </p>
-              <ul className="space-y-3 mb-6">
-                <PricingFeature>30 hand-curated coloring pages</PricingFeature>
-                <PricingFeature>Print-ready PDF + iPad-compatible PNG</PricingFeature>
-                <PricingFeature>Mix of themes &amp; styles</PricingFeature>
-                <PricingFeature>No new pages after purchase</PricingFeature>
+              <ul className="space-y-3 mb-8">
+                <PricingFeature>100+ coloring pages instantly</PricingFeature>
+                <PricingFeature>30 brand-new pages every month</PricingFeature>
+                <PricingFeature>PDF + PNG formats (print &amp; iPad)</PricingFeature>
+                <PricingFeature>Full access to growing library</PricingFeature>
+                <PricingFeature>Cancel anytime</PricingFeature>
               </ul>
               <Link
-                href="/checkout?plan=starter"
-                className="block text-center bg-cream-dark text-bark border border-bark/10 px-6 py-3 rounded-full font-medium hover:border-sage hover:text-sage transition-all"
+                href="/checkout"
+                className="block text-center bg-sage text-white px-6 py-3.5 rounded-full font-medium hover:bg-sage-dark shadow-md shadow-sage/20 transition-all"
               >
-                Get the Starter Collection
+                Join Ink &amp; Meadow &mdash; $7/mo
               </Link>
-              <p className="text-bark/40 text-[11px] text-center mt-3">Instant download. 30-day money-back guarantee.</p>
+              <p className="text-bark/40 text-[11px] text-center mt-3">Cancel anytime. 30-day money-back guarantee.</p>
             </div>
-
           </div>
 
           {/* Starter Collection detail — expandable */}
@@ -540,7 +491,7 @@ export default function Home() {
             <details className="group">
               <summary className="text-center cursor-pointer list-none">
                 <span className="text-sage text-sm font-medium hover:underline inline-flex items-center gap-1">
-                  See all 30 Starter pages
+                  Preview some of the 100+ pages included instantly
                   <svg className="w-4 h-4 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
@@ -596,6 +547,34 @@ export default function Home() {
                 ))}
               </div>
             </details>
+          </div>
+        </div>
+      </section>
+
+      {/* ━━━ Coloring Book Comparison ━━━ */}
+      <section className="py-12 md:py-16">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="bg-golden/5 border border-golden/20 rounded-2xl p-8 md:p-10">
+            <h3 className="font-heading text-xl md:text-2xl font-semibold text-bark text-center mb-6">
+              More Pages Than Any Coloring Book at the Store
+            </h3>
+            <div className="grid grid-cols-2 gap-6 md:gap-10 text-center mb-6">
+              <div>
+                <p className="text-bark/40 text-xs uppercase tracking-wider mb-2">Store Coloring Book</p>
+                <p className="font-heading text-3xl font-bold text-bark/50">30</p>
+                <p className="text-bark/40 text-sm">pages for $10&ndash;$15</p>
+                <p className="text-bark/30 text-xs mt-1">One book. That&rsquo;s it.</p>
+              </div>
+              <div>
+                <p className="text-sage text-xs uppercase tracking-wider font-semibold mb-2">Ink &amp; Meadow</p>
+                <p className="font-heading text-3xl font-bold text-sage">100+</p>
+                <p className="text-bark/60 text-sm">pages for $7/mo</p>
+                <p className="text-sage/70 text-xs mt-1">+ 30 new pages every month</p>
+              </div>
+            </div>
+            <p className="text-center text-bark/50 text-sm">
+              Plus you can reprint any page as many times as you like &mdash; try a different color palette, share with friends, or give them as gifts.
+            </p>
           </div>
         </div>
       </section>
@@ -769,8 +748,8 @@ export default function Home() {
               answer="After signing up, you'll get an account on inkandmeadow.com where all your pages live. You can download them as high-resolution PDFs, ready to print. New pages appear in your library automatically each month."
             />
             <FaqItem
-              question="What's in the Starter Collection?"
-              answer="The Starter Collection includes 30 beautifully curated coloring pages spanning our most popular themes: wildflower gardens, cozy cottages, woodland creatures, tea-time scenes, and seasonal botanicals. It's a one-time purchase — no subscription needed. You get instant access to download and print them all."
+              question="What do I get when I join?"
+              answer="You get instant access to 100+ beautifully curated coloring pages spanning wildflower gardens, cozy cottages, woodland creatures, tea-time scenes, mandalas, and seasonal botanicals. Plus, 30 brand-new pages arrive every month. Every page comes as both a print-ready PDF and an iPad-compatible PNG. That's more than 3x what you'd get in a coloring book at the store."
             />
             <FaqItem
               question="What coloring supplies work best?"
@@ -852,16 +831,10 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                href="/checkout?plan=meadow"
+                href="/checkout"
                 className="w-full sm:w-auto bg-sage text-white px-8 py-4 rounded-full font-medium hover:bg-sage-dark shadow-lg shadow-sage/20 transition-all"
               >
-                Join the Meadow &mdash; $9/mo
-              </Link>
-              <Link
-                href="/checkout?plan=starter"
-                className="w-full sm:w-auto bg-cream-dark text-bark border-2 border-bark/15 px-8 py-4 rounded-full font-medium hover:border-sage hover:text-sage transition-all"
-              >
-                Or Try 30 Pages &mdash; $7
+                Join Ink &amp; Meadow &mdash; $7/mo
               </Link>
             </div>
           </div>
@@ -887,7 +860,7 @@ export default function Home() {
               <a href="#faq" className="hover:text-sage transition-colors">
                 FAQ
               </a>
-              <Link href="/checkout?plan=meadow" className="hover:text-sage transition-colors">
+              <Link href="/checkout" className="hover:text-sage transition-colors">
                 Join
               </Link>
             </div>

@@ -78,7 +78,7 @@ export default function ExitIntentPopup() {
             Wait &mdash; before you go
           </p>
           <h3 className="font-heading text-3xl font-semibold text-bark mb-3">
-            30 New Pages<br />Every Month
+            100+ Pages Instantly<br />+ 30 New Every Month
           </h3>
 
           {/* Mini image preview */}
@@ -100,23 +100,16 @@ export default function ExitIntentPopup() {
           </div>
 
           <p className="text-bark/60 text-sm mb-6">
-            Join the Meadow and get the Starter Collection + 30 fresh pages every month. Cancel anytime.
+            Join Ink &amp; Meadow and get 100+ pages instantly + 30 fresh pages every month. That&rsquo;s more than any coloring book at the store. Cancel anytime.
           </p>
 
           <div className="flex flex-col gap-3">
             <Link
-              href="/checkout?plan=meadow"
+              href="/checkout"
               className="bg-sage text-white py-3.5 rounded-full font-medium hover:bg-sage-dark transition-colors shadow-md shadow-sage/20"
               onClick={dismiss}
             >
-              Join the Meadow &mdash; $9/mo
-            </Link>
-            <Link
-              href="/checkout?plan=starter"
-              className="block text-bark/70 text-sm font-medium hover:text-bark transition-colors py-2"
-              onClick={dismiss}
-            >
-              Or just get 30 pages for $7
+              Join Ink &amp; Meadow &mdash; $7/mo
             </Link>
             <a
               href="#free-sample"

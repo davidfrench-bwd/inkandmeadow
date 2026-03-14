@@ -37,10 +37,10 @@ export default function EmailCapture() {
           Your 3 free coloring pages are on their way. While you wait, why not grab the full collection?
         </p>
         <a
-          href="/checkout?plan=starter"
+          href="/checkout"
           className="inline-block mt-4 bg-sage text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-sage-dark transition-colors"
         >
-          Get All 30 Pages &mdash; $7
+          Get All 100+ Pages &mdash; $7/mo
         </a>
       </div>
     );

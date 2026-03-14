@@ -7,70 +7,41 @@ function getStripe() {
   });
 }
 
-const planConfig = {
-  starter: {
-    name: 'Starter Collection',
-    description: '30 hand-curated cottagecore coloring pages',
-    amount: 700, // $7.00
-    mode: 'payment' as const,
-  },
-  meadow: {
-    name: 'Meadow Membership',
-    description: '30 new pages monthly + Starter Collection + growing library',
-    amount: 900, // $9.00
-    mode: 'subscription' as const,
-  },
-} as const;
-
-type PlanKey = keyof typeof planConfig;
-
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { plan, email } = body as { plan: string; email?: string };
+    const { email } = body as { plan?: string; email?: string };
 
-    if (!plan || !planConfig[plan as PlanKey]) {
-      return NextResponse.json(
-        { error: 'Invalid plan. Must be one of: starter, meadow' },
-        { status: 400 }
-      );
-    }
-
-    const config = planConfig[plan as PlanKey];
     const origin = request.nextUrl.origin;
 
-    const isRecurring = config.mode === 'subscription';
-
-    const priceData: Stripe.Checkout.SessionCreateParams.LineItem.PriceData = {
-      currency: 'usd',
-      product_data: {
-        name: config.name,
-        description: config.description,
-      },
-      unit_amount: config.amount,
-      ...(isRecurring && {
-        recurring: {
-          interval: 'month',
-        },
-      }),
-    };
-
-    const metadata: Record<string, string> = { plan };
-    if (plan === 'starter') {
-      metadata.upsell = 'true';
-    }
+    const priceConfig = process.env.STRIPE_PRICE_MEADOW
+      ? { price: process.env.STRIPE_PRICE_MEADOW }
+      : {
+          price_data: {
+            currency: 'usd',
+            product_data: {
+              name: 'Ink & Meadow',
+              description: '100+ pages instantly + 30 new pages every month + full library',
+            },
+            unit_amount: 700,
+            recurring: { interval: 'month' as const },
+          },
+        };
 
     const sessionParams: Stripe.Checkout.SessionCreateParams = {
-      mode: config.mode,
+      mode: 'subscription',
       line_items: [
         {
-          price_data: priceData,
+          ...priceConfig,
           quantity: 1,
         },
       ],
-      success_url: `${origin}/welcome?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/checkout?plan=${plan}`,
-      metadata,
+      success_url: `${origin}/upsell?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}/checkout`,
+      metadata: {
+        plan: 'meadow',
+        upsell: 'true',
+      },
     };
 
     if (email) {

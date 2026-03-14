@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { getServiceClient } from '@/lib/supabase';
 import { sendMetaEvent } from '@/lib/meta-capi';
+import { sendStarterWelcomeEmail, sendMeadowWelcomeEmail } from '@/lib/email';
 
 export const dynamic = 'force-dynamic';
 
@@ -89,10 +90,22 @@ export async function POST(request: NextRequest) {
             console.error('[Checkout] Failed to insert purchase:', purchaseError);
           }
 
-          if (plan === 'starter') {
-            console.log(`[One-Time Purchase] Starter Collection purchased by ${email}`);
-          } else if (plan === 'meadow') {
-            console.log(`[New Subscription] ${plan} membership started by ${email}`);
+          // Auto-create a Supabase Auth user so they can log in via magic link
+          const { error: authError } = await supabase.auth.admin.createUser({
+            email,
+            email_confirm: true,
+          });
+          if (authError && !authError.message.includes('already been registered')) {
+            console.error('[Checkout] Failed to create auth user:', authError);
+          }
+
+          // Send welcome email
+          if (plan === 'meadow') {
+            console.log(`[New Subscription] Ink & Meadow membership started by ${email}`);
+            await sendMeadowWelcomeEmail(email);
+          } else if (plan === 'plus') {
+            console.log(`[New Subscription] Ink & Meadow Plus membership started by ${email}`);
+            await sendMeadowWelcomeEmail(email);
           }
 
           // Fire server-side Purchase event to Meta CAPI
@@ -134,6 +147,36 @@ export async function POST(request: NextRequest) {
 
           if (error) {
             console.error('[Subscription Created] Failed to update member:', error);
+          }
+        }
+        break;
+      }
+
+      case 'customer.subscription.updated': {
+        const subscription = event.data.object as Stripe.Subscription;
+        const priceAmount = subscription.items.data[0]?.price?.unit_amount;
+        const updatedPlan = priceAmount && priceAmount >= 2900 ? 'plus' : 'meadow';
+
+        console.log(`[Subscription Updated] ID: ${subscription.id}, Plan: ${updatedPlan}`);
+
+        const subCustomerId =
+          typeof subscription.customer === 'string'
+            ? subscription.customer
+            : subscription.customer?.id ?? null;
+
+        if (subCustomerId) {
+          const supabase = getServiceClient();
+          const { error } = await supabase
+            .from('members')
+            .update({
+              plan: updatedPlan,
+              status: subscription.status === 'active' ? 'active' : subscription.status,
+              updated_at: new Date().toISOString(),
+            })
+            .eq('stripe_customer_id', subCustomerId);
+
+          if (error) {
+            console.error('[Subscription Updated] Failed to update member:', error);
           }
         }
         break;
