@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
             currency: 'usd',
             product_data: {
               name: 'Ink & Meadow',
-              description: '100+ pages instantly + 100 new pages every month + full library',
+              description: '100 pages instantly + 100 new pages every month + full library',
             },
             unit_amount: 700,
             recurring: { interval: 'month' as const },

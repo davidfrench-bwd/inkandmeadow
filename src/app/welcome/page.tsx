@@ -124,7 +124,7 @@ function WelcomeContent() {
                 Welcome to Ink &amp; Meadow!
               </h1>
               <p className="text-bark/60 text-lg max-w-md mx-auto">
-                Your membership is active. 100+ pages are ready for you right now, and 100 more arrive every month.
+                Your membership is active. 100 pages are ready for you right now, and 100 more arrive every month.
               </p>
             </>
           )}
@@ -177,7 +177,7 @@ function WelcomeContent() {
                   { num: '3', text: '300 fresh exclusive pages arrive on the 1st of each month' },
                 ]
               : [
-                  { num: '1', text: 'Your 100+ coloring pages are ready to download now' },
+                  { num: '1', text: 'Your 100 coloring pages are ready to download now' },
                   { num: '2', text: 'Explore the full growing library in your member portal' },
                   { num: '3', text: '100 brand-new pages arrive on the 1st of each month' },
                 ]

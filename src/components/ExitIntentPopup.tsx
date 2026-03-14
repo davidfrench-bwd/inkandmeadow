@@ -78,7 +78,7 @@ export default function ExitIntentPopup() {
             Wait &mdash; before you go
           </p>
           <h3 className="font-heading text-3xl font-semibold text-bark mb-3">
-            100+ Pages Instantly<br />+ 30 New Every Month
+            100 Pages Instantly<br />+ 100 New Every Month
           </h3>
 
           {/* Mini image preview */}
@@ -100,7 +100,7 @@ export default function ExitIntentPopup() {
           </div>
 
           <p className="text-bark/60 text-sm mb-6">
-            Join Ink &amp; Meadow and get 100+ pages instantly + 100 fresh pages every month. That&rsquo;s more than any coloring book at the store. Cancel anytime.
+            Join Ink &amp; Meadow and get 100 pages instantly + 100 fresh pages every month. That&rsquo;s more than any coloring book at the store. Cancel anytime.
           </p>
 
           <div className="flex flex-col gap-3">

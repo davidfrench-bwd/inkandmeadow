@@ -259,7 +259,7 @@ function UpsellContent() {
             You&rsquo;re in! Your membership is active.
           </h1>
           <p className="text-bark/50 text-sm">
-            100+ pages are ready in your portal &mdash; but first...
+            100 pages are ready in your portal &mdash; but first...
           </p>
         </div>
 

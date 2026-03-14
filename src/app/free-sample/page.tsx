@@ -77,7 +77,7 @@ export default function FreeSamplePage() {
           Love these?
         </h2>
         <p className="text-bark/70 max-w-md mx-auto mb-8 text-base leading-relaxed">
-          Get 100+ pages instantly plus 100 fresh pages every month when you join Ink &amp; Meadow. More than any coloring book at the store.
+          Get 100 pages instantly plus 100 fresh pages every month when you join Ink &amp; Meadow. More than any coloring book at the store.
         </p>
         <Link
           href="/checkout"

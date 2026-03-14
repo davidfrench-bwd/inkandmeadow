@@ -6,7 +6,7 @@ import LpPixel from './LpPixel';
 export const metadata: Metadata = {
   title: 'Ink & Meadow — Cottagecore Coloring Pages | $7/mo',
   description:
-    '100+ cottagecore coloring pages instantly, plus 100 new ones every month. Print at home or color on your iPad. More pages than any coloring book at the store — just $7/mo. Cancel anytime.',
+    '100 cottagecore coloring pages instantly, plus 100 new ones every month. Print at home or color on your iPad. More pages than any coloring book at the store — just $7/mo. Cancel anytime.',
 };
 
 const STORAGE_BASE =
@@ -30,7 +30,7 @@ export default function LandingPage() {
             <span className="text-sage">for Something Beautiful</span>
           </h1>
           <p className="text-bark/70 text-lg md:text-xl max-w-lg mx-auto mb-8 leading-relaxed">
-            100+ cottagecore coloring pages instantly, plus 100 new ones every month.
+            100 cottagecore coloring pages instantly, plus 100 new ones every month.
             Print at home or color on your iPad. Just $7/mo.
           </p>
           <LpCtaButton />
@@ -92,7 +92,7 @@ export default function LandingPage() {
             ))}
           </div>
           <p className="text-center text-bark/50 text-sm mt-6">
-            100+ pages instantly + 100 new pages every month
+            100 pages instantly + 100 new pages every month
           </p>
         </div>
       </section>
@@ -191,7 +191,7 @@ export default function LandingPage() {
             </div>
             <ul className="space-y-3 mb-6">
               {[
-                '100+ coloring pages instantly',
+                '100 coloring pages instantly',
                 '100 brand-new pages every month',
                 'PDF + PNG formats (print & iPad)',
                 'Full access to growing library',
@@ -233,7 +233,7 @@ export default function LandingPage() {
             </div>
             <div className="bg-white rounded-xl p-5 border-2 border-sage/30 shadow-sm">
               <p className="text-sage text-xs uppercase tracking-wider font-semibold mb-2">Ink &amp; Meadow</p>
-              <p className="font-heading text-3xl font-bold text-sage">100+</p>
+              <p className="font-heading text-3xl font-bold text-sage">100</p>
               <p className="text-bark/60 text-sm">pages for $7/mo</p>
               <p className="text-sage/70 text-xs mt-1">+ 100 new pages every month</p>
             </div>
@@ -317,7 +317,7 @@ export default function LandingPage() {
             />
             <FaqItem
               question="What do I get when I join?"
-              answer="Instant access to 100+ coloring pages — wildflower gardens, cozy cottages, woodland creatures, botanicals, mandalas, and more. Plus 100 brand-new pages arrive every month. PDF and PNG formats included."
+              answer="Instant access to 100 coloring pages — wildflower gardens, cozy cottages, woodland creatures, botanicals, mandalas, and more. Plus 100 brand-new pages arrive every month. PDF and PNG formats included."
             />
             <FaqItem
               question="Can I cancel anytime?"

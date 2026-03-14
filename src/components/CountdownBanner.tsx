@@ -83,7 +83,7 @@ export default function CountdownBanner() {
       </span>
       <span className="mx-1 text-white/30 hidden sm:inline">|</span>
       <Link href="/checkout" className="underline font-medium hover:text-golden transition-colors hidden sm:inline">
-        Get 100+ pages &mdash; $7/mo
+        Get 100 pages &mdash; $7/mo
       </Link>
     </div>
   );

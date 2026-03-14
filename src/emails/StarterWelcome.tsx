@@ -23,19 +23,19 @@ const UPGRADE_URL = 'https://inkandmeadow.com/checkout';
 
 export default function StarterWelcome() {
   return (
-    <EmailLayout preview="Your Ink & Meadow membership is active! 100+ pages ready to download.">
+    <EmailLayout preview="Your Ink & Meadow membership is active! 100 pages ready to download.">
       {/* Main card */}
       <Section style={card}>
         <Text style={heading}>Your pages are waiting!</Text>
         <Text style={paragraph}>
-          Welcome to <strong>Ink &amp; Meadow</strong>! Your 100+ coloring pages
+          Welcome to <strong>Ink &amp; Meadow</strong>! Your 100 coloring pages
           are ready to download and print, and 100 new ones arrive every month.
         </Text>
 
         <Section style={infoBox}>
           <Text style={label}>Your membership includes:</Text>
           <ul style={{ margin: '8px 0 0', paddingLeft: '20px' }}>
-            <li style={listItem}>100+ coloring pages ready now</li>
+            <li style={listItem}>100 coloring pages ready now</li>
             <li style={listItem}>100 brand-new pages every month</li>
             <li style={listItem}>Full access to growing library</li>
             <li style={listItem}>High-resolution PDF + PNG formats</li>

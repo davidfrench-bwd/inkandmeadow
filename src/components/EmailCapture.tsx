@@ -40,7 +40,7 @@ export default function EmailCapture() {
           href="/checkout"
           className="inline-block mt-4 bg-sage text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-sage-dark transition-colors"
         >
-          Get All 100+ Pages &mdash; $7/mo
+          Get All 100 Pages &mdash; $7/mo
         </a>
       </div>
     );

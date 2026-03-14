@@ -98,7 +98,7 @@ function CheckoutContent() {
               Ink &amp; Meadow
             </h2>
             <p className="text-bark/60 text-sm mb-4">
-              100+ pages instantly + 100 new pages every month + full library
+              100 pages instantly + 100 new pages every month + full library
             </p>
             <div className="flex items-baseline gap-1">
               <span className="font-heading text-4xl font-bold text-bark">
@@ -118,7 +118,7 @@ function CheckoutContent() {
           {/* Features */}
           <ul className="space-y-3 mb-6">
             {[
-              '100+ coloring pages instantly',
+              '100 coloring pages instantly',
               '100 brand-new pages every month',
               'Full access to growing library',
               'PDF + PNG formats (print & iPad)',
